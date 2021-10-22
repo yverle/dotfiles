@@ -1,4 +1,4 @@
--- Basic settings found in lua/dkvim/config/settings.lua
+-- Basic settings found in lua/dkvim/settings.lua
 require('dkvim.settings')
 
 -- All keymaps are set in lua/dkvim/keymaps.lua

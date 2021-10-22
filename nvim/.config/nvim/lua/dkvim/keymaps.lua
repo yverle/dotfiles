@@ -6,7 +6,7 @@
 -- Set map leader
 vim.g.mapleader = ' '
 
--- NOTE(Ye): Remove this when Which Key is installed
+-- NOTE(Yenti): Remove this when Which Key is installed
 vim.api.nvim_set_keymap('n', ' ', '<NOP>', { noremap = true, silent = true })
 
 -- jk > esc
