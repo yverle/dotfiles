@@ -153,10 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yenti/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
-  playground = {
-    loaded = true,
-    path = "/home/yenti/.local/share/nvim/site/pack/packer/start/playground"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/yenti/.local/share/nvim/site/pack/packer/start/plenary.nvim"
@@ -181,9 +177,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yenti/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
-  ["toggleterm.nvim"] = {
+  ["todo-comments.nvim"] = {
     loaded = true,
-    path = "/home/yenti/.local/share/nvim/site/pack/packer/start/toggleterm.nvim"
+    path = "/home/yenti/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -209,15 +205,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yenti/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
+  ["vim-maximizer"] = {
+    loaded = true,
+    path = "/home/yenti/.local/share/nvim/site/pack/packer/start/vim-maximizer"
+  },
   ["vim-prettier"] = {
     loaded = false,
     needs_bufread = true,
     only_cond = false,
     path = "/home/yenti/.local/share/nvim/site/pack/packer/opt/vim-prettier"
   },
-  ["vim-rhubarb"] = {
+  ["vim-startuptime"] = {
     loaded = true,
-    path = "/home/yenti/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
+    path = "/home/yenti/.local/share/nvim/site/pack/packer/start/vim-startuptime"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -250,10 +250,6 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType graphql ++once lua require("packer.load")({'vim-prettier'}, { ft = "graphql" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-prettier'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vue ++once lua require("packer.load")({'vim-prettier'}, { ft = "vue" }, _G.packer_plugins)]]
-vim.cmd [[au FileType svelte ++once lua require("packer.load")({'vim-prettier'}, { ft = "svelte" }, _G.packer_plugins)]]
 vim.cmd [[au FileType yaml ++once lua require("packer.load")({'vim-prettier'}, { ft = "yaml" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-prettier'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-prettier'}, { ft = "javascript" }, _G.packer_plugins)]]
@@ -261,6 +257,10 @@ vim.cmd [[au FileType typescript ++once lua require("packer.load")({'vim-prettie
 vim.cmd [[au FileType css ++once lua require("packer.load")({'vim-prettier'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType scss ++once lua require("packer.load")({'vim-prettier'}, { ft = "scss" }, _G.packer_plugins)]]
 vim.cmd [[au FileType json ++once lua require("packer.load")({'vim-prettier'}, { ft = "json" }, _G.packer_plugins)]]
+vim.cmd [[au FileType graphql ++once lua require("packer.load")({'vim-prettier'}, { ft = "graphql" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-prettier'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vue ++once lua require("packer.load")({'vim-prettier'}, { ft = "vue" }, _G.packer_plugins)]]
+vim.cmd [[au FileType svelte ++once lua require("packer.load")({'vim-prettier'}, { ft = "svelte" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

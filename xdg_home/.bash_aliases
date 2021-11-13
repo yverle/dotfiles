@@ -23,3 +23,4 @@ alias nnn='nnn -de'
 
 alias psa='ps auxf'
 
+alias luamake=/home/yenti/lua-language-server/3rd/luamake/luamake

@@ -6,8 +6,8 @@
 -- Set map leader
 vim.g.mapleader = ' '
 
--- NOTE(Yenti): Remove this when Which Key is installed
-vim.api.nvim_set_keymap('n', ' ', '<NOP>', { noremap = true, silent = true })
+-- Unbind the leader key
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 
 -- jk > esc
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
@@ -37,9 +37,6 @@ vim.api.nvim_set_keymap('v', '<C-S-c>', '"+yy', { noremap = true, silent = true}
 vim.api.nvim_set_keymap('v', '<C-S-v>', 'c<Esc>"+p', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-S-v>', '<Esc>"+p', { noremap = true, silent = true})
 
--- Unbind the leader key
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
-
 -- Better window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true})
@@ -51,4 +48,3 @@ vim.api.nvim_set_keymap('n', '<M-h>', ':vertical resize -2<CR>', { noremap = tru
 vim.api.nvim_set_keymap('n', '<M-j>', ':resize -2<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<M-k>', ':resize =2<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize +2<CR>', { noremap = true, silent = true})
-

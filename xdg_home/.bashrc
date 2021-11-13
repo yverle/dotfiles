@@ -75,11 +75,10 @@ fi
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-### NNN
-BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
-export NNN_PLUG='o:fzopen;p:preview-tui;d:diffs;v:imgview'
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-export NNN_FIFO='/tmp/nnn.fifo'
+# WSL2 Vagrant
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export DOCKER_HOST=tcp://127.0.0.1:2375
+
 
 ### PATH
 if [ -d "$HOME/.bin" ]
@@ -104,6 +103,9 @@ then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+# WSL2 Vagrant VMware 
+export PATH="$PATH:/mnt/C/Program Files (x86)/VMware/VMware Workstation"
 
 # ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
@@ -138,4 +140,3 @@ ex ()
 
 #eval '$(starship init bash)'
 
-alias luamake=/home/yenti/lua-language-server/3rd/luamake/luamake

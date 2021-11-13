@@ -12,24 +12,20 @@ return require('packer').startup(function(use)
   }
 
   -- The best theme known to man
-  -- TODO(Yenti): Is this one better? https://github.com/olimorris/onedarkpro.nvim
   use {
     'Th3Whit3Wolf/one-nvim'
+    -- 'olimorris/onedarkpro.nvim'
+    -- 'shaunsingh/nord.nvim'
+    -- 'folke/tokyonight.nvim'
   }
-
-  -- The second best theme known to man
-  --[[
-  use {
-    'folke/tokyonight.nvim'
-  }
-  --]]
 
   -- Icons!
   use {
     'kyazdani42/nvim-web-devicons'
   }
 
-  -- I saw TJ checking for WSL and now I'm scared
+  -- Mote icons!
+  -- NOTE: I saw TJ disabling this when in WSL
   use {
     'yamatsum/nvim-web-nonicons'
   }
@@ -70,11 +66,6 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     branch = '0.5-compat',
     run = ':TSUpdate' ,
- }
-
- -- I'm a child and I enjoy messing with things I don't understand
-  use {
-    'nvim-treesitter/playground',
  }
 
   -- Easily change surrounding things such as parentheses, brackets, quotes, etc. (cs"')
@@ -125,14 +116,11 @@ return require('packer').startup(function(use)
     'folke/which-key.nvim',
   }
 
-  -- NOTE(Yenti): Maybe someday
+  -- NOTE: Maybe someday
   -- Suggestions in the wildmenu
   --[[
   use {
     'gelguy/wilder.nvim'
-    config = function()
-
-    end
   }
   -- ]]
 
@@ -144,46 +132,42 @@ return require('packer').startup(function(use)
   -- Better git integrations
   use {
     'lewis6991/gitsigns.nvim'
---    config = function()
---      require('dkvim.core.gitsigns').setup()
---    end
---    disable = not dkvim.builtin.gitsigns.active
   }
 
   -- Better git integrations
+  -- TODO: https://github.com/TimUntersberger/neogit might be cool
   use {
     'tpope/vim-fugitive'
-  }
-
-  -- Better git integrations
-  use {
-    'tpope/vim-rhubarb'
   }
 
   -- Colored braces
   use {
     'luochen1990/rainbow'
   }
-
-  -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-  }
-
   -- Required for Telescope and Gitsigns
   use {
     'nvim-lua/plenary.nvim',
   }
 
-  -- Required for Telescope and some custom stuff I'm working on
+  -- Required for Telescope
   use {
     'nvim-lua/popup.nvim',
   }
 
-  -- Better project management (Telescope plugin)
+  -- Telescope
   use {
-    'ahmedkhalf/project.nvim'
---    disable = not dkvim.builtin.project-nvim.active,
+    'nvim-telescope/telescope.nvim',
+
+    -- Better project management plugin for Telescope
+    'ahmedkhalf/project.nvim',
+
+
+    -- Cheat sheet integration with Telescope
+    -- TODO: Doesn't seem to create the database correctly
+    --[[
+    'nvim-telescope/telescope-cheat.nvim',
+    'tami5/sqlite.lua',
+    --]]
   }
 
 
@@ -202,7 +186,7 @@ return require('packer').startup(function(use)
     'hrsh7th/cmp-nvim-lsp',
   }
 
-  -- Completion for lua
+  -- Completion for nvim lua
   use {
     'hrsh7th/cmp-nvim-lua',
   }
@@ -247,8 +231,8 @@ return require('packer').startup(function(use)
     'kristijanhusak/vim-dadbod-ui',
   }
 
-  -- Terminals in neovim
-  -- TODO(Yenti): check this out
+  -- Better terminals in vim
+  -- TODO: this might be cool
   -- use {
   --   'akinsho/toggleterm.nvim',
   -- }
@@ -257,6 +241,35 @@ return require('packer').startup(function(use)
   use {
     'luukvbaal/stabilize.nvim',
   }
+
+  -- View nvim startup event timing information
+  use {
+    'dstein64/vim-startuptime'
+  }
+
+  -- Maximise a window in a split
+  use {
+    'szw/vim-maximizer'
+  }
+
+  -- Highlight comments
+  use {
+    'folke/todo-comments.nvim'
+  }
+
+  -- Only really care for this in CSS files
+  --[[
+  use {
+    'norcalli/nvim-colorizer.lua'
+  }
+  --]]
+
+  -- I've been using Obsidian lately but this could be cool
+  --[[
+  use {
+    'oberlastmeister/neuron.nvim'
+  }
+  --]]
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

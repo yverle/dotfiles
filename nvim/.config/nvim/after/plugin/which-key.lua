@@ -83,6 +83,8 @@ local mappings = {
   ['b'] = {
     name = 'buffer',
     ['.'] = { '<cmd>Telescope buffers<CR>', 'Show buffers' },
+    ['n'] = { '<cmd>bnext<CR>', 'Show buffers' },
+    ['p'] = { '<cmd>bprevious<CR>', 'Show buffers' },
   },
   ['c'] = {
     name = 'code',
@@ -98,6 +100,7 @@ local mappings = {
     ['n'] = { ':lua vim.lsp.buf.rename()<CR>', 'Rename' },
     ['d'] = { ':lua vim.lsp.buf.definition()<CR>', 'Jump to definition' },
     ['h'] = { ':lua vim.lsp.buf.hover()<CR>', 'Show documentation' },
+    ['H'] = { ':TodoTrouble', 'Show todo list in Trouble' },
     ['i'] = { ':lua vim.lsp.buf.implementation()<CR>', 'Jump to implementation' },
     -- ['r'] = { ':lua vim.lsp.buf.references()<CR>', 'Show references' },
     ['S'] = { ':Telescope lsp_document_symbols<CR>', 'Show symbols' },
@@ -149,6 +152,7 @@ local mappings = {
     ['s'] = { ':vsplit<CR>', 'Vertical split' },
     ['v'] = { ':split<CR>', 'Horizontal split' },
     ['c'] = { ':close<CR>', 'Close split' },
+    ['m'] = { ':MaximizerToggle<CR>', 'Maximise window' },
   }
 }
 

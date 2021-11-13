@@ -1,8 +1,14 @@
 # Neovim config
 
 Welcome to my Neovim config, I call it DKVIM!
-
 This repository is basically always going to be worked on (but probably won't be pushed super often because I'm lazy). 
+
+## Getting started
+
+You **should** just be able to clone my config and put it into your `.config/nvim` folder and then run `:PackerInstall` and `:PackerSync` to get a fully functional setup.
+
+## File structure
+
 The folder structure is as follows:
 
 - `after/`: contains configuration for plugins and filetypes
