@@ -10,3 +10,5 @@ require('dkvim.disable_builtin_plugins')
 -- Installing plugins (and managing them) is done in lua/dkvim/plugins.lua
 require('dkvim.plugins')
 
+-- The pile of shame! Everything here should eventually be removed as they are temporary workarounds for missing features or my own stupidity
+require('dkvim.workarounds')
