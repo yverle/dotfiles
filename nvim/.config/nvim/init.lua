@@ -1,3 +1,6 @@
+-- Loads some predefined globals that get used in the config later
+require('dkvim.globals')
+
 -- Basic settings found in lua/dkvim/settings.lua
 require('dkvim.settings')
 
