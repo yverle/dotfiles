@@ -12,13 +12,13 @@ if not status_ok then
 end
 
 -- Have packer use a popup window
-packer.init({
-  display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'single' })
-    end
-  }
-})
+-- packer.init({
+--   display = {
+--     open_fn = function()
+--       return require('packer.util').float({ border = 'single' })
+--     end
+--   }
+-- })
 
 -- Install plugins
 return require('packer').startup(function(use)
@@ -31,13 +31,9 @@ return require('packer').startup(function(use)
   -- Themes
   use {
     'Th3Whit3Wolf/one-nvim',
-    -- 'olimorris/onedarkpro.nvim',
-    -- 'ful1e5/onedark.nvim',
     -- 'shaunsingh/nord.nvim',
     -- 'folke/tokyonight.nvim',
-    -- 'catppuccin/nvim',
-    event = 'VimEnter',
-    opt = true,
+    -- opt = true,
   }
 
   -- Clean and fast statusline
@@ -46,19 +42,28 @@ return require('packer').startup(function(use)
     event = 'VimEnter',
     requires = {
       { 'kyazdani42/nvim-web-devicons' }
-    }
+    },
+    config = function()
+      require('dkvim.plugins.lualine')
+    end
   }
 
   -- Notification Manager
   use {
     'rcarriga/nvim-notify',
-    event = 'BufEnter'
+    event = 'VimEnter',
+    config = function()
+      vim.notify = require("notify")
+    end
   }
 
   -- LSP configs
   use {
     'neovim/nvim-lspconfig',
-    after = 'cmp-nvim-lsp'
+    after = 'cmp-nvim-lsp',
+    config = function()
+      require('dkvim.plugins.nvim-lspconfig')
+    end
   }
 
   -- Icons in cmp :)
@@ -71,14 +76,20 @@ return require('packer').startup(function(use)
   -- Cool listing for Lsp stuff
   use {
     'folke/trouble.nvim',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      require('trouble').setup()
+    end
   }
 
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.nvim-treesitter')
+    end
  }
 
  -- TODO:This looks super cool, look into it
@@ -97,7 +108,10 @@ return require('packer').startup(function(use)
   use {
     'folke/zen-mode.nvim',
     cmd = 'ZenMode',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.zen-mode')
+    end
   }
 
   -- Dims code for extra focus (used in zen-mode)
@@ -109,19 +123,28 @@ return require('packer').startup(function(use)
   -- Easier commenting
   use {
     'numToStr/Comment.nvim',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      require('Comment').setup()
+    end
   }
 
   -- Cool dashboard
   use {
     'glepnir/dashboard-nvim',
-    event = 'VimEnter'
+    event = 'VimEnter',
+    config = function()
+      require('dkvim.plugins.dashboard')
+    end
   }
 
   -- Fast filetree
   use {
     'kyazdani42/nvim-tree.lua',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.nvim-tree')
+    end
   }
 
   use {
@@ -134,7 +157,10 @@ return require('packer').startup(function(use)
   -- Which Key
   use {
     'folke/which-key.nvim',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.which-key')
+    end
   }
 
   -- NOTE: Maybe someday
@@ -153,7 +179,10 @@ return require('packer').startup(function(use)
   -- Better git integrations
   use {
     'lewis6991/gitsigns.nvim',
-    event = 'User InGitRepo'
+    event = 'User InGitRepo',
+    config = function()
+      require('gitsigns').setup()
+    end
   }
 
   -- Better git integrations
@@ -169,11 +198,6 @@ return require('packer').startup(function(use)
     event = 'BufEnter'
   }
 
-  -- Required for Telescope
-  use {
-    event = 'VimEnter'
-  }
-
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -182,22 +206,20 @@ return require('packer').startup(function(use)
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-lua/popup.nvim' },
-    }
+      { 'ahmedkhalf/project.nvim' },
+    },
+    config = function()
+      require('dkvim.plugins.telescope')
+    end
   }
-
-  -- Projects for neovim
-  use {
-    -- Better project management plugin for Telescope
-    'ahmedkhalf/project.nvim',
-    event = 'VimEnter'
-  }
-
 
   -- Completion
   use {
     'hrsh7th/nvim-cmp',
-    after = 'lspkind-nvim'
---    config = ''
+    after = 'lspkind-nvim',
+    config = function()
+      require('dkvim.plugins.nvim-cmp')
+    end
   }
 
   -- Completion buffer
@@ -272,7 +294,10 @@ return require('packer').startup(function(use)
   -- Stabilize buffer content on window open/close events
   use {
     'luukvbaal/stabilize.nvim',
-    Event = 'BufEnter'
+    Event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.stabilize')
+    end
   }
 
   -- Maximise a window in a split
@@ -284,13 +309,16 @@ return require('packer').startup(function(use)
   -- Highlight comments
   use {
     'folke/todo-comments.nvim',
-    Event = 'BufEnter'
+    Event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.todo-comments')
+    end
   }
 
   -- Colorize hex values (only used in css)
   -- use {
   --   'norcalli/nvim-colorizer.lua',
-  --   ft = 'css',
+  --   ft = 'css, scss',
   --   event = 'BufEnter'
   -- }
 

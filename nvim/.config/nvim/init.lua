@@ -1,3 +1,7 @@
+if vim.fn.has('nvim-0.6') == 0 then
+  error('Need NVIM 0.6+ in order to run DKVIM')
+end
+
 -- Loads some predefined globals that get used in the config later
 require('dkvim.globals')
 

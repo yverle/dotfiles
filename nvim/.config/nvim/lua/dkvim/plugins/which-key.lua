@@ -1,5 +1,4 @@
 -- Keybinds can be found at the bottom :)
-
 local wk = require('which-key')
 
 wk.setup {
