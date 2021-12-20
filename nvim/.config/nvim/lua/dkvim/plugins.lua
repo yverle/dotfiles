@@ -25,7 +25,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use {
     'wbthomason/packer.nvim',
-    opt = true
   }
 
   -- Themes
@@ -39,7 +38,7 @@ return require('packer').startup(function(use)
   -- Clean and fast statusline
   use {
     'nvim-lualine/lualine.nvim',
-    event = 'VimEnter',
+    event = 'BufWinEnter',
     requires = {
       { 'kyazdani42/nvim-web-devicons' }
     },
@@ -101,14 +100,14 @@ return require('packer').startup(function(use)
   -- Easily change surrounding things such as parentheses, brackets, quotes, etc. (cs"')
   use {
     'tpope/vim-surround',
-    event = 'BufEnter'
+    event = 'BufWinEnter'
   }
 
   -- Zen mode (distraction free) coding
   use {
     'folke/zen-mode.nvim',
     cmd = 'ZenMode',
-    event = 'BufEnter',
+    event = 'BufWinEnter',
     config = function()
       require('dkvim.plugins.zen-mode')
     end
@@ -132,7 +131,7 @@ return require('packer').startup(function(use)
   -- Cool dashboard
   use {
     'glepnir/dashboard-nvim',
-    event = 'VimEnter',
+    event = 'BufEnter',
     config = function()
       require('dkvim.plugins.dashboard')
     end
@@ -151,13 +150,13 @@ return require('packer').startup(function(use)
     'prettier/vim-prettier',
     ft = { 'html', 'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml' },
     run = 'npm install',
-    event = 'BufEnter'
+    event = 'BufWinEnter'
   }
 
   -- Which Key
   use {
     'folke/which-key.nvim',
-    event = 'BufEnter',
+    event = 'BufWinEnter',
     config = function()
       require('dkvim.plugins.which-key')
     end
@@ -180,6 +179,9 @@ return require('packer').startup(function(use)
   use {
     'lewis6991/gitsigns.nvim',
     event = 'User InGitRepo',
+    requires = {
+      { 'nvim-lua/plenary.nvim' }
+    },
     config = function()
       require('gitsigns').setup()
     end
@@ -190,6 +192,14 @@ return require('packer').startup(function(use)
   use {
     'tpope/vim-fugitive',
     event = 'User InGitRepo'
+  }
+
+  use {
+    'TimUntersberger/neogit',
+    event = 'User InGitRepo',
+    requires = {
+      { 'nvim-lua/plenary.nvim' }
+    }
   }
 
   -- Colored braces
@@ -312,6 +322,34 @@ return require('packer').startup(function(use)
     Event = 'BufEnter',
     config = function()
       require('dkvim.plugins.todo-comments')
+    end
+  }
+
+  -- Keeps buffer sizing proportional
+  use {
+    'kwkarlwang/bufresize.nvim',
+    Event = 'VimEnter',
+    config = function()
+      require('bufresize').setup()
+    end
+  }
+
+  -- Better terminals
+  use {
+    'akinsho/toggleterm.nvim',
+    Event = 'VimEnter',
+    config = function()
+      require('toggleterm').setup()
+    end
+  }
+
+  -- Use Neovim as a language server
+  --TODO: Research how this works exactly
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    Event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.null-ls')
     end
   }
 

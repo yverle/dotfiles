@@ -74,7 +74,6 @@ local opts = {
 
 local mappings = {
   -- Top level commands
-  ['"'] = { '<cmd>Telescope neoclip<CR>', 'Neoclip' },
   ['h'] = { '<cmd>Telescope help_tags<CR>', 'Show help' },
   ['S'] = { '<cmd>Dashboard<CR>', 'Show dashboard' },
   ['z'] = { '<cmd>ZenMode<CR>', 'Toggle zen mode' },
