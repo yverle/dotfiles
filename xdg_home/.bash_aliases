@@ -23,4 +23,7 @@ alias nnn='nnn -de'
 
 alias psa='ps auxf'
 
+alias agi='sudo apt-get install '
+alias agu='sudo apt-get update && sudo apt-get upgrade'
+
 alias luamake=/home/yenti/lua-language-server/3rd/luamake/luamake

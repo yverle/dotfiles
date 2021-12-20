@@ -77,6 +77,7 @@ local mappings = {
   ['h'] = { '<cmd>Telescope help_tags<CR>', 'Show help' },
   ['S'] = { '<cmd>Dashboard<CR>', 'Show dashboard' },
   ['z'] = { '<cmd>ZenMode<CR>', 'Toggle zen mode' },
+  ['.'] = { ':Telescope find_files<CR>', 'Find files' },
   -- Buffers
   ['b'] = {
     name = 'buffer',
@@ -123,7 +124,6 @@ local mappings = {
       -- Trouble diagnostics (replace some of the native lsp keybinds)
       ['f'] = { ':TroubleToggle lsp_document_diagnostics<CR>', 'Show diagnostics in document' },
       ['w'] = { ':TroubleToggle lsp_workspace_diagnostics<CR>', 'Show diagnostics in workspace' },
-
     },
   },
   ['f'] = {
@@ -151,6 +151,11 @@ local mappings = {
     ['v'] = { ':split<CR>', 'Horizontal split' },
     ['c'] = { ':close<CR>', 'Close split' },
     ['m'] = { ':MaximizerToggle<CR>', 'Maximise window' },
+  },
+  ['t'] = {
+    name = 'terminal',
+    ['t'] = { ':ToggleTerm direction=horizontal<CR>', 'Toggle a horizontal terminal' },
+    ['f'] = { ':ToggleTerm direction=float<CR>', 'Toggle a floating terminal' },
   }
 }
 

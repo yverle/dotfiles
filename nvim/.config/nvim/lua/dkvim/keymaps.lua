@@ -12,6 +12,10 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true
 -- jk > esc
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
+-- Sensible escape keys in terminal mode (seriously why is it <C-\><C-n>?)
+vim.api.nvim_set_keymap('t', 'jk', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
 -- Disable Ctrl-Z from job-controlling neovim
 vim.api.nvim_set_keymap('n', '<C-z>', '<NOP>', { noremap = true, silent = true })
 

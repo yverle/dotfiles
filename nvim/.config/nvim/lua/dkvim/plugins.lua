@@ -1,3 +1,5 @@
+-- TODO: https://github.com/wbthomason/packer.nvim/discussions/534
+
 -- Automatically install packer (https://www.chrisatmachine.com/Neovim-2/03-plugins/)
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -178,7 +180,7 @@ return require('packer').startup(function(use)
   -- Better git integrations
   use {
     'lewis6991/gitsigns.nvim',
-    event = 'User InGitRepo',
+    event = 'BufEnter',
     requires = {
       { 'nvim-lua/plenary.nvim' }
     },
@@ -188,15 +190,14 @@ return require('packer').startup(function(use)
   }
 
   -- Better git integrations
-  -- TODO: https://github.com/TimUntersberger/neogit might be cool
   use {
     'tpope/vim-fugitive',
-    event = 'User InGitRepo'
+    event = 'BufEnter'
   }
 
   use {
     'TimUntersberger/neogit',
-    event = 'User InGitRepo',
+    event = 'BufEnter',
     requires = {
       { 'nvim-lua/plenary.nvim' }
     }
