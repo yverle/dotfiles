@@ -32,8 +32,12 @@ return require('packer').startup(function(use)
   -- Themes
   use {
     'Th3Whit3Wolf/one-nvim',
+    'rebelot/kanagawa.nvim',
     -- 'shaunsingh/nord.nvim',
     -- 'folke/tokyonight.nvim',
+    config = function()
+      require('dkvim.plugins.kanagawa')
+    end
     -- opt = true,
   }
 
@@ -352,6 +356,12 @@ return require('packer').startup(function(use)
     config = function()
       require('dkvim.plugins.null-ls')
     end
+  }
+
+  -- Sublime text like multi cursors
+  use {
+    'mg979/vim-visual-multi',
+    event = 'BufEnter'
   }
 
   -- Colorize hex values (only used in css)
