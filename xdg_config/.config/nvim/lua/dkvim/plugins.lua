@@ -31,14 +31,16 @@ return require('packer').startup(function(use)
 
   -- Themes
   use {
-    'Th3Whit3Wolf/one-nvim',
     'rebelot/kanagawa.nvim',
-    -- 'shaunsingh/nord.nvim',
-    -- 'folke/tokyonight.nvim',
     config = function()
       require('dkvim.plugins.kanagawa')
     end
     -- opt = true,
+  }
+
+  -- Themes
+  use {
+    'Th3Whit3Wolf/one-nvim',
   }
 
   -- Clean and fast statusline
@@ -76,15 +78,6 @@ return require('packer').startup(function(use)
   use {
     'onsails/lspkind-nvim',
     event = 'BufEnter'
-  }
-
-  -- Cool listing for Lsp stuff
-  use {
-    'folke/trouble.nvim',
-    event = 'BufEnter',
-    config = function()
-      require('trouble').setup()
-    end
   }
 
   -- Treesitter

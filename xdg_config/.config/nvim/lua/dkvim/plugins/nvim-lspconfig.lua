@@ -10,13 +10,11 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
--- IMPORTANT: UPDATE TO THE LOCATION OF YOUR lua-language-server
+-- NOTE: Update these variables to the location of your language server
 local sumneko_root_path = '/opt/lua-language-server/'
-local sumneko_binary = sumneko_root_path .. '/bin/' .. vim.g.os .. '/lua-language-server'
-
--- Bicep Variables
 local bicep_lsp_bin = '/opt/bicep-langserver/Bicep.LangServer.dll'
 
+local sumneko_binary = sumneko_root_path .. '/bin/' .. vim.g.os .. '/lua-language-server'
 -- Rust
 require'lspconfig'.rust_analyzer.setup{}
 
@@ -32,23 +30,23 @@ require'lspconfig'.pyright.setup{}
 -- Typescript
 require'lspconfig'.tsserver.setup{}
 
--- Typescript
-require'lspconfig'.vuels.setup{}
+-- Vue
+-- require'lspconfig'.vuels.setup{}
 
 -- Svelte
-require'lspconfig'.svelte.setup{}
+-- require'lspconfig'.svelte.setup{}
 
 -- CSS, SCSS and LESS
-require'lspconfig'.cssls.setup{}
+-- require'lspconfig'.cssls.setup{}
 
 -- GraphQL
-require'lspconfig'.graphql.setup{}
+-- require'lspconfig'.graphql.setup{}
 
 -- HTML
-require'lspconfig'.html.setup{}
+-- require'lspconfig'.html.setup{}
 
 -- TailwindCSS
-require'lspconfig'.tailwindcss.setup{}
+-- require'lspconfig'.tailwindcss.setup{}
 
 -- Ansible
 require'lspconfig'.ansiblels.setup{}
@@ -73,14 +71,17 @@ require'lspconfig'.powershell_es.setup{
   bundle_path = '/opt/PowerShellEditorServices',
 }
 
+-- Go
+require'lspconfig'.gopls.setup{}
+
 -- JSON
-require'lspconfig'.jsonls.setup{}
+-- require'lspconfig'.jsonls.setup{}
 
 -- TOML
 --require'lspconfig'.taplo.setup{}
 
 -- YAML
-require'lspconfig'.yamlls.setup{}
+-- require'lspconfig'.yamlls.setup{}
 
 -- Julia
 --require'lspconfig'.julials.setup{}
@@ -115,5 +116,3 @@ require'lspconfig'.yamlls.setup{}
 --   },
 -- }
 
--- Go
-require'lspconfig'.gopls.setup{}

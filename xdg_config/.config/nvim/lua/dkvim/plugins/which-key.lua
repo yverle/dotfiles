@@ -77,13 +77,17 @@ local mappings = {
   ['h'] = { '<cmd>Telescope help_tags<CR>', 'Show help' },
   ['S'] = { '<cmd>Dashboard<CR>', 'Show dashboard' },
   ['z'] = { '<cmd>ZenMode<CR>', 'Toggle zen mode' },
+  ['g'] = { '<cmd>Neogit<CR>', 'Toggle neogit' },
+  ['t'] = { ':ToggleTerm direction=horizontal<CR>', 'Toggle a horizontal terminal' },
+  ['T'] = { ':ToggleTerm direction=float<CR>', 'Toggle a floating terminal' },
   ['.'] = { ':Telescope find_files<CR>', 'Find files' },
+  [','] = { ':Telescope buffers<CR>', 'Show buffers' },
   -- Buffers
   ['b'] = {
     name = 'buffer',
     ['.'] = { '<cmd>Telescope buffers<CR>', 'Show buffers' },
-    ['n'] = { '<cmd>bnext<CR>', 'Show buffers' },
-    ['p'] = { '<cmd>bprevious<CR>', 'Show buffers' },
+    ['n'] = { '<cmd>bnext<CR>', 'Next buffer' },
+    ['p'] = { '<cmd>bprevious<CR>', 'Previous buffer' },
   },
   ['c'] = {
     name = 'code',
@@ -99,13 +103,9 @@ local mappings = {
     ['n'] = { ':lua vim.lsp.buf.rename()<CR>', 'Rename' },
     ['d'] = { ':lua vim.lsp.buf.definition()<CR>', 'Jump to definition' },
     ['h'] = { ':lua vim.lsp.buf.hover()<CR>', 'Show documentation' },
-    ['H'] = { ':TodoTrouble', 'Show todo list in Trouble' },
     ['i'] = { ':lua vim.lsp.buf.implementation()<CR>', 'Jump to implementation' },
     -- ['r'] = { ':lua vim.lsp.buf.references()<CR>', 'Show references' },
     ['S'] = { ':Telescope lsp_document_symbols<CR>', 'Show symbols' },
-
-    -- Trouble Keybinds (these replace some of the native lsp keybinds)
-    ['r'] = { ':TroubleToggle lsp_references<CR>', 'Toggle trouble' },
 
     ['p'] = {
       name = 'diagnostics',
@@ -118,12 +118,8 @@ local mappings = {
       ['n'] = { ':lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic' },
       ['p'] = { ':lua vim.lsp.diagnostic.goto_prev()<CR>', 'Previous diagnostic' },
       ['s'] = { ':lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>', 'Show diagnostic on line' },
-      -- ['f'] = { ':Telescope lsp_document_diagnostics<CR>', 'Show diagnostics in document' },
-      -- ['w'] = { ':Telescope lsp_workspace_diagnostics<CR>', 'Show diagnostics in workspace' },
-
-      -- Trouble diagnostics (replace some of the native lsp keybinds)
-      ['f'] = { ':TroubleToggle lsp_document_diagnostics<CR>', 'Show diagnostics in document' },
-      ['w'] = { ':TroubleToggle lsp_workspace_diagnostics<CR>', 'Show diagnostics in workspace' },
+      ['f'] = { ':Telescope lsp_document_diagnostics<CR>', 'Show diagnostics in document' },
+      ['w'] = { ':Telescope lsp_workspace_diagnostics<CR>', 'Show diagnostics in workspace' },
     },
   },
   ['f'] = {
@@ -152,11 +148,6 @@ local mappings = {
     ['c'] = { ':close<CR>', 'Close split' },
     ['m'] = { ':MaximizerToggle<CR>', 'Maximise window' },
   },
-  ['t'] = {
-    name = 'terminal',
-    ['t'] = { ':ToggleTerm direction=horizontal<CR>', 'Toggle a horizontal terminal' },
-    ['f'] = { ':ToggleTerm direction=float<CR>', 'Toggle a floating terminal' },
-  }
 }
 
 wk.register(mappings, opts)

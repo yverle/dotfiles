@@ -28,19 +28,18 @@ vim.o.swapfile = false                      -- No swap files
 vim.o.writebackup = false                   -- No backup files
 vim.o.updatetime = 50                       -- Higher updatetime leads to delays and a poor user experience
 vim.o.timeoutlen = 500                      -- Faster which-key popups
---vim.o.formatoptions = '-=cro'              -- Remove automatic comments on new line
+vim.o.formatoptions = 'jql'                 -- Remove automatic comments on new line
 vim.o.hlsearch = false                      -- Don't keep search results highlighed
 vim.o.incsearch = true                      -- Highlight search results
 vim.o.scrolloff = 5                         -- Keeps the cursor more centered during scrolling
 vim.o.signcolumn = 'yes'                    -- Useful for LSP and Git plugins
---set colorcolumn = 120
+vim.o.colorcolumn = '80'
 vim.o.ff = 'unix'                           -- Unix file endings for consistency
 vim.o.completeopt = 'menu,menuone,noselect' -- Required for nvim-cmp
 vim.o.termguicolors = true                  -- 256 colors!
 vim.o.showtabline = 0                       -- Don't show the tabline, I personally don't use it
 
---vim.cmd('colorscheme one-nvim')             -- My main colorscheme
-vim.cmd('colorscheme kanagawa')             -- Experimenting with a new colorscheme :)
+vim.cmd('colorscheme one-nvim')             -- Colorscheme gets overwritten in lua/dkvim/plugins/kanagawa.lua
 vim.o.bg='dark'                             -- Set a dark background
 
 -- command! -nargs=0 Trim call Trim()
