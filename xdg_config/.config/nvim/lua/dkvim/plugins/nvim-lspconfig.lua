@@ -1,11 +1,12 @@
 local present, lsp = pcall(require, 'lspconfig')
 local present2, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
 if not (present or present2) then
-   return
+  return
 end
 
--- local capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = cmp_lsp.update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 -- NOTE: Update these variables to the location of your language server
 local sumneko_root_path = '/opt/lua-language-server/'
@@ -14,22 +15,25 @@ local bicep_lsp_bin = '/opt/bicep-langserver/Bicep.LangServer.dll'
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
-local sumneko_binary = sumneko_root_path .. '/bin/' .. vim.g.os .. '/lua-language-server'
+local sumneko_binary = sumneko_root_path
+  .. '/bin/'
+  .. vim.g.os
+  .. '/lua-language-server'
 
 -- Rust
-lsp.rust_analyzer.setup {
+lsp.rust_analyzer.setup({
   capabilities = capabilities,
-}
+})
 
 -- Python
-lsp.pyright.setup {
+lsp.pyright.setup({
   capabilities = capabilities,
-}
+})
 
 -- C#
--- lsp.omnisharp.setup {
---  capabilities = capabilities,
---}
+lsp.csharp_ls.setup({
+  capabilities = capabilities,
+})
 
 -- C/C++
 -- lsp.clangd.setup {
@@ -37,9 +41,9 @@ lsp.pyright.setup {
 --}
 
 -- Typescript
-lsp.tsserver.setup {
+lsp.tsserver.setup({
   capabilities = capabilities,
-}
+})
 
 -- Vue
 -- lsp.vuels.setup {
@@ -72,41 +76,41 @@ lsp.tsserver.setup {
 -- }
 
 -- Ansible
-lsp.ansiblels.setup {
+lsp.ansiblels.setup({
   capabilities = capabilities,
-}
+})
 
 -- Dockerfile
-lsp.dockerls.setup {
+lsp.dockerls.setup({
   capabilities = capabilities,
-}
+})
 
 -- Terraform
-lsp.terraformls.setup {
+lsp.terraformls.setup({
   capabilities = capabilities,
-}
+})
 
 -- Bicep
-lsp.bicep.setup {
+lsp.bicep.setup({
   cmd = { 'dotnet', bicep_lsp_bin },
   capabilities = capabilities,
-}
+})
 
 -- Bash
-lsp.bashls.setup {
+lsp.bashls.setup({
   capabilities = capabilities,
-}
+})
 
 -- Powershell
-lsp.powershell_es.setup {
+lsp.powershell_es.setup({
   capabilities = capabilities,
   bundle_path = '/opt/PowerShellEditorServices',
-}
+})
 
 -- Go
-lsp.gopls.setup {
+lsp.gopls.setup({
   capabilities = capabilities,
-}
+})
 
 -- JSON
 -- lsp.jsonls.setup {
@@ -160,4 +164,3 @@ lsp.gopls.setup {
 --     },
 --   },
 -- }
-

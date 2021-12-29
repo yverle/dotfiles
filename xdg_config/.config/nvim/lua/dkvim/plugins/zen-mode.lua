@@ -1,9 +1,9 @@
 local present, zen = pcall(require, 'zen-mode')
 if not present then
-   return
+  return
 end
 
-zen.setup {
+zen.setup({
   window = {
     backdrop = 0.95,
     width = 90,
@@ -27,4 +27,4 @@ zen.setup {
     lualine = { enabled = false },
     twilight = { enabled = true },
   },
-}
+})

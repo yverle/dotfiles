@@ -4,7 +4,7 @@ if not present then
   return
 end
 
-wk.setup {
+wk.setup({
   plugins = {
     marks = true,
     registers = true,
@@ -26,9 +26,8 @@ wk.setup {
   },
   -- add operators that will trigger motion and text object completion
   -- to enable all native operators, set the preset / operators plugin above
-  operators =
-  {
-    gc = 'Comments'
+  operators = {
+    gc = 'Comments',
   },
   key_labels = {
     ['<space>'] = 'SPC',
@@ -53,7 +52,7 @@ wk.setup {
     align = 'center', -- align columns left, center or right
   },
   ignore_missing = false,
-  hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ '}, -- hide mapping boilerplate
+  hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ ' }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
   triggers = 'auto',
   triggers_blacklist = {
@@ -63,7 +62,7 @@ wk.setup {
     i = { 'j', 'k' },
     v = { 'j', 'k' },
   },
-}
+})
 
 -- Normal mode binding opts
 local opts = {
@@ -82,7 +81,10 @@ local mappings = {
   ['z'] = { '<cmd>ZenMode<CR>', 'Toggle zen mode' },
   ['g'] = { '<cmd>Neogit<CR>', 'Toggle neogit' },
   ['t'] = { ':ToggleTerm direction=float<CR>', 'Toggle a floating terminal' },
-  ['T'] = { ':ToggleTerm direction=horizontal<CR>', 'Toggle a horizontal terminal' },
+  ['T'] = {
+    ':ToggleTerm direction=horizontal<CR>',
+    'Toggle a horizontal terminal',
+  },
   ['.'] = { ':Telescope find_files<CR>', 'Find files' },
   [','] = { ':Telescope buffers<CR>', 'Show buffers' },
   -- Buffers
@@ -94,29 +96,50 @@ local mappings = {
   },
   ['c'] = {
     name = 'code',
-    ['a'] = { ':lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
+    ['a'] = { ':Telescope lsp_code_actions<CR>', 'Code Actions' },
+    ['r'] = { ':lua vim.lsp.buf.formatting()', 'Format file' },
     ['n'] = { ':lua vim.lsp.buf.rename()<CR>', 'Rename' },
-    ['d'] = { ':lua vim.lsp.buf.definition()<CR>', 'Jump to definition' },
+    ['d'] = { ':Telescope lsp_definitions<CR>', 'Jump to definition' },
     ['h'] = { ':lua vim.lsp.buf.hover()<CR>', 'Show documentation' },
-    ['i'] = { ':lua vim.lsp.buf.implementation()<CR>', 'Jump to implementation' },
-    ['r'] = { ':lua vim.lsp.buf.references()<CR>', 'Show references' },
+    ['i'] = { ':Telescope lsp_implementations<CR>', 'Jump to implementation' },
     ['S'] = { ':Telescope lsp_document_symbols<CR>', 'Show symbols' },
     ['p'] = {
       name = 'diagnostics',
       ['n'] = { ':lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic' },
-      ['p'] = { ':lua vim.lsp.diagnostic.goto_prev()<CR>', 'Previous diagnostic' },
-      ['s'] = { ':lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>', 'Show diagnostic on line' },
-      ['f'] = { ':Telescope lsp_document_diagnostics<CR>', 'Show diagnostics in document' },
-      ['w'] = { ':Telescope lsp_workspace_diagnostics<CR>', 'Show diagnostics in workspace' },
+      ['p'] = {
+        ':lua vim.lsp.diagnostic.goto_prev()<CR>',
+        'Previous diagnostic',
+      },
+      ['s'] = {
+        ':lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>',
+        'Show diagnostic on line',
+      },
+      ['f'] = {
+        ':Telescope lsp_document_diagnostics<CR>',
+        'Show diagnostics in document',
+      },
+      ['w'] = {
+        ':Telescope lsp_workspace_diagnostics<CR>',
+        'Show diagnostics in workspace',
+      },
     },
   },
   ['f'] = {
     name = 'file',
     ['b'] = { ':Telescope marks<CR>', 'Show marks' },
-    ['c'] = { ':lua require(telescope.builtin).find_files { cwd = "$HOME/.config/nvim" }<CR>', 'Open neovim config' },
+    ['c'] = {
+      ':e ' .. vim.fn.stdpath('config') .. '<CR>',
+      'Open neovim config',
+    },
     ['f'] = { ':Telescope find_files<CR>', 'Find files' },
-    ['e'] = { ':Telescope file_browser<CR>', 'File browser' },
-    ['p'] = { ':Telescope projects<CR>', 'Find projects' },
+    ['e'] = {
+      ':lua require("telescope").extensions.file_browser.file_browser()<CR>',
+      'File browser',
+    },
+    ['p'] = {
+      ':lua require("telescope").extensions.project.project{ display_type = "full" }<CR>',
+      'Find projects',
+    },
     ['r'] = { ':Telescope oldfiles<CR>', 'Find recent files' },
     ['w'] = { ':Telescope live_grep<CR>', 'Find string' },
     ['t'] = {

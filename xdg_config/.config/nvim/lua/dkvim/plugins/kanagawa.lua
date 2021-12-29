@@ -1,6 +1,6 @@
 local present, kanagawa = pcall(require, 'kanagawa')
 if not present then
-    return
+  return
 end
 
 kanagawa.setup({
@@ -15,8 +15,7 @@ kanagawa.setup({
   specialException = false,
   transparent = false,
   colors = {},
-  overrides = {}
+  overrides = {},
 })
-
 
 vim.cmd('colorscheme kanagawa')

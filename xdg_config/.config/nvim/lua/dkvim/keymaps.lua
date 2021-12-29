@@ -7,17 +7,37 @@
 vim.g.mapleader = ' '
 
 -- Unbind the leader key
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  'n',
+  '<Space>',
+  '<NOP>',
+  { noremap = true, silent = true }
+)
 
 -- jk > esc
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 -- Sensible escape keys in terminal mode (seriously why is it <C-\><C-n>?)
-vim.api.nvim_set_keymap('t', 'jk', '<C-\\><C-n>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  't',
+  'jk',
+  '<C-\\><C-n>',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  't',
+  '<Esc>',
+  '<C-\\><C-n>',
+  { noremap = true, silent = true }
+)
 
 -- Disable Ctrl-Z from job-controlling neovim
-vim.api.nvim_set_keymap('n', '<C-z>', '<NOP>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  'n',
+  '<C-z>',
+  '<NOP>',
+  { noremap = true, silent = true }
+)
 
 -- Copy from cursor to end of line
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true, silent = true })
@@ -37,18 +57,73 @@ vim.api.nvim_set_keymap('i', '!', '!<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '?', '?<c-g>u', { noremap = true, silent = true })
 
 -- Easy access to system clipboard
-vim.api.nvim_set_keymap('v', '<C-S-c>', '"+yy', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<C-S-v>', 'c<Esc>"+p', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-S-v>', '<Esc>"+p', { noremap = true, silent = true})
+vim.api.nvim_set_keymap(
+  'v',
+  '<C-S-c>',
+  '"+yy',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'v',
+  '<C-S-v>',
+  'c<Esc>"+p',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'i',
+  '<C-S-v>',
+  '<Esc>"+p',
+  { noremap = true, silent = true }
+)
 
 -- Better window movement
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true})
+vim.api.nvim_set_keymap(
+  'n',
+  '<C-h>',
+  '<C-w>h',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<C-j>',
+  '<C-w>j',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<C-k>',
+  '<C-w>k',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<C-l>',
+  '<C-w>l',
+  { noremap = true, silent = true }
+)
 
 -- Better split resizing
-vim.api.nvim_set_keymap('n', '<M-h>', ':vertical resize -2<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<M-j>', ':resize -2<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<M-k>', ':resize =2<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize +2<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap(
+  'n',
+  '<M-h>',
+  ':vertical resize -2<CR>',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<M-j>',
+  ':resize -2<CR>',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<M-k>',
+  ':resize =2<CR>',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<M-l>',
+  ':vertical resize +2<CR>',
+  { noremap = true, silent = true }
+)

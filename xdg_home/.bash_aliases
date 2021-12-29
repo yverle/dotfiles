@@ -1,6 +1,9 @@
 alias vim='nvim'
 alias v='nvim'
 
+# Shortcut to go to neovim folder
+alias cdnc='cd ~/Projects/dotfiles/xdg_config/.config/nvim'
+
 alias ls='ls -h --color=always --group-directories-first'
 alias la='ls -ah --color=always --group-directories-first'
 alias ll='ls -lh --color=always --group-directories-first'

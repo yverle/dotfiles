@@ -1,9 +1,9 @@
 local present, todocomments = pcall(require, 'todo-comments')
 if not present then
-    return
+  return
 end
 
-todocomments.setup {
+todocomments.setup({
   signs = true,
   sign_priority = 8,
   keywords = {
@@ -12,27 +12,27 @@ todocomments.setup {
       color = 'error',
       alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' },
     },
-    TODO = { 
-      icon = ' ', 
-      color = 'info'
+    TODO = {
+      icon = ' ',
+      color = 'info',
     },
-    HACK = { 
-      icon = ' ', 
-      color = 'warning'
-    },
-    WARN = { 
-      icon = ' ', 
+    HACK = {
+      icon = ' ',
       color = 'warning',
-      alt = { 'WARNING', 'XXX' }
     },
-    PERF = { 
-      icon = ' ', 
-      alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' }
+    WARN = {
+      icon = ' ',
+      color = 'warning',
+      alt = { 'WARNING', 'XXX' },
+    },
+    PERF = {
+      icon = ' ',
+      alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' },
     },
     NOTE = {
       icon = ' ',
       color = 'hint',
-      alt = { 'INFO' }
+      alt = { 'INFO' },
     },
   },
   merge_keywords = true,
@@ -63,4 +63,4 @@ todocomments.setup {
     },
     pattern = [[\b(KEYWORDS):]],
   },
-}
+})

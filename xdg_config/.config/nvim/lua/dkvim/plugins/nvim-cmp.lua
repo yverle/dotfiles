@@ -1,43 +1,42 @@
 local present, cmp = pcall(require, 'cmp')
-local present2, lspkind = pcall(require, 'lspkind')
-local present3, luasnip = pcall(require, 'luasnip')
-if not (present or present2 or present3) then
+local present2, luasnip = pcall(require, 'luasnip')
+if not (present or present2) then
   return
 end
 
 local kind_icons = {
-  Text = "",
-  Method = "ƒ",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "ﴯ",
-  Interface = "",
-  Module = "",
-  Property = "ﰠ",
-  Unit = "",
-  Value = "",
-  Enum = "了",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = ""
+  Text = '',
+  Method = 'ƒ',
+  Function = '',
+  Constructor = '',
+  Field = '',
+  Variable = '',
+  Class = 'ﴯ',
+  Interface = '',
+  Module = '',
+  Property = 'ﰠ',
+  Unit = '',
+  Value = '',
+  Enum = '了',
+  Keyword = '',
+  Snippet = '',
+  Color = '',
+  File = '',
+  Reference = '',
+  Folder = '',
+  EnumMember = '',
+  Constant = '',
+  Struct = '',
+  Event = '',
+  Operator = '',
+  TypeParameter = '',
 }
 
 cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
-    end
+    end,
   },
 
   -- completion = {
@@ -52,7 +51,7 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
-      c = cmp.mapping.close(), 
+      c = cmp.mapping.close(),
     }),
     ['<C-y>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
@@ -68,21 +67,21 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
-    { 
-      name = 'buffer', 
+    {
+      name = 'buffer',
       option = {
-        keyword_length = 5 
-      }
+        keyword_length = 5,
+      },
     },
   }),
 
   cmp.setup.cmdline('/', {
     sources = {
-      { name = 'buffer' }
-    }
+      { name = 'buffer' },
+    },
   }),
 
-  -- BUG: Currently hangs when using :! 
+  -- BUG: Currently hangs when using :!
   -- cmp.setup.cmdline(':', {
   --   sources = cmp.config.sources({
   --     { name = 'path' },
@@ -93,14 +92,18 @@ cmp.setup({
   formatting = {
     format = function(entry, vim_item)
       vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      vim_item.kind = string.format(
+        '%s %s',
+        kind_icons[vim_item.kind],
+        vim_item.kind
+      )
       vim_item.menu = ({
-         buffer = '[buf]',
-         nvim_lsp = '[lsp]',
-         path = '[path]',
-         luasnip = '[snip]',
+        nvim_lsp = '[LSP]',
+        luasnip = '[Snippet]',
+        buffer = '[Buffer]',
+        path = '[Path]',
       })[entry.source.name]
       return vim_item
-    end
+    end,
   },
 })
