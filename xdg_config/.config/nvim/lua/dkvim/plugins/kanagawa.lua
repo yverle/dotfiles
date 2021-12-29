@@ -1,4 +1,9 @@
-require('kanagawa').setup({
+local present, kanagawa = pcall(require, 'kanagawa')
+if not present then
+    return
+end
+
+kanagawa.setup({
   undercurl = true,
   commentStyle = 'NONE',
   functionStyle = 'NONE',
@@ -14,4 +19,4 @@ require('kanagawa').setup({
 })
 
 
-vim.cmd('colorscheme kanagawa')             -- Experimenting with a new colorscheme :)
+vim.cmd('colorscheme kanagawa')

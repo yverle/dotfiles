@@ -39,7 +39,6 @@ vim.o.completeopt = 'menu,menuone,noselect' -- Required for nvim-cmp
 vim.o.termguicolors = true                  -- 256 colors!
 vim.o.showtabline = 0                       -- Don't show the tabline, I personally don't use it
 
-vim.cmd('colorscheme one-nvim')             -- Colorscheme gets overwritten in lua/dkvim/plugins/kanagawa.lua
 vim.o.bg='dark'                             -- Set a dark background
 
 -- command! -nargs=0 Trim call Trim()

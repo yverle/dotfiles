@@ -1,7 +1,12 @@
-require("null-ls").setup({
+local present, null_ls = pcall(require, 'null-ls')
+if not (present or present2) then
+   return
+end
+
+null_ls.setup({
   sources = {
-    require("null-ls").builtins.formatting.stylua,
-    require("null-ls").builtins.diagnostics.eslint,
-    require("null-ls").builtins.completion.spell,
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.completion.spell,
   },
 })

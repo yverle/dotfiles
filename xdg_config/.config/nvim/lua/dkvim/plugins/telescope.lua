@@ -1,16 +1,15 @@
-local trouble = require('trouble.providers.telescope')
+local present, telescope = pcall(require, 'telescope')
+if not present then
+    return
+end
 
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = { ["<c-t>"] = trouble.open_with_trouble },
-      n = { ["<c-t>"] = trouble.open_with_trouble },
-    }
-  }
-}
+local present, project = pcall(require, 'project_nvim')
+if not present then
+    return
+end
 
 -- Project
-require('project_nvim').setup {
+project.setup {
   manual_mode = false,
   detection_methods = { 'lsp', 'pattern' },
   patterns = { '.git', '.sln', 'Makefile', 'package.json', 'build', 'src', 'README.md' },
@@ -22,4 +21,4 @@ require('project_nvim').setup {
 }
 
 -- Telescope integrations
-require('telescope').load_extension('projects')
+telescope.load_extension('projects')

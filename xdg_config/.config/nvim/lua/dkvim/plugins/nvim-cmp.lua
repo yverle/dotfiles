@@ -1,77 +1,106 @@
-local lspkind = require('lspkind')
-local cmp = require'cmp'
+local present, cmp = pcall(require, 'cmp')
+local present2, lspkind = pcall(require, 'lspkind')
+local present3, luasnip = pcall(require, 'luasnip')
+if not (present or present2 or present3) then
+  return
+end
 
-cmp.setup {
+local kind_icons = {
+  Text = "",
+  Method = "ƒ",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "",
+  Value = "",
+  Enum = "了",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = ""
+}
+
+cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
+      luasnip.lsp_expand(args.body)
     end
   },
+
+  -- completion = {
+  --   completeopt = 'menu,menuone,noinsert',
+  -- },
 
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<C-y>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,  -- Can also be cmp.ConfirmBehavior.Replace
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(), 
+    }),
+    ['<C-y>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
       select = true,
-    },
-
-    -- Tab completion
-    -- ['<Tab>'] = function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   else
-    --     fallback()
-    --   end
-    -- end,
-    -- ['<S-Tab>'] = function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   else
-    --     fallback()
-    --   end
-    -- end,
+    }),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    }),
   },
 
-  sources = {
-    -- Automatically enables itself in .lua files
-    { name = 'nvim_lua' },
-
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },
+    { name = 'luasnip' },
     { name = 'path' },
-    { name = 'buffer', keyword_length = 5 },
-  },
+    { 
+      name = 'buffer', 
+      option = {
+        keyword_length = 5 
+      }
+    },
+  }),
+
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  }),
+
+  -- BUG: Currently hangs when using :! 
+  -- cmp.setup.cmdline(':', {
+  --   sources = cmp.config.sources({
+  --     { name = 'path' },
+  --     { name = 'cmdline' },
+  --   })
+  -- }),
 
   formatting = {
-    format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
-        buffer = '[buf]',
-        nvim_lsp = '[lsp]',
-        nvim_lua = '[api]',
-        path = '[path]',
-        vnsip = '[snip]',
-      },
-    },
+    format = function(entry, vim_item)
+      vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      vim_item.menu = ({
+         buffer = '[buf]',
+         nvim_lsp = '[lsp]',
+         path = '[path]',
+         luasnip = '[snip]',
+      })[entry.source.name]
+      return vim_item
+    end
   },
-
-  experimental = {
-    native_menu = false,
-    ghost_text = false,
-  }
-}
-
---[[
--- Setup sources only for a certain filetype, you can't _remove_ global ones here.
-
-autocmd FileType lua lua require'cmp'.setup.buffer {
-  sources = {
-    { name = 'buffer' },
-  }
-}
---]]
+})

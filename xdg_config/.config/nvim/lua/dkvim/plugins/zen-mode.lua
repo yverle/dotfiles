@@ -1,15 +1,22 @@
-require('zen-mode').setup {
+local present, zen = pcall(require, 'zen-mode')
+if not present then
+   return
+end
+
+zen.setup {
   window = {
     backdrop = 0.95,
-    width = 140,
+    width = 90,
     height = 0.9,
 
     -- Disable line numbers in zen-mode
     options = {
+      signcolumn = 'no',
       number = false,
       relativenumber = false,
-      -- cursorline = false
-      -- cursorcolumn = '0'
+      cursorline = false,
+      cursorcolumn = '0',
+      list = false,
     },
   },
 
@@ -20,18 +27,4 @@ require('zen-mode').setup {
     lualine = { enabled = false },
     twilight = { enabled = true },
   },
-
-  -- Callback where you add custom code when the zen-mode window opens
-  --[[
-  on_open = function(win)
-
-  end,
-  --]]
-
-  -- Callback where you add custom code when the zen-mode window closes
-  --[[
-  on_close = function(win)
-
-  end
-  --]]
 }

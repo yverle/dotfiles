@@ -1,8 +1,13 @@
-require('nvim-tree').setup {
+local present, tree = pcall(require, 'nvim-tree')
+if not present then
+    return
+end
+
+tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
-  ignore_ft_on_setup = { ".git", "node_modules", ".cache", "Dashboard" },
+  ignore_ft_on_setup = { '.git', 'node_modules', '.cache', 'alpha' },
   auto_close = false,
   open_on_tab = false,
   hijack_cursor = true,
@@ -14,10 +19,10 @@ require('nvim-tree').setup {
   diagnostics = {
     enable = false,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = '',
+      info = '',
+      warning = '',
+      error = '',
     }
   },
   update_focused_file = {
@@ -49,10 +54,10 @@ require('nvim-tree').setup {
     },
     number = false,
     relativenumber = false,
-    signcolumn = "yes"
+    signcolumn = 'yes'
   },
   trash = {
-    cmd = "trash",
+    cmd = 'trash',
     require_confirm = true
   }
 }

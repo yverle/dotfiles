@@ -5,11 +5,14 @@ end
 -- Loads some predefined globals that get used in the config later
 require('dkvim.globals')
 
+-- Disable builtin plugins I don't use (looking at you netrw)
+require('dkvim.disable_builtin_plugins')
+
 -- Installing plugins (and managing them) is done in lua/dkvim/plugins.lua
 require('dkvim.plugins')
 
--- Disable builtin plugins I don't use (looking at you netrw)
-require('dkvim.disable_builtin_plugins')
+-- Some CmdLine mode commands I have
+require('dkvim.commands')
 
 -- Basic settings found in lua/dkvim/settings.lua
 require('dkvim.settings')

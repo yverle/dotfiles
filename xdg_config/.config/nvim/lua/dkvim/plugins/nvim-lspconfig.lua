@@ -1,97 +1,142 @@
--- Important, make sure to install the language servers on your machine [you can find them here](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md)
--- Also install the Treesitter parser using :TSInstall <lang>
--- Please make sure to check the abovementioned file to get the most up-to-date info about how to install your language server
+local present, lsp = pcall(require, 'lspconfig')
+local present2, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
+if not (present or present2) then
+   return
+end
 
--- I usually leave most settings default but this is helpful if you need it for any reason
-local util = require('lspconfig').util
-
--- Sumneko Lua Variables
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+-- local capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- NOTE: Update these variables to the location of your language server
 local sumneko_root_path = '/opt/lua-language-server/'
 local bicep_lsp_bin = '/opt/bicep-langserver/Bicep.LangServer.dll'
 
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
 local sumneko_binary = sumneko_root_path .. '/bin/' .. vim.g.os .. '/lua-language-server'
+
 -- Rust
-require'lspconfig'.rust_analyzer.setup{}
+lsp.rust_analyzer.setup {
+  capabilities = capabilities,
+}
 
 -- Python
-require'lspconfig'.pyright.setup{}
+lsp.pyright.setup {
+  capabilities = capabilities,
+}
 
 -- C#
---require'lspconfig'.omnisharp.setup{}
+-- lsp.omnisharp.setup {
+--  capabilities = capabilities,
+--}
 
 -- C/C++
---require'lspconfig'.clangd.setup{}
+-- lsp.clangd.setup {
+--  capabilities = capabilities,
+--}
 
 -- Typescript
-require'lspconfig'.tsserver.setup{}
+lsp.tsserver.setup {
+  capabilities = capabilities,
+}
 
 -- Vue
--- require'lspconfig'.vuels.setup{}
+-- lsp.vuels.setup {
+--   capabilities = capabilities,
+-- }
 
 -- Svelte
--- require'lspconfig'.svelte.setup{}
+-- lsp.svelte.setup {
+--   capabilities = capabilities,
+-- }
 
 -- CSS, SCSS and LESS
--- require'lspconfig'.cssls.setup{}
+-- lsp.cssls.setup {
+--   capabilities = capabilities,
+-- }
 
 -- GraphQL
--- require'lspconfig'.graphql.setup{}
+-- lsp.graphql.setup {
+--   capabilities = capabilities,
+-- }
 
 -- HTML
--- require'lspconfig'.html.setup{}
+-- lsp.html.setup {
+--   capabilities = capabilities,
+-- }
 
 -- TailwindCSS
--- require'lspconfig'.tailwindcss.setup{}
+-- lsp.tailwindcss.setup {
+--   capabilities = capabilities,
+-- }
 
 -- Ansible
-require'lspconfig'.ansiblels.setup{}
+lsp.ansiblels.setup {
+  capabilities = capabilities,
+}
 
 -- Dockerfile
-require'lspconfig'.dockerls.setup{}
+lsp.dockerls.setup {
+  capabilities = capabilities,
+}
 
 -- Terraform
-require'lspconfig'.terraformls.setup{}
+lsp.terraformls.setup {
+  capabilities = capabilities,
+}
 
 -- Bicep
-require'lspconfig'.bicep.setup{
+lsp.bicep.setup {
   cmd = { 'dotnet', bicep_lsp_bin },
---  root_dir = util.root_pattern('.bicep')
+  capabilities = capabilities,
 }
 
 -- Bash
-require'lspconfig'.bashls.setup{}
+lsp.bashls.setup {
+  capabilities = capabilities,
+}
 
 -- Powershell
-require'lspconfig'.powershell_es.setup{
+lsp.powershell_es.setup {
+  capabilities = capabilities,
   bundle_path = '/opt/PowerShellEditorServices',
 }
 
 -- Go
-require'lspconfig'.gopls.setup{}
+lsp.gopls.setup {
+  capabilities = capabilities,
+}
 
 -- JSON
--- require'lspconfig'.jsonls.setup{}
+-- lsp.jsonls.setup {
+--   capabilities = capabilities,
+-- }
 
 -- TOML
---require'lspconfig'.taplo.setup{}
+-- lsp.taplo.setup {
+--   capabilities = capabilities,
+-- }
 
 -- YAML
--- require'lspconfig'.yamlls.setup{}
+-- lsp.yamlls.setup {
+--   capabilities = capabilities,
+-- }
 
 -- Julia
---require'lspconfig'.julials.setup{}
+-- lsp.julials.setup {
+--   capabilities = capabilities,
+-- }
 
 -- Elixir
---require'lspconfig'.elixirls.setup{}
+-- lsp.elixirls.setup {
+--   capabilities = capabilities,
+-- }
 
 -- Lua
--- require'lspconfig'.sumneko_lua.setup{
+-- lsp.sumneko_lua.setup {
 --   cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+--   capabilities = capabilities,
 --   settings = {
 --     Lua = {
 --       runtime = {
