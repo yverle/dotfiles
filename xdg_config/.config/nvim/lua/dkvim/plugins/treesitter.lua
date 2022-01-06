@@ -1,9 +1,9 @@
 local present, treesitter = pcall(require, 'nvim-treesitter.configs')
 if not present then
-   return
+  return
 end
 
-treesitter.setup {
+treesitter.setup({
   highlight = {
     enable = true,
     use_languagetree = true,
@@ -11,7 +11,7 @@ treesitter.setup {
     disable = {},
   },
   autopairs = {
-    enable = true
+    enable = true,
   },
   rainbow = {
     enable = true,
@@ -20,5 +20,5 @@ treesitter.setup {
     max_file_lines = 1400,
   },
 
-  vim.cmd('autocmd Filetype * silent! TSEnableAll rainbow')
-}
+  vim.cmd('autocmd Filetype * silent! TSEnableAll rainbow'),
+})

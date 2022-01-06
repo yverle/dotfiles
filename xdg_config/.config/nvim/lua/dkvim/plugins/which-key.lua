@@ -158,7 +158,7 @@ local mappings = {
     ['s'] = { ':vsplit<CR>', 'Vertical split' },
     ['v'] = { ':split<CR>', 'Horizontal split' },
     ['c'] = { ':close<CR>', 'Close split' },
-    ['m'] = { ':MaximizerToggle<CR>', 'Maximise window' },
+    ['m'] = { ':MaximizerToggle<CR>', 'Maximize split' },
   },
 }
 

@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     event = 'BufRead',
     config = function()
-      require('dkvim.plugins.nvim-lspconfig')
+      require('dkvim.plugins.lspconfig')
     end,
   })
 
@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require('dkvim.plugins.nvim-treesitter')
+      require('dkvim.plugins.treesitter')
     end,
   })
 
@@ -208,7 +208,7 @@ return require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
     config = function()
-      require('dkvim.plugins.nvim-cmp')
+      require('dkvim.plugins.cmp')
     end,
   })
 
@@ -250,7 +250,7 @@ return require('packer').startup(function(use)
   -- Maximise a window in a split
   use({
     'szw/vim-maximizer',
-    cmd = 'MaxmimizerToggle',
+    cmd = 'MaximizerToggle',
   })
 
   -- Highlight comments
@@ -285,7 +285,7 @@ return require('packer').startup(function(use)
     'booperlv/nvim-gomove',
     event = 'VimEnter',
     config = function()
-      require('gomove').setup()
+      require('dkvim.plugins.gomove')
     end,
   })
 

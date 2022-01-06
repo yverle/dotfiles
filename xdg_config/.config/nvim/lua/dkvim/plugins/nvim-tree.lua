@@ -1,14 +1,14 @@
 local present, tree = pcall(require, 'nvim-tree')
 if not present then
-    return
+  return
 end
 
-tree.setup {
+tree.setup({
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = { '.git', 'node_modules', '.cache', 'alpha' },
-  auto_close = false,
+  auto_close = true,
   open_on_tab = false,
   hijack_cursor = true,
   update_cwd = true,
@@ -23,20 +23,20 @@ tree.setup {
       info = '',
       warning = '',
       error = '',
-    }
+    },
   },
   update_focused_file = {
     enable = true,
     update_cwd = true,
-    ignore_list = {}
+    ignore_list = {},
   },
   system_open = {
     cmd = nil,
-    args = {}
+    args = {},
   },
   filters = {
     dotfiles = false,
-    custom = {}
+    custom = {},
   },
   git = {
     enable = true,
@@ -50,14 +50,14 @@ tree.setup {
     auto_resize = false,
     mappings = {
       custom_only = false,
-      list = {}
+      list = {},
     },
     number = false,
     relativenumber = false,
-    signcolumn = 'yes'
+    signcolumn = 'yes',
   },
   trash = {
     cmd = 'trash',
-    require_confirm = true
-  }
-}
+    require_confirm = true,
+  },
+})

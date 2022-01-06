@@ -81,13 +81,13 @@ cmp.setup({
     },
   }),
 
-  -- BUG: Currently hangs when using :!
-  -- cmp.setup.cmdline(':', {
-  --   sources = cmp.config.sources({
-  --     { name = 'path' },
-  --     { name = 'cmdline' },
-  --   })
-  -- }),
+  -- NOTE: This :! is pretty damn slow
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' },
+      { name = 'cmdline', keyword_pattern = [=[[^[:blank:]\!]*]=] },
+    }),
+  }),
 
   formatting = {
     format = function(entry, vim_item)

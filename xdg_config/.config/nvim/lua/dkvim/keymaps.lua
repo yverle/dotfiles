@@ -102,28 +102,28 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 
--- Better split resizing
+-- Better window resizing
 vim.api.nvim_set_keymap(
   'n',
-  '<M-h>',
+  '<M-S-h>',
   ':vertical resize -2<CR>',
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
   'n',
-  '<M-j>',
+  '<M-S-j>',
   ':resize -2<CR>',
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
   'n',
-  '<M-k>',
+  '<M-S-k>',
   ':resize =2<CR>',
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
   'n',
-  '<M-l>',
+  '<M-S-l>',
   ':vertical resize +2<CR>',
   { noremap = true, silent = true }
 )
