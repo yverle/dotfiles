@@ -308,6 +308,19 @@ return require('packer').startup(function(use)
   --    'phaazon/hop.nvim',
   --    event = 'VimEnter',
   -- }
+  --NOTE: A potential replacememnt :)
+  -- use {
+  --    'rlane/pounce.nvim',
+  --    event = 'VimEnter',
+  -- }
+
+  use({
+    'j-hui/fidget.nvim',
+    event = 'VimEnter',
+    config = function()
+      require('fidget').setup({})
+    end,
+  })
 
   config = {
     display = {
