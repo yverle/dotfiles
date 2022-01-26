@@ -298,10 +298,19 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Want to start managing notes in nvim, look into the following extensions:
+  -- Trying out org mode
   -- https://github.com/vimwiki/vimwiki
   -- https://github.com/nvim-neorg/neorg
   -- https://github.com/stevearc/gkeep.nvim
+  use({
+    'nvim-neorg/neorg',
+    setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
+    ft = 'norg',
+    config = function()
+      require('dkvim.plugins.neorg')
+    end,
+    requires = 'nvim-lua/plenary.nvim'
+  })
 
   -- TODO: This is super cool but seems like a lot of work to configure and learn; maybe someday...
   -- use {
