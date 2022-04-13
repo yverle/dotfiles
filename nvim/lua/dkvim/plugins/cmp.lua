@@ -29,7 +29,7 @@ local kind_icons = {
   Struct = '',
   Event = '',
   Operator = '',
-  TypeParameter = '',
+  TypeParameter = '',
 }
 
 cmp.setup({
@@ -57,10 +57,10 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     }),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
+    -- ['<CR>'] = cmp.mapping.confirm({
+    --   behavior = cmp.ConfirmBehavior.Insert,
+    --   select = true,
+    -- }),
   },
 
   sources = cmp.config.sources({
@@ -82,11 +82,19 @@ cmp.setup({
     },
   }),
 
-  -- NOTE: This :! is pretty damn slow
   cmp.setup.cmdline(':', {
+    completion = {
+      autocomplete = false,
+    },
+
     sources = cmp.config.sources({
       { name = 'path' },
-      { name = 'cmdline', keyword_pattern = [=[[^[:blank:]\!]*]=] },
+      {
+        name = 'cmdline',
+        max_item_count = 20,
+        keyword_length = 4,
+        -- keyword_pattern = [=[[^[:blank:]\!]*]=],
+      },
     }),
   }),
 

@@ -5,25 +5,41 @@ end
 
 neorg.setup({
   load = {
-    ['core.defaults'] = {},         -- Load default modules
-    ['core.norg.concealer'] = {},   -- Allow for use of icons
-    ['core.norg.dirman'] = {        -- Manage directories with norg
+    -- Load default modules
+    ['core.defaults'] = {},
+    -- Allow for use of icons
+    ['core.norg.concealer'] = {},
+    -- Manage directories with norg
+    ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          my_workspace = "~/neorg"
-        }
-      }
+          work = '~/notes/work/',
+          home = '~/notes/home/',
+          gtd = '~/notes/gtd/',
+        },
+        autochdir = true,
+        index = 'index.norg',
+      },
     },
-    ['core.norg.completion'] = {    -- Completion engine
+    -- Completion engine
+    ['core.norg.completion'] = {
       config = {
-        engine = 'nvim-cmp'
-      }
+        engine = 'nvim-cmp',
+      },
     },
-    ['core.keybinds'] = {           -- Keybinds
+    -- Keybinds
+    ['core.keybinds'] = {
       config = {
         default_keybinds = true,
-        neorg_leader = '<Leader>o'
-      }
-    }
-  }
+        neorg_leader = '<Leader>o',
+      },
+    },
+    -- Getting Things Done
+    ['core.gtd.base'] = {
+      config = {
+        workspace = 'gtd',
+        inbox = 'inbox.norg',
+      },
+    },
+  },
 })

@@ -29,4 +29,3 @@ telescope.setup({
 
 -- Telescope integrations
 telescope.load_extension('project')
-telescope.load_extension('file_browser')

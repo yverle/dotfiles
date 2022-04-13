@@ -21,35 +21,23 @@ end
 
 -- Install plugins
 return require('packer').startup(function(use)
-  -- Packer can manage itself
   use({
     'wbthomason/packer.nvim',
   })
 
-  -- Improve startup time
   use({
     'lewis6991/impatient.nvim',
-  })
-
-  -- Optimise filetype.vim
-  use({
-    'nathom/filetype.nvim',
-    config = function()
-      require('dkvim.plugins.filetype')
-    end,
   })
 
   -- Themes
   use({
     'rebelot/kanagawa.nvim',
-    -- 'Th3Whit3Wolf/one-nvim',
     after = 'packer.nvim',
     config = function()
       require('dkvim.plugins.kanagawa')
     end,
   })
 
-  -- Clean and fast statusline
   use({
     'nvim-lualine/lualine.nvim',
     event = 'BufWinEnter',
@@ -62,7 +50,6 @@ return require('packer').startup(function(use)
     after = 'kanagawa.nvim',
   })
 
-  -- Notification Manager
   use({
     'rcarriga/nvim-notify',
     event = 'VimEnter',
@@ -71,14 +58,37 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- LSP configs
-  -- NOTE: Pretty sure it would be possible to load everything related to LSP in here (including cmp, snippets, etc)
   use({
     'neovim/nvim-lspconfig',
-    event = 'BufRead',
+    event = 'BufEnter',
+  })
+  use({
+    'williamboman/nvim-lsp-installer',
+    after = 'nvim-lspconfig',
     config = function()
       require('dkvim.plugins.lspconfig')
     end,
+  })
+
+  -- DAP
+  use({
+    'mfussenegger/nvim-dap',
+    event = 'BufRead',
+    config = function()
+      require('dkvim.plugins.dap')
+    end,
+  })
+  use({
+    'rcarriga/nvim-dap-ui',
+    after = 'nvim-dap',
+    config = function()
+      require('dkvim.plugins.dapui')
+    end,
+  })
+  use({
+    'leoluz/nvim-dap-go',
+    after = 'nvim-dap',
+    ft = { 'go' },
   })
 
   -- Treesitter
@@ -89,31 +99,16 @@ return require('packer').startup(function(use)
       require('dkvim.plugins.treesitter')
     end,
   })
+  use({
+    'p00f/nvim-ts-rainbow',
+    event = 'BufEnter',
+  })
 
-  -- Easily change surrounding things such as parentheses, brackets, quotes, etc. (cs"')
   use({
     'tpope/vim-surround',
     event = 'BufWinEnter',
   })
 
-  -- Zen mode (distraction free) coding
-  -- TODO: Look into Pocco81/TrueZen.nvim, I doubt there's a big difference but hey :)
-  use({
-    'folke/zen-mode.nvim',
-    cmd = { 'ZenMode' },
-    wants = { 'twilight.nvim' },
-    config = function()
-      require('dkvim.plugins.zen-mode')
-    end,
-  })
-
-  -- Dims code for extra focus (used in zen-mode)
-  use({
-    'folke/twilight.nvim',
-    cmd = { 'Twilight' },
-  })
-
-  -- Easier commenting
   use({
     'numToStr/Comment.nvim',
     event = 'BufEnter',
@@ -122,7 +117,6 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Dashboard (Requires VimEnter to start at launch)
   use({
     'goolord/alpha-nvim',
     cmd = { 'Alpha' },
@@ -132,20 +126,6 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Fast filetree
-  -- NOTE: Basically entirely replaced by Telescope in my current workflow, this will probably be deleted soon
-  use({
-    'kyazdani42/nvim-tree.lua',
-    cmd = {
-      'NvimTreeToggle',
-      'NvimTreeFocus',
-    },
-    config = function()
-      require('dkvim.plugins.nvim-tree')
-    end,
-  })
-
-  -- Which Key
   use({
     'folke/which-key.nvim',
     keys = '<leader>',
@@ -154,8 +134,6 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Better git integrations
-  -- TODO: Lazyload; Only load when in a git repo (see https://github.com/wbthomason/packer.nvim/discussions/534)
   use({
     'lewis6991/gitsigns.nvim',
     event = 'BufEnter',
@@ -167,7 +145,6 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Magit but in Neovim
   use({
     'TimUntersberger/neogit',
     cmd = { 'Neogit' },
@@ -175,22 +152,18 @@ return require('packer').startup(function(use)
       { 'nvim-lua/plenary.nvim' },
     },
   })
-
-  -- Colored braces in Treesitter
-  use({
-    'p00f/nvim-ts-rainbow',
-    event = 'BufEnter',
-  })
+  -- use({
+  --   'kdheepak/lazygit.nvim',
+  --   cmd = { 'LazyGit', 'LazyGitConfig' },
+  -- })
 
   -- Telescope
   use({
     'nvim-telescope/telescope.nvim',
-    -- cmd = { 'Telescope' },
     event = 'VimEnter',
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-project.nvim' },
-      { 'nvim-telescope/telescope-file-browser.nvim' },
     },
     config = function()
       require('dkvim.plugins.telescope')
@@ -219,24 +192,27 @@ return require('packer').startup(function(use)
     requires = {
       'rafamadriz/friendly-snippets',
     },
+    config = function()
+      require('dkvim.plugins.luasnips')
+    end,
   })
 
   -- Sql stuff
-  use({
-    'tpope/vim-dadbod',
-    cmd = 'DB',
-  })
-  use({
-    'kristijanhusak/vim-dadbod-completion',
-    after = 'vim-dadbod',
-  })
-  use({
-    'kristijanhusak/vim-dadbod-ui',
-    cmd = {
-      'DBUI',
-      'DBUIToggle',
-    },
-  })
+  -- use({
+  --   'tpope/vim-dadbod',
+  --   cmd = 'DB',
+  -- })
+  -- use({
+  --   'kristijanhusak/vim-dadbod-completion',
+  --   after = 'vim-dadbod',
+  -- })
+  -- use({
+  --   'kristijanhusak/vim-dadbod-ui',
+  --   cmd = {
+  --     'DBUI',
+  --     'DBUIToggle',
+  --   },
+  -- })
 
   -- Stabilize buffer content on window open/close events
   use({
@@ -280,15 +256,6 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Easier way to move chunks of code
-  use({
-    'booperlv/nvim-gomove',
-    event = 'VimEnter',
-    config = function()
-      require('dkvim.plugins.gomove')
-    end,
-  })
-
   -- Use Neovim as a language server
   use({
     'jose-elias-alvarez/null-ls.nvim',
@@ -299,36 +266,12 @@ return require('packer').startup(function(use)
   })
 
   -- Trying out org mode
-  -- https://github.com/vimwiki/vimwiki
-  -- https://github.com/nvim-neorg/neorg
-  -- https://github.com/stevearc/gkeep.nvim
   use({
     'nvim-neorg/neorg',
-    setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
-    ft = 'norg',
     config = function()
       require('dkvim.plugins.neorg')
     end,
-    requires = 'nvim-lua/plenary.nvim'
-  })
-
-  -- TODO: This is super cool but seems like a lot of work to configure and learn; maybe someday...
-  -- use {
-  --    'phaazon/hop.nvim',
-  --    event = 'VimEnter',
-  -- }
-  --NOTE: A potential replacememnt :)
-  -- use {
-  --    'rlane/pounce.nvim',
-  --    event = 'VimEnter',
-  -- }
-
-  use({
-    'j-hui/fidget.nvim',
-    event = 'VimEnter',
-    config = function()
-      require('fidget').setup({})
-    end,
+    requires = 'nvim-lua/plenary.nvim',
   })
 
   config = {

@@ -15,7 +15,7 @@ zen.setup({
       number = false,
       relativenumber = false,
       cursorline = false,
-      cursorcolumn = '0',
+      cursorcolumn = false,
       list = false,
     },
   },

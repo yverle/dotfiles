@@ -1,6 +1,9 @@
 if vim.fn.has('nvim-0.6') == 0 then
   error('Need NVIM 0.6+ in order to run DKVIM')
 end
+-- if vim.fn.has('nvim-0.7') == 0 then
+--   error('Need NVIM 0.7+ in order to run DKVIM')
+-- end
 
 -- Loads some predefined globals that get used in the config later
 require('dkvim.globals')
@@ -16,6 +19,9 @@ require('dkvim.commands')
 
 -- Basic settings found in lua/dkvim/settings.lua
 require('dkvim.settings')
+
+-- The pile of shame :(
+require('dkvim.workarounds')
 
 -- Only contains basic (non-plugin) keymaps, for plugin keymaps see lua/dkvim/plugins/which-key.lua
 require('dkvim.keymaps')

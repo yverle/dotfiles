@@ -28,7 +28,6 @@ vim.o.swapfile = false -- No swap files
 vim.o.writebackup = false -- No backup files
 vim.o.updatetime = 50 -- Higher updatetime leads to delays and a poor user experience
 vim.o.timeoutlen = 500 -- Faster which-key popups
-vim.o.formatoptions = 'jql' -- Remove automatic comments on new line
 vim.o.hlsearch = false -- Don't keep search results highlighed
 vim.o.incsearch = true -- Highlight search results
 vim.o.scrolloff = 5 -- Keeps the cursor more centered during scrolling
@@ -38,7 +37,9 @@ vim.o.ff = 'unix' -- Unix file endings for consistency
 vim.o.completeopt = 'menu,menuone,noselect' -- Required for nvim-cmp
 vim.o.termguicolors = true -- 256 colors!
 vim.o.showtabline = 0 -- Don't show the tabline, I personally don't use it
-
 vim.o.bg = 'dark' -- Set a dark background
 
--- command! -nargs=0 Trim call Trim()
+-- Transparant background on kanagawa
+vim.cmd([[
+autocmd ColorScheme kanagawa hi Normal guibg=NONE ctermbg=NONE
+]])

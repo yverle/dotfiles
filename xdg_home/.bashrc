@@ -74,6 +74,7 @@ fi
 ### EXPORTS
 export EDITOR='nvim'
 export VISUAL='nvim'
+export COLORTERM='truecolor'
 
 # WSL2 Vagrant
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
@@ -97,11 +98,24 @@ if [ -d "/usr/local/go/bin" ]
   then PATH="/usr/local/go/bin:$PATH"
 fi
 
+if [ -d "$HOME/go" ]
+  then PATH="$HOME/go/bin/:$PATH"
+fi
+
 if [ -d "$HOME/.nvm" ]
 then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+if [ -d "$HOME/.rbenv" ]
+  then PATH="$HOME/.rbenv/bin:$PATH"
+fi
+
+
+if [ -d "$HOME/.fzf" ]
+  then [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
 
 # WSL2 Vagrant VMware 
@@ -140,4 +154,3 @@ ex ()
 
 #eval '$(starship init bash)'
 
-. "$HOME/.cargo/env"
