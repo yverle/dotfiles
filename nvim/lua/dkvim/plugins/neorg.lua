@@ -6,7 +6,11 @@ end
 neorg.setup({
   load = {
     -- Load default modules
-    ['core.defaults'] = {},
+    ['core.defaults'] = {
+      config = {
+        disable = { 'core.norg.news' },
+      },
+    },
     -- Allow for use of icons
     ['core.norg.concealer'] = {},
     -- Manage directories with norg

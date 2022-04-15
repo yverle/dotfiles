@@ -13,7 +13,7 @@ dap.adapters.python = {
 }
 dap.configurations.python = {
   {
-    name = 'python',
+    type = 'python',
     request = 'launch',
     name = 'Launch file',
 
@@ -41,8 +41,7 @@ dap.adapters.cppdbg = {
   type = 'executable',
   command = '/opt/DAP/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
-local dap = require('dap')
-dap.configurations.cpp = {
+dap.configurations.rust = {
   {
     name = 'Launch file',
     type = 'cppdbg',
@@ -56,13 +55,13 @@ dap.configurations.cpp = {
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = true,
-    setupCommands = {
-      {
-        text = '-enable-pretty-printing',
-        description = 'enable pretty printing',
-        ignoreFailures = false,
-      },
-    },
+    -- setupCommands = {
+    --   {
+    --     text = '-enable-pretty-printing',
+    --     description = 'enable pretty printing',
+    --     ignoreFailures = false,
+    --   },
+    -- },
   },
   {
     name = 'Attach to gdbserver :1234',
@@ -79,13 +78,13 @@ dap.configurations.cpp = {
         'file'
       )
     end,
-    setupCommands = {
-      {
-        text = '-enable-pretty-printing',
-        description = 'enable pretty printing',
-        ignoreFailures = false,
-      },
-    },
+    -- setupCommands = {
+    --   {
+    --     text = '-enable-pretty-printing',
+    --     description = 'enable pretty printing',
+    --     ignoreFailures = false,
+    --   },
+    -- },
   },
 }
 
@@ -116,7 +115,7 @@ dap.configurations.javascript = {
 }
 
 -- Go (Delve)
-local godappPesent, dapgo = pcall(require, 'dap-go')
+local godapPresent, dapgo = pcall(require, 'dap-go')
 if godapPresent then
   dapgo.setup()
 end

@@ -1,15 +1,8 @@
-vim.cmd([[
-augroup DKVIM_C
-  au!
-  autocmd BufWritePre *.c :lua vim.lsp.buf.formatting_seq_sync(nil, 1000)
-augroup END
-
-setlocal formatoptions-=cro
-]])
-
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { 'c' }
--- })
--- vim.api.nvim_create_autocmd('BufWritePre', {
---   pattern = { 'c' }
--- })
+vim.api.nvim_create_augroup('DKVIM_C', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = 'DKVIM_C',
+  pattern = { '*.c' },
+  callback = function()
+    vim.lsp.buf.formatting_seq_sync(nil, 1000)
+  end,
+})

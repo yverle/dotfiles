@@ -1,6 +1,6 @@
 -- Automatically install packer (https://www.chrisatmachine.com/Neovim-2/03-plugins/)
 local install_path = vim.fn.stdpath('data')
-  .. '/site/pack/packer/start/packer.nvim'
+    .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = vim.fn.system({
     'git',
@@ -50,13 +50,20 @@ return require('packer').startup(function(use)
     after = 'kanagawa.nvim',
   })
 
-  use({
-    'rcarriga/nvim-notify',
-    event = 'VimEnter',
-    config = function()
-      vim.notify = require('notify')
-    end,
-  })
+  -- use({
+  --   'rcarriga/nvim-notify',
+  --   event = 'VimEnter',
+  --   config = function()
+  --     local notify = require('notify')
+  --     notify.setup({
+  --       level = 'error',
+  --       render = 'default',
+  --       timeout = 3000,
+  --     })
+  --
+  --     vim.noitfy = notify
+  --   end,
+  -- })
 
   use({
     'neovim/nvim-lspconfig',

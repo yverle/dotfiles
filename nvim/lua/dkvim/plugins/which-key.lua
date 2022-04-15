@@ -77,8 +77,6 @@ local opts = {
 local mappings = {
   -- Top level commands
   ['h'] = { '<cmd>Telescope help_tags<CR>', 'Show help' },
-  ['S'] = { '<cmd>Alpha<CR>', 'Show dashboard' },
-  ['z'] = { '<cmd>ZenMode<CR>', 'Toggle zen mode' },
   ['g'] = { '<cmd>Neogit<CR>', 'Toggle neogit' },
   ['t'] = { ':ToggleTerm direction=float<CR>', 'Toggle a floating terminal' },
   ['T'] = {
@@ -91,9 +89,11 @@ local mappings = {
   ['b'] = {
     name = 'buffer',
     ['.'] = { '<cmd>Telescope buffers<CR>', 'Show buffers' },
+    ['c'] = { '<cmd>bd<CR>', 'Unload buffer' },
     ['n'] = { '<cmd>bnext<CR>', 'Next buffer' },
     ['p'] = { '<cmd>bprevious<CR>', 'Previous buffer' },
   },
+  -- Code
   ['c'] = {
     name = 'code',
     ['a'] = { ':Telescope lsp_code_actions<CR>', 'Code Actions' },
@@ -103,24 +103,16 @@ local mappings = {
     ['h'] = { ':lua vim.lsp.buf.hover()<CR>', 'Show documentation' },
     ['i'] = { ':Telescope lsp_implementations<CR>', 'Jump to implementation' },
     ['S'] = { ':Telescope lsp_document_symbols<CR>', 'Show symbols' },
+    ['f'] = {
+      ':Telescope diagnostics<CR>',
+      'Show diagnostics',
+    },
     ['p'] = {
       name = 'diagnostics',
       ['n'] = { ':lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic' },
       ['p'] = {
         ':lua vim.lsp.diagnostic.goto_prev()<CR>',
         'Previous diagnostic',
-      },
-      ['s'] = {
-        ':lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>',
-        'Show diagnostic on line',
-      },
-      ['f'] = {
-        ':Telescope lsp_document_diagnostics<CR>',
-        'Show diagnostics in document',
-      },
-      ['w'] = {
-        ':Telescope lsp_workspace_diagnostics<CR>',
-        'Show diagnostics in workspace',
       },
     },
   },

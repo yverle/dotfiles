@@ -10,7 +10,7 @@ vim.o.cmdheight = 1 -- More space for displaying messages
 vim.o.mouse = 'a' -- Enable mouse
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
 vim.o.splitright = true -- Vertical splits will automatically be right
-vim.o.conceallevel = 0 -- Show backticks in Markdown
+vim.o.conceallevel = 2 -- Show backticks in Markdown
 vim.o.tabstop = 2 -- Use 2 spaces for indentation
 vim.o.softtabstop = 2 -- Use 2 spaces for indentation
 vim.o.shiftwidth = 2 -- Use 2 spaces for indentation
@@ -39,7 +39,8 @@ vim.o.termguicolors = true -- 256 colors!
 vim.o.showtabline = 0 -- Don't show the tabline, I personally don't use it
 vim.o.bg = 'dark' -- Set a dark background
 
--- Transparant background on kanagawa
 vim.cmd([[
-autocmd ColorScheme kanagawa hi Normal guibg=NONE ctermbg=NONE
+autocmd ColorScheme * hi Normal guibg=0 ctermbg=0
+autocmd FileType * set formatoptions-=cro
+autocmd FileType * setlocal formatoptions-=cro
 ]])

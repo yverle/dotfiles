@@ -127,3 +127,33 @@ vim.api.nvim_set_keymap(
   ':vertical resize +2<CR>',
   { noremap = true, silent = true }
 )
+
+-- DAP
+-- Set breakpoint
+vim.api.nvim_set_keymap(
+  'n',
+  '<F9>',
+  ':lua require("dap").toggle_breakpoint()<CR>',
+  { noremap = true, silent = true }
+)
+-- Step over
+vim.api.nvim_set_keymap(
+  'n',
+  '<F10>',
+  ':lua require("dap").step_over()<CR>',
+  { noremap = true, silent = true }
+)
+-- Step into
+vim.api.nvim_set_keymap(
+  'n',
+  '<F11>',
+  ':lua require("dap").step_into()<CR>',
+  { noremap = true, silent = true }
+)
+-- Open REPL
+vim.api.nvim_set_keymap(
+  'n',
+  '<F5>',
+  ':lua require("dap").repl.toggle()<CR>',
+  { noremap = true, silent = true }
+)
