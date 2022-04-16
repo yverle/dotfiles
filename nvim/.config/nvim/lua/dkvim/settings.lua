@@ -19,7 +19,7 @@ vim.o.smarttab = true -- Smarter tabs
 vim.o.smartindent = true -- Smarter indentation
 vim.o.autoindent = true -- Good auto indent
 vim.o.ignorecase = true --
-vim.o.laststatus = 2 -- Always display the status line
+vim.o.laststatus = 3 -- Trying the global statusline for a bit
 vim.o.number = true -- Show line numbers
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.cursorline = true -- Highlight the current line
@@ -40,7 +40,6 @@ vim.o.showtabline = 0 -- Don't show the tabline, I personally don't use it
 vim.o.bg = 'dark' -- Set a dark background
 
 vim.cmd([[
-autocmd ColorScheme * hi Normal guibg=0 ctermbg=0
 autocmd FileType * set formatoptions-=cro
 autocmd FileType * setlocal formatoptions-=cro
 ]])

@@ -1,5 +1,8 @@
+# Neovim
 alias vim='nvim'
 alias v='nvim'
+
+alias z='tmux-sessionizer'
 
 # Shortcut to go to neovim folder
 alias cdnc='cd ~/Projects/dotfiles/xdg_config/.config/nvim'

@@ -29,7 +29,6 @@ return require('packer').startup(function(use)
     'lewis6991/impatient.nvim',
   })
 
-  -- Themes
   use({
     'rebelot/kanagawa.nvim',
     after = 'packer.nvim',
@@ -221,22 +220,17 @@ return require('packer').startup(function(use)
   --   },
   -- })
 
-  -- Stabilize buffer content on window open/close events
-  use({
-    'luukvbaal/stabilize.nvim',
-    event = 'BufEnter',
-    config = function()
-      require('dkvim.plugins.stabilize')
-    end,
-  })
-
-  -- Maximise a window in a split
   use({
     'szw/vim-maximizer',
     cmd = 'MaximizerToggle',
   })
-
-  -- Highlight comments
+  use({
+    'akinsho/toggleterm.nvim',
+    cmd = 'ToggleTerm',
+    config = function()
+      require('toggleterm').setup()
+    end,
+  })
   use({
     'folke/todo-comments.nvim',
     event = 'BufEnter',
@@ -245,7 +239,13 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Keeps buffer sizing proportional
+  use({
+    'luukvbaal/stabilize.nvim',
+    event = 'BufEnter',
+    config = function()
+      require('dkvim.plugins.stabilize')
+    end,
+  })
   use({
     'kwkarlwang/bufresize.nvim',
     event = 'VimEnter',
@@ -254,25 +254,17 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Better terminals
-  use({
-    'akinsho/toggleterm.nvim',
-    cmd = 'ToggleTerm',
-    config = function()
-      require('toggleterm').setup()
-    end,
-  })
-
+  -- Temporarily removed as I haven't found a good use for it yet
   -- Use Neovim as a language server
-  use({
-    'jose-elias-alvarez/null-ls.nvim',
-    event = 'BufEnter',
-    config = function()
-      require('dkvim.plugins.null-ls')
-    end,
-  })
+  -- use({
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   event = 'BufEnter',
+  --   config = function()
+  --     require('dkvim.plugins.null-ls')
+  --   end,
+  -- })
 
-  -- Trying out org mode
+  -- Neorg for note taking and GTD
   use({
     'nvim-neorg/neorg',
     config = function()

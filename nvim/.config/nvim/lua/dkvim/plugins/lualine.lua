@@ -49,5 +49,7 @@ lualine.setup({
     lualine_y = {},
     lualine_z = {},
   },
-  extensions = { 'nvim-tree' },
+  extensions = { 'toggleterm' },
 })
+
+vim.o.laststatus = 3 -- Trying the global statusline for a bit

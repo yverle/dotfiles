@@ -1,5 +1,5 @@
 if vim.fn.has('nvim-0.7') == 0 then
-	error('Need NVIM 0.7+ in order to run DKVIM')
+  error('Need NVIM 0.7+ in order to run DKVIM')
 end
 -- if vim.fn.has('nvim-0.7') == 0 then
 --   error('Need NVIM 0.7+ in order to run DKVIM')

@@ -13,7 +13,9 @@ kanagawa.setup({
   variablebuiltinStyle = 'NONE',
   specialReturn = false,
   specialException = false,
-  transparent = false,
+  transparent = true,
+  dimInactive = false,
+  globalStatus = true,
   colors = {},
   overrides = {},
 })
