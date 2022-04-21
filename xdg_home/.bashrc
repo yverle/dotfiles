@@ -78,6 +78,7 @@ export COLORTERM='truecolor'
 
 # WSL2 Vagrant
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export PATH="$PATH:/mnt/C/Program Files (x86)/VMware/VMware Workstation"
 
 ### PATH
 if [ -d "$HOME/.bin" ]
@@ -111,13 +112,9 @@ if [ -d "$HOME/.rbenv" ]
   then PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
-
 if [ -d "$HOME/.fzf" ]
   then [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
-
-# WSL2 Vagrant VMware 
-export PATH="$PATH:/mnt/C/Program Files (x86)/VMware/VMware Workstation"
 
 # ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
