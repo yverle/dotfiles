@@ -78,8 +78,6 @@ export COLORTERM='truecolor'
 
 # WSL2 Vagrant
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-export DOCKER_HOST=tcp://127.0.0.1:2375
-
 
 ### PATH
 if [ -d "$HOME/.bin" ]
