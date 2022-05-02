@@ -65,15 +65,16 @@ return require('packer').startup(function(use)
   -- })
 
   use({
-    'neovim/nvim-lspconfig',
     event = 'BufEnter',
   })
   use({
     'williamboman/nvim-lsp-installer',
-    after = 'nvim-lspconfig',
-    config = function()
-      require('dkvim.plugins.lspconfig')
-    end,
+    {
+      'neovim/nvim-lspconfig',
+      config = function()
+        require('dkvim.plugins.lspconfig')
+      end
+    }
   })
 
   -- DAP
@@ -173,6 +174,15 @@ return require('packer').startup(function(use)
     },
     config = function()
       require('dkvim.plugins.telescope')
+    end,
+  })
+
+  -- Dressing
+  use({
+    'stevearc/dressing.nvim',
+    after = 'telescope.nvim',
+    config = function()
+      require('dkvim.plugins.dressing')
     end,
   })
 

@@ -96,54 +96,34 @@ local mappings = {
   -- Code
   ['c'] = {
     name = 'code',
-    ['a'] = { ':Telescope lsp_code_actions<CR>', 'Code Actions' },
-    ['r'] = { ':lua vim.lsp.buf.formatting()', 'Format file' },
+    ['a'] = { ':lua vim.lsp.buf.code_action()<CR>', 'Code Actions' },
+    ['r'] = { ':lua vim.lsp.buf.formatting_sync()', 'Format file' },
     ['n'] = { ':lua vim.lsp.buf.rename()<CR>', 'Rename' },
-    ['d'] = { ':Telescope lsp_definitions<CR>', 'Jump to definition' },
+    ['d'] = { ':lua vim.lsp.buf.definition()<CR>', 'Jump to definition' },
     ['h'] = { ':lua vim.lsp.buf.hover()<CR>', 'Show documentation' },
-    ['i'] = { ':Telescope lsp_implementations<CR>', 'Jump to implementation' },
-    ['S'] = { ':Telescope lsp_document_symbols<CR>', 'Show symbols' },
+    ['i'] = { ':lua vim.lsp.buf.implementation()<CR>', 'Jump to implementation' },
     ['f'] = {
       ':Telescope diagnostics<CR>',
       'Show diagnostics',
     },
     ['p'] = {
       name = 'diagnostics',
-      ['n'] = { ':lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic' },
+      ['n'] = { ':lua vim.diagnostic.goto_next()<CR>', 'Next diagnostic' },
       ['p'] = {
-        ':lua vim.lsp.diagnostic.goto_prev()<CR>',
+        ':lua vim.diagnostic.goto_prev()<CR>',
         'Previous diagnostic',
       },
     },
   },
   ['f'] = {
     name = 'file',
-    ['b'] = { ':Telescope marks<CR>', 'Show marks' },
-    ['c'] = {
-      ':e ' .. vim.fn.stdpath('config') .. '<CR>',
-      'Open neovim config',
-    },
     ['f'] = { ':Telescope find_files<CR>', 'Find files' },
-    ['e'] = {
-      ':lua require("telescope").extensions.file_browser.file_browser()<CR>',
-      'File browser',
-    },
     ['p'] = {
       ':lua require("telescope").extensions.project.project{ display_type = "full" }<CR>',
       'Find projects',
     },
     ['r'] = { ':Telescope oldfiles<CR>', 'Find recent files' },
     ['w'] = { ':Telescope live_grep<CR>', 'Find string' },
-    ['t'] = {
-      name = 'NvimTree',
-      ['t'] = { ':NvimTreeToggle<CR>', 'Toggle NvimTree' },
-      ['r'] = { ':NvimTreeRefresh<CR>', 'Refresh NvimTree' },
-    },
-  },
-  ['s'] = {
-    name = 'session',
-    ['s'] = { ':SessionSave<CR>', 'Save session' },
-    ['l'] = { ':SessionLoad<CR>', 'Load session' },
   },
   ['w'] = {
     name = 'window',
