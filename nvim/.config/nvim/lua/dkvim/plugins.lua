@@ -77,27 +77,6 @@ return require('packer').startup(function(use)
     }
   })
 
-  -- DAP
-  use({
-    'mfussenegger/nvim-dap',
-    event = 'BufRead',
-    config = function()
-      require('dkvim.plugins.dap')
-    end,
-  })
-  use({
-    'rcarriga/nvim-dap-ui',
-    after = 'nvim-dap',
-    config = function()
-      require('dkvim.plugins.dapui')
-    end,
-  })
-  use({
-    'leoluz/nvim-dap-go',
-    after = 'nvim-dap',
-    ft = { 'go' },
-  })
-
   -- Treesitter
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -121,15 +100,6 @@ return require('packer').startup(function(use)
     event = 'BufEnter',
     config = function()
       require('Comment').setup()
-    end,
-  })
-
-  use({
-    'goolord/alpha-nvim',
-    cmd = { 'Alpha' },
-    event = 'VimEnter',
-    config = function()
-      require('dkvim.plugins.alpha-nvim')
     end,
   })
 
@@ -159,10 +129,6 @@ return require('packer').startup(function(use)
       { 'nvim-lua/plenary.nvim' },
     },
   })
-  -- use({
-  --   'kdheepak/lazygit.nvim',
-  --   cmd = { 'LazyGit', 'LazyGitConfig' },
-  -- })
 
   -- Telescope
   use({
@@ -213,23 +179,6 @@ return require('packer').startup(function(use)
     end,
   })
 
-  -- Sql stuff
-  -- use({
-  --   'tpope/vim-dadbod',
-  --   cmd = 'DB',
-  -- })
-  -- use({
-  --   'kristijanhusak/vim-dadbod-completion',
-  --   after = 'vim-dadbod',
-  -- })
-  -- use({
-  --   'kristijanhusak/vim-dadbod-ui',
-  --   cmd = {
-  --     'DBUI',
-  --     'DBUIToggle',
-  --   },
-  -- })
-
   use({
     'szw/vim-maximizer',
     cmd = 'MaximizerToggle',
@@ -263,16 +212,6 @@ return require('packer').startup(function(use)
       require('bufresize').setup()
     end,
   })
-
-  -- Temporarily removed as I haven't found a good use for it yet
-  -- Use Neovim as a language server
-  -- use({
-  --   'jose-elias-alvarez/null-ls.nvim',
-  --   event = 'BufEnter',
-  --   config = function()
-  --     require('dkvim.plugins.null-ls')
-  --   end,
-  -- })
 
   -- Neorg for note taking and GTD
   use({
