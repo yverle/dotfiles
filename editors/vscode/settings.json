@@ -1,0 +1,85 @@
+{
+  // General (or misc) settings
+  "window.zoomLevel": 1,
+  "security.workspace.trust.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "zenMode.centerLayout": false,
+  "breadcrumbs.enabled": false,
+
+  // Workbench settings
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.sideBar.location": "right",
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.visible": true,
+  "workbench.layoutControl.enabled": false,
+
+  // Editor settings
+  "editor.fontFamily": "'JetBrainsMono NF', Consolas, 'Courier New', monospace",
+  "editor.lineNumbers": "relative",
+  "editor.fontLigatures": false,
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "none",
+  "editor.multiCursorModifier": "alt",
+  "editor.renderLineHighlight": "gutter",
+  "editor.wordBasedSuggestions": false,
+  "editor.overviewRulerBorder": false,
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.inlayHints.enabled": "offUnlessPressed",
+
+  // Language specific settings
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[yaml]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  // rustfmt uses tabs
+  "[rust]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+  // gofmt uses tabs
+  "[go]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": false
+  },
+  // C# uses 4 spaces wide tabs
+  "[csharp]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+
+  // Extension settings
+  "extensions.ignoreRecommendations": true,
+  "gitlens.codeLens.enabled": true,
+  "redhat.telemetry.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "svelte.ask-to-enable-ts-plugin": false,
+  "svelte.enable-ts-plugin": true,
+}

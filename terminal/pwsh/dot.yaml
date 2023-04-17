@@ -1,0 +1,23 @@
+windows:
+  links:
+    Profile.ps1:
+      - ~/Documents/WindowsPowerShell/Profile.ps1
+      - ~/Documents/PowerShell/Profile.ps1
+    powershell.config.json:
+      - ~/Documents/WindowsPowershell/powershell.config.json
+      - ~/Documents/Powershell/powershell.config.json
+
+  depends:
+    - ../tools/git
+    - ../tools/fzf
+
+  installs: |
+      winget install Microsoft.PowerShell;
+      pwsh -C ~\.dotfiles\terminal\pwsh\test.ps1
+
+linux|darwin:
+  links:
+    Profile.ps1: ~/.config/powershell/profile.ps1
+    powershell.config.json: ~/.config/powershell/powershell.config.json
+
+  installs: false

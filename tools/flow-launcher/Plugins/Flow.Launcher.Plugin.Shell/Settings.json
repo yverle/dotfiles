@@ -1,0 +1,13 @@
+{
+  "Shell": 1,
+  "ReplaceWinR": false,
+  "LeaveShellOpen": false,
+  "RunAsAdministrator": true,
+  "ShowOnlyMostUsedCMDs": false,
+  "ShowOnlyMostUsedCMDsNumber": 5,
+  "CommandHistory": {
+    "Write-Host \u0027abc\u0027": 1,
+    "explorer C:": 1,
+    "explorer c:": 1
+  }
+}

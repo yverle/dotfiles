@@ -1,0 +1,2 @@
+windows:
+  installs: choco install zig

@@ -1,0 +1,7 @@
+global:
+  installs: false
+
+linux:
+  links:
+    .bashrc: ~/.bashrc
+    .bash_aliasses: ~/.bash_aliasses

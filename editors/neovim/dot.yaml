@@ -1,0 +1,26 @@
+windows:
+  links:
+    lua: ~\AppData\Local\nvim\lua
+    after: ~\AppData\Local\nvim\after
+    init.lua: ~\AppData\Local\nvim\init.lua
+    .stylua.toml: ~\AppData\Local\nvim\.stylua.toml
+
+  depends:
+    - ../terminal/pwsh
+    - ../tools/git
+    - ../tools/fzf
+    - ../tools/fd
+
+  installs: winget install Neovim.Neovim
+  # installs: choco install neovim
+
+linux|darwin:
+  links:
+    lua: ~/.config/nvim/lua
+    after: ~/.config/nvim/after
+    init.lua: ~/.config/nvim/init.lua
+    .stylua.toml: ~/.config/nvim/.stylua.toml
+
+  depends:
+    - ../tools/git
+    - ../tools/fzf

@@ -1,0 +1,5 @@
+windows:
+  installs:
+    cmd: choco install {{ name }}
+    depends:
+      - choco
