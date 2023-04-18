@@ -11,8 +11,7 @@ windows:
     - ../tools/fzf
     - ../tools/fd
 
-  installs: winget install Neovim.Neovim
-  # installs: choco install neovim
+  installs: winget install --silent --no-upgrade Neovim.Neovim
 
 linux|darwin:
   links:

@@ -24,10 +24,10 @@
   "TimeFormat": "hh:mm tt",
   "DateFormat": "MM\u0027/\u0027dd ddd",
   "FirstLaunch": false,
-  "SettingWindowWidth": 2576,
-  "SettingWindowHeight": 1408,
-  "SettingWindowTop": 202,
-  "SettingWindowLeft": -74,
+  "SettingWindowWidth": 1936,
+  "SettingWindowHeight": 1048,
+  "SettingWindowTop": 358,
+  "SettingWindowLeft": 2561,
   "SettingWindowState": 2,
   "CustomExplorerIndex": 0,
   "CustomExplorerList": [
@@ -103,7 +103,7 @@
   "WindowLeft": 990,
   "WindowTop": 336,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 628,
+  "ActivateTimes": 693,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -124,9 +124,9 @@
   },
   "LastQueryMode": "Empty",
   "PluginSettings": {
-    "PythonExecutablePath": "C:\\Users\\yenti\\AppData\\Roaming\\FlowLauncher\\Environments\\Python\\PythonEmbeddable-v3.8.9\\pythonw.exe",
-    "NodeExecutablePath": "",
-    "PythonDirectory": "C:\\Users\\yenti\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0",
+    "PythonExecutablePath": "C:\\Users\\yenti\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+    "NodeExecutablePath": "C:\\Program Files\\nodejs\\node.exe",
+    "PythonDirectory": "C:\\Users\\yenti\\AppData\\Local\\Programs\\Python\\Python311",
     "Plugins": {
       "0ECADE17459B49F587BF81DC3A125110": {
         "ID": "0ECADE17459B49F587BF81DC3A125110",
@@ -263,6 +263,16 @@
         "Version": "1.1.2",
         "ActionKeywords": [
           "sp"
+        ],
+        "Priority": 0,
+        "Disabled": false
+      },
+      "625A2812D5364D708582FDD9ACCD8C93": {
+        "ID": "625A2812D5364D708582FDD9ACCD8C93",
+        "Name": "Playnite",
+        "Version": "2.0.0",
+        "ActionKeywords": [
+          "pn"
         ],
         "Priority": 0,
         "Disabled": false

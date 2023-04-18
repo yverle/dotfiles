@@ -1,2 +1,2 @@
 windows:
-  installs: winget install junegunn.fzf
+  installs: winget install --silent --no-upgrade junegunn.fzf

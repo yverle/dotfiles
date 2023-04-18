@@ -1,0 +1,21 @@
+windows:
+  depends:
+    - ../tools/git
+
+  installs: |
+    # Clone to temporary directory and CD into it
+    git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git "$env:TEMP\nerd-fonts"
+    Push-Location $env:TEMP\nerd-fonts
+
+    # Change ExecutionPolicy for current session as install.ps1 isn't signed
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -force
+
+    # Install fonts
+    ./install.ps1 CascadiaCode, JetBrainsMono, Mononoki  -WindowsCompatibleOnly
+
+    # Get back to previous directory to ensure nothing gets messed up
+    Pop-Location
+
+# TODO:
+# linux|darwin:
+#   installs: 

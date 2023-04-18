@@ -1,0 +1,5 @@
+# Only on Linux/Darwin sadly enough
+# Maybe someday zelij will get a Windows port
+# TODO:
+linux|darwin:
+  installs: 

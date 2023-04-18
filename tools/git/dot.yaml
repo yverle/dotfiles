@@ -1,2 +1,4 @@
 windows:
-  installs: winget install Git.Git
+  installs: winget install --silent --no-upgrade Git.Git
+
+# TODO: Linux/Darwin

@@ -1,2 +1,7 @@
+# Only on Windows
 windows:
-  installs: winget install Flow-Launcher.Flow-Launcher
+  links:
+    Settings.json: ~\AppData\Roaming\FlowLauncher\Settings\Settings.json
+    Plugins: ~\AppData\Roaming\FlowLauncher\Settings\Plugins
+
+  installs: winget install --silent --no-upgrade Flow-Launcher.Flow-Launcher

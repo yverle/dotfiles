@@ -2,7 +2,7 @@ windows:
   # installs:
   #   cmd: choco install rustup
   #   depends: ../tools/choco
-  installs: winget install Rustlang.Rustup
+  installs: winget install --silent --no-upgrade Rustlang.Rustup
 
 linux|darwin:
   installs: curl https://sh.rustup.rs -sSf | sh -s -- -y

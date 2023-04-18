@@ -1,2 +1,2 @@
 windows:
-  installs: choco install zig
+  installs: choco install zig -y

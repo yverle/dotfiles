@@ -7,8 +7,7 @@ windows:
     - ../terminal/pwsh
     - ../tools/git
 
-  # installs: winget install Microsoft.VisualStudioCode
-  installs: false
+  installs: winget install --silent --no-upgrade Microsoft.VisualStudioCode
 
 linux:
   links:

@@ -7,6 +7,14 @@
             "command": 
             {
                 "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
                 "direction": "left"
             },
             "keys": "ctrl+shift+h"
@@ -19,29 +27,13 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
                 "direction": "up"
             },
             "keys": "ctrl+shift+k"
         },
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": 
@@ -62,11 +54,10 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
+                "action": "copy",
+                "singleLine": false
             },
-            "keys": "alt+shift+d"
+            "keys": "ctrl+c"
         },
         {
             "command": "unbound",
@@ -139,6 +130,15 @@
         {
             "command": "unbound",
             "keys": "alt+shift+plus"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
         },
         {
             "command": 
@@ -226,16 +226,10 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{bd8e416f-d552-54e6-b30f-6b477ba6a74b}",
+                "guid": "{aab79973-318f-43b6-a9bc-b4096493753f}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{78e9ca1a-c4df-553b-ab46-7918feff4709}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
+                "name": "Nushell",
+                "source": "nu"
             }
         ]
     },

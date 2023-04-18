@@ -9,4 +9,4 @@ windows:
   depends:
     - pwsh
 
-  installs: winget install Microsoft.WindowsTerminal
+  installs: winget install --silent --no-upgrade Microsoft.WindowsTerminal

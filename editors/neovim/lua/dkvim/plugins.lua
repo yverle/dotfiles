@@ -237,17 +237,20 @@ local plugins = {
     end,
   },
   -- f/F/t/T on steroids
+  -- TODO: When trying to jump to a 'p' symbol I'm pasting from my buffer, is this a bug or is my config wrong?
   {
     'ggandor/flit.nvim',
-    keys = function()
-      local ret = {}
-      for _, key in ipairs { 'f', 'F', 't', 'T' } do
-        ret[#ret + 1] = { key, mode = { 'n', 'x', 'o' }, desc = key }
-      end
-      return ret
-    end,
+    -- keys = function()
+    --   local ret = {}
+    --   for _, key in ipairs { 'f', 'F', 't', 'T' } do
+    --     ret[#ret + 1] = { key, mode = { 'n', 'x', 'o' }, desc = key }
+    --   end
+    --   return ret
+    -- end,
     opts = {
-      labeled_modes = 'nx',
+      keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+      labeled_modes = 'nvx',
+      multiline = true,
     }
   },
 

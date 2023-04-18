@@ -1,2 +1,2 @@
 windows:
-  installs: winget install sharkdp.fd
+  installs: winget install --silent --no-upgrade sharkdp.fd
