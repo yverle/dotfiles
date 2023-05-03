@@ -38,8 +38,8 @@
 	{	
 		import 'imports/static.nss'
 		item(where=this.title.length > 25 menu=title.more_options)
+		item(type='*' find='"winrar"' menu="Zip")
 	}
-
 	dynamic
 	{
 		menu(mode="multiple" title="Pin/Unpin" image=icon.pin) { }

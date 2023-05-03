@@ -162,7 +162,7 @@ local plugins = {
     opts = {
       load = {
         ["core.defaults"] = {},
-        ["core.norg.concealer"] = {
+        ["core.concealer"] = {
           config = {
             dim_code_blocks = {
               adaptive = false,
@@ -174,7 +174,7 @@ local plugins = {
           }
         },
         ["core.export"] = {},
-        ["core.norg.dirman"] = {
+        ["core.dirman"] = {
           config = {
             workspaces = {
               notes = "$HOME/notes",
@@ -183,13 +183,13 @@ local plugins = {
             index = 'index.norg',
           },
         },
-        ['core.norg.completion'] = {
+        ['core.completion'] = {
           config = {
             engine = 'nvim-cmp',
             name = '[Neorg]',
           },
         },
-        ['core.norg.journal'] = {
+        ['core.journal'] = {
           config = {
             strategy = 'flat',
           },
