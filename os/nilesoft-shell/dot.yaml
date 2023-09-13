@@ -2,13 +2,13 @@
 windows:
   installs: winget install --silent --no-upgrade Nilesoft.Shell
   
-  # hooks:
-  #   install:
-  #     post: |
-  #       shell -register -init
-  #       shell -restart
-  #   link:
-  #     post: shell -restart
+  hooks:
+    install:
+      post: |
+        shell -register -init
+        shell -restart
+    link:
+      post: shell -restart
 
   links:
     shell.nss: 'C:\Program Files\Nilesoft Shell\shell.nss'

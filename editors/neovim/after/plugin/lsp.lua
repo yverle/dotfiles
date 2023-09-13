@@ -1,7 +1,17 @@
+require('luasnip.loaders.from_vscode').lazy_load()
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(_, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
+  local opts = { buffer = bufnr, remap = false }
+
+  lsp_zero.default_keymaps(opts)
+
+  vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set('n', '<leader>cd', function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set('n', '<leader>cws', function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set('n', '<leader>crr', function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set('n', '<leader>crn', function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 -- Setup mason so it can manage external tooling
@@ -17,33 +27,30 @@ require('mason-lspconfig').setup({
   }
 })
 
--- Set PSE path to where mason extracts it
--- require("lspconfig").powershell_es.setup({
---     bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services/"
--- })
-
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_format = lsp_zero.cmp_format()
+local cmp_action = lsp_zero.cmp_action()
 
-cmp.setup {
+cmp.setup({
   formatting = cmp_format,
-  -- snippet = {
-  --   expand = function(args)
-  --     luasnip.lsp_expand(args.body)
-  --   end,
-  -- },
-  mapping = cmp.mapping.preset.insert {
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+  }),
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'buffer' },
+    { name = 'path' },
+    { name = 'luasnip' },
   },
-  -- sources = {
-  --   { name = 'nvim_lsp' },
-  --   { name = 'luasnip' },
-  -- },
-}
+})
