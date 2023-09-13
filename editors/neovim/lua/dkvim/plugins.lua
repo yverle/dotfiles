@@ -15,24 +15,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- LSP Configuration & Plugins
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
-    },
-  },
+  -- LSP Support
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x', },
+  { 'neovim/nvim-lspconfig' },
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim' },
 
   -- Autocompletion
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'L3MON4D3/LuaSnip' },
 
   -- Highlight, edit, and navigate code
   {
@@ -42,6 +34,7 @@ local plugins = {
     end,
   },
 
+  -- Better terminal
   {
     'akinsho/toggleterm.nvim',
     keys = {
@@ -52,12 +45,6 @@ local plugins = {
     cmd = 'ToggleTerm',
     version = "*",
     opts = {},
-  },
-
-  -- Additional text objects via treesitter
-  {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    -- dependencies = 'nvim-treesitter',
   },
 
   -- Git related plugins
@@ -130,7 +117,7 @@ local plugins = {
   -- Change surroundings without getting artritis
   {
     'kylechui/nvim-surround',
-    event = 'BufReadPre',
+    -- event = 'BufReadPre',
     opts = {},
   },
   -- Manages hlsearch
@@ -153,55 +140,7 @@ local plugins = {
     end
   },
 
-  -- I am once again trying this
-  {
-    'nvim-neorg/neorg',
-    ft = 'norg',
-    cmd = 'Neorg',
-    -- dependencies = 'nvim-treesitter',
-    opts = {
-      load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {
-          config = {
-            dim_code_blocks = {
-              adaptive = false,
-              conceal = false,
-              content_only = true,
-              enabled = true,
-            },
-            folds = false,
-          }
-        },
-        ["core.export"] = {},
-        ["core.dirman"] = {
-          config = {
-            workspaces = {
-              notes = "$HOME/notes",
-            },
-            default_workspace = 'notes',
-            index = 'index.norg',
-          },
-        },
-        ['core.completion'] = {
-          config = {
-            engine = 'nvim-cmp',
-            name = '[Neorg]',
-          },
-        },
-        ['core.journal'] = {
-          config = {
-            strategy = 'flat',
-          },
-        },
-      },
-    },
-    build = ":Neorg sync-parsers",
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-
   -- Enhanced jumplist
-  -- TODO: Do I care about this?
   {
     'cbochs/portal.nvim',
     keys = {
@@ -257,20 +196,11 @@ local plugins = {
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      -- 'nvim-telescope/telescope-project.nvim'
-      -- 'benfowler/telescope-luasnip.nvim'
     },
   },
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = vim.fn.executable 'make' == 1
-  }
 }
 
 local opts = {}

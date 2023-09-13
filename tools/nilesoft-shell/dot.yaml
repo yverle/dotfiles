@@ -1,6 +1,0 @@
-# Only on Windows
-windows:
-  links:
-    shell.nss: 'C:\Program Files\Nilesoft Shell\shell.nss'
-
-  installs: winget install --silent --no-upgrade Nilesoft.Shell

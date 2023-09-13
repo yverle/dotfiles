@@ -1,7 +1,0 @@
-# Only on Windows
-windows:
-  links:
-    Settings.json: ~\AppData\Roaming\FlowLauncher\Settings\Settings.json
-    Plugins: ~\AppData\Roaming\FlowLauncher\Settings\Plugins
-
-  installs: winget install --silent --no-upgrade Flow-Launcher.Flow-Launcher

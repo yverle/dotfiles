@@ -15,7 +15,7 @@
 				//opacity=85
 				//effect=1
 			}
-			image.align = 2// 0 = checked, 1 = image, 2 = both
+			image.align = 1// 0 = checked, 1 = image, 2 = both
 		}
 
 		tip
@@ -38,7 +38,6 @@
 	{	
 		import 'imports/static.nss'
 		item(where=this.title.length > 25 menu=title.more_options)
-		item(type='*' find='"winrar"' menu="Zip")
 	}
 	dynamic
 	{
