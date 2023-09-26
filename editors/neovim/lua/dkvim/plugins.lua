@@ -43,18 +43,65 @@ local plugins = {
     end,
   },
 
-  -- Better terminal
+  -- Neorg
   {
-    'akinsho/toggleterm.nvim',
-    keys = {
-      { '<leader>tt', '<cmd>ToggleTerm direction=float<CR>',      desc = '{ToggleTerm} floating' },
-      { '<leader>th', '<cmd>ToggleTerm direction=horizontal<CR>', desc = '{ToggleTerm} horizontal' },
-      { '<leader>tv', '<cmd>ToggleTerm direction=vertical<CR>',   desc = '{ToggleTerm} vertical' },
+    'nvim-neorg/neorg',
+    ft = 'norg',
+    cmd = 'Neorg',
+    opts = {
+      load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = {
+          config = {
+            dim_code_blocks = {
+              adaptive = false,
+              conceal = false,
+              content_only = true,
+              enabled = true,
+            },
+            folds = false,
+          }
+        },
+        ["core.export"] = {},
+        ["core.dirman"] = {
+          config = {
+            workspaces = {
+              notes = "$HOME/notes",
+            },
+            default_workspace = 'notes',
+            index = 'index.norg',
+          },
+        },
+        ['core.completion'] = {
+          config = {
+            engine = 'nvim-cmp',
+            name = '[Neorg]',
+          },
+        },
+        ['core.journal'] = {
+          config = {
+            strategy = 'flat',
+          },
+        },
+      },
     },
-    cmd = 'ToggleTerm',
-    version = "*",
-    opts = {},
+    build = ":Neorg sync-parsers",
+    dependencies = { 'nvim-lua/plenary.nvim' }
   },
+
+  -- Better terminal
+  -- Not required anymore but I do wanna keep it around for a bit
+  -- {
+  --   'akinsho/toggleterm.nvim',
+  --   keys = {
+  --     { '<leader>tt', '<cmd>ToggleTerm direction=float<CR>',      desc = '{ToggleTerm} floating' },
+  --     { '<leader>th', '<cmd>ToggleTerm direction=horizontal<CR>', desc = '{ToggleTerm} horizontal' },
+  --     { '<leader>tv', '<cmd>ToggleTerm direction=vertical<CR>',   desc = '{ToggleTerm} vertical' },
+  --   },
+  --   cmd = 'ToggleTerm',
+  --   version = "*",
+  --   opts = {},
+  -- },
 
   -- Git related plugins
   { 'tpope/vim-fugitive' },

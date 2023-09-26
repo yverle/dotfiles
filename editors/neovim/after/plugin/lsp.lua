@@ -30,7 +30,6 @@ require('mason-lspconfig').setup({
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_format = lsp_zero.cmp_format()
-local cmp_action = lsp_zero.cmp_action()
 
 cmp.setup({
   formatting = cmp_format,
