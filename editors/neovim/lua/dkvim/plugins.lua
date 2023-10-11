@@ -140,10 +140,13 @@ local plugins = {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
+    main = 'ibl',
     opts = {
-      char = '┊',
-      filetype_exclude = { 'help', 'lazy' },
-      show_trailing_blankline_indent = false,
+      indent = { char = "┊" },
+      whitespace = {
+        remove_blankline_trail = true,
+      },
+      scope = { enabled = false },
     }
   },
   -- "gc" to comment visual regions/lines

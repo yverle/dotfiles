@@ -64,6 +64,5 @@ vim.api.nvim_create_autocmd('TermOpen', {
   group = 'NeovimTerminal',
 })
 
-
 -- Add a colorcolumn
 vim.opt.colorcolumn = '80'
