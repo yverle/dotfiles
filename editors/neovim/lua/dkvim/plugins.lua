@@ -43,66 +43,6 @@ local plugins = {
     end,
   },
 
-  -- Neorg
-  {
-    'nvim-neorg/neorg',
-    ft = 'norg',
-    cmd = 'Neorg',
-    opts = {
-      load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {
-          config = {
-            dim_code_blocks = {
-              adaptive = false,
-              conceal = false,
-              content_only = true,
-              enabled = true,
-            },
-            folds = false,
-          }
-        },
-        ["core.export"] = {},
-        ["core.dirman"] = {
-          config = {
-            workspaces = {
-              notes = "$HOME/notes",
-            },
-            default_workspace = 'notes',
-            index = 'index.norg',
-          },
-        },
-        ['core.completion'] = {
-          config = {
-            engine = 'nvim-cmp',
-            name = '[Neorg]',
-          },
-        },
-        ['core.journal'] = {
-          config = {
-            strategy = 'flat',
-          },
-        },
-      },
-    },
-    build = ":Neorg sync-parsers",
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-
-  -- Better terminal
-  -- Not required anymore but I do wanna keep it around for a bit
-  -- {
-  --   'akinsho/toggleterm.nvim',
-  --   keys = {
-  --     { '<leader>tt', '<cmd>ToggleTerm direction=float<CR>',      desc = '{ToggleTerm} floating' },
-  --     { '<leader>th', '<cmd>ToggleTerm direction=horizontal<CR>', desc = '{ToggleTerm} horizontal' },
-  --     { '<leader>tv', '<cmd>ToggleTerm direction=vertical<CR>',   desc = '{ToggleTerm} vertical' },
-  --   },
-  --   cmd = 'ToggleTerm',
-  --   version = "*",
-  --   opts = {},
-  -- },
-
   -- Git related plugins
   { 'tpope/vim-fugitive' },
   {
@@ -115,8 +55,9 @@ local plugins = {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
-    }
+    },
   },
+
   -- Fancier statusline
   {
     'nvim-lualine/lualine.nvim',
@@ -134,8 +75,12 @@ local plugins = {
         always_divide_middle = true,
         globalstatus = true,
       },
+      sections = {
+        lualine_b = { 'grapple' }
+      }
     },
   },
+
   -- Add indentation guides even on blank lines
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -147,12 +92,17 @@ local plugins = {
         remove_blankline_trail = true,
       },
       scope = { enabled = false },
-    }
+    },
+  },
+  -- Better highlighting in md, org and norg files
+  {
+    'lukas-reineke/headlines.nvim',
+    opts = {},
   },
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
-    opts = {}
+    opts = {},
   },
   -- Theme, configuration is done in after/plugin/colors.lua as transparancy doesn't work otherwise
   {
@@ -168,7 +118,7 @@ local plugins = {
         comments = { italic = false },
         sidebars = 'transparent',
         floats = 'transparant'
-      }
+      },
     },
   },
   -- Detect tabstop and shiftwidth automatically
@@ -196,7 +146,34 @@ local plugins = {
       vim.keymap.set('n', '<A-S-j>', require('smart-splits').resize_down, { desc = 'Resize left split' })
       vim.keymap.set('n', '<A-S-k>', require('smart-splits').resize_up, { desc = 'Resize above split' })
       vim.keymap.set('n', '<A-S-l>', require('smart-splits').resize_right, { desc = 'Resize right split' })
-    end
+    end,
+  },
+
+  -- Directory management
+  {
+    'stevearc/oil.nvim',
+    config = {},
+    enabled = true,
+    opts = {},
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+
+  -- Harpoon but not really
+  {
+    'cbochs/grapple.nvim',
+    config = function()
+      -- vim.keymap.set('n', '<leader>gm', '<cmd>require('grapple').toggle', { desc = '{Grapple} Toggle tag' })
+      -- vim.keymap.set('n', '<leader>gM', '<cmd>require('grapple').toggle_tags', { desc = '{Grapple} Toggle tags' })
+      -- vim.keymap.set('n', '<leader>gs', '<cmd>require('grapple').toggle_scopes', { desc = '{Grapple} Toggle scopes' })
+      vim.keymap.set('n', '<leader>gm', '<cmd>Grapple toggle<CR>', { desc = '{Grapple} Toggle tag' })
+      vim.keymap.set('n', '<leader>gM', '<cmd>Grapple toggle_tags<CR>', { desc = '{Grapple} Toggle tags' })
+      vim.keymap.set('n', '<leader>gs', '<cmd>Grapple toggle_scopes<CR>', { desc = '{Grapple} Toggle scopes' })
+      vim.keymap.set('n', '<leader>g1', '<cmd>Grapple select index=1<CR>', { desc = '{Grapple} select 1' })
+      vim.keymap.set('n', '<leader>g2', '<cmd>Grapple select index=2<CR>', { desc = '{Grapple} select 2' })
+      vim.keymap.set('n', '<leader>g3', '<cmd>Grapple select index=3<CR>', { desc = '{Grapple} select 3' })
+    end,
+    enabled = true,
+    opts = {},
   },
 
   -- Enhanced jumplist
@@ -209,11 +186,10 @@ local plugins = {
       { 'g,',    '<cmd>Portal changelist forward<CR>',  desc = '{Portal} change forwards' },
     },
     dependencies = {
-      'ThePrimeagen/harpoon',
       'cbochs/grapple.nvim',
     },
     enabled = true,
-    opts = {}
+    opts = {},
   },
   -- s on steroids
   {
@@ -249,7 +225,7 @@ local plugins = {
       keys = { f = 'f', F = 'F', t = 't', T = 'T' },
       labeled_modes = 'nvx',
       multiline = true,
-    }
+    },
   },
 
   -- Fuzzy Finder (files, lsp, etc)

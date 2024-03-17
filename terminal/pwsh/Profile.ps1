@@ -14,3 +14,6 @@ Set-PSFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 # PSReadline
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadlineOption -ShowToolTips
+
+# Zoxide
+Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })

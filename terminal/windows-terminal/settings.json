@@ -4,6 +4,13 @@
     "actions": 
     [
         {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "down"
+            }
+        },
+        {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
@@ -15,10 +22,17 @@
             }
         },
         {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "openSystemMenu"
+        },
+        {
             "command": 
             {
                 "action": "resizePane",
-                "direction": "down"
+                "direction": "up"
             }
         },
         {
@@ -32,13 +46,9 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "up"
+                "action": "moveFocus",
+                "direction": "down"
             }
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
         },
         {
             "command": 
@@ -50,17 +60,17 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
-            }
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            }
         },
         {
             "command": "unbound",
@@ -261,6 +271,13 @@
         {
             "command": 
             {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -304,28 +321,11 @@
             "keys": "ctrl+shift+2"
         },
         {
-            "command": "openSystemMenu"
-        },
-        {
             "command": 
             {
                 "action": "moveFocus",
                 "direction": "up"
             }
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "down"
-            }
-        },
-        {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+down"
         },
         {
             "command": 
@@ -434,6 +434,18 @@
                 "hidden": false,
                 "name": "Nushell",
                 "source": "nu"
+            },
+            {
+                "guid": "{9c21bb79-afc4-5b01-96f0-6177bcdc86a6}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 (2)",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{4fe6f0c1-73df-55f2-be2e-3538991e9b65}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 (2)",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -716,50 +728,6 @@
             "yellow": "#808000"
         }
     ],
-    "themes": 
-    [
-        {
-            "name": "legacyDark",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "dark",
-                "useMica": false
-            }
-        },
-        {
-            "name": "legacyLight",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "light",
-                "useMica": false
-            }
-        },
-        {
-            "name": "legacySystem",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "system",
-                "useMica": false
-            }
-        }
-    ],
+    "themes": [],
     "useAcrylicInTabRow": true
 }

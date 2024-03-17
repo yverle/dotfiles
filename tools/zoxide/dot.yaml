@@ -1,0 +1,6 @@
+windows:
+  installs: winget install --silent --no-upgrade ajeetdsouza.zoxide
+
+# TODO: Linux/Darwin
+# linux|darwin:
+#   installs: curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
