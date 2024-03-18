@@ -66,12 +66,13 @@ err_if_not(srcPath, srcPath .. 'not found')
 
 local search_folders = {
   srcPath,
-  home .. '.dotfiles'
+  home
 }
 
 M.start = function(window, pane)
   local projects = {}
-  local cmd = merge_tables({ fd, '-HI', '-td', '--max-depth=1', '.' }, search_folders)
+  -- local cmd = merge_tables({ fd, '-HI', '-td', '^.git$', '--max-depth=3', '.' }, search_folders)
+  local cmd = merge_tables({ fd, '-HI', '-td', '^.git$', '--max-depth=3' }, search_folders)
   wezterm.log_info 'cmd: '
   wezterm.log_info(cmd)
 
@@ -86,9 +87,9 @@ M.start = function(window, pane)
   end
 
   for line in stdout:gmatch '([^\n]*)\n?' do
-    local project = normalize_path(line)
+    local project = normalize_path(line):gsub('/.git/$', '')
     local label = project
-    local id = project
+    local id = project:gsub('.*/', '')
     table.insert(projects, { label = tostring(label), id = tostring(id) })
   end
 
