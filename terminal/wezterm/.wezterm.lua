@@ -63,7 +63,7 @@ config.keys = {
     { key = 'c',          mods = 'SHIFT|CTRL',   action = wezterm.action.CopyTo 'Clipboard' },
 
     { key = 's',          mods = 'LEADER',       action = wezterm.action_callback(sessionizer.start) },
-    { key = 'l',          mods = 'ALT',          action = wezterm.action.ShowLauncherArgs { flags = 'WORKSPACES|FUZZY' } },
+    { key = 'w',          mods = 'LEADER',          action = wezterm.action.ShowLauncherArgs { flags = 'WORKSPACES|FUZZY' } },
     { key = 'Tab',        mods = 'LEADER',       action = wezterm.action.ShowLauncher },
 
     { key = '+',          mods = 'SHIFT|CTRL',   action = wezterm.action.IncreaseFontSize },
