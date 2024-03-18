@@ -1,0 +1,12 @@
+global:
+  installs: false
+
+windows:
+  links:
+    .wezterm: ~/.wezterm
+    .wezterm.lua: ~/.wezterm.lua
+
+  depends:
+    - ../tools/fd
+
+  installs: winget install --silent --no-upgrade wez.wezterm
