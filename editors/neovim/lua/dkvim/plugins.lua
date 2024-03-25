@@ -15,36 +15,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- LSP Support
-  { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x', },
-  { 'neovim/nvim-lspconfig' },
-  { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
+  -- Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth', },
 
-  -- Autocompletion
-  { 'hrsh7th/nvim-cmp' },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-nvim-lua' },
-  { 'saadparwaiz1/cmp_luasnip' },
-
-  -- Snippets
+  -- "gc" to comment visual regions/lines
   {
-    'L3MON4D3/LuaSnip',
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    'numToStr/Comment.nvim',
+    opts = {},
   },
 
-  -- Highlight, edit, and navigate code
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-  },
-
-  -- Git related plugins
-  { 'tpope/vim-fugitive' },
+  -- Adds git related signs to the gutter
   {
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -57,6 +37,31 @@ local plugins = {
       },
     },
   },
+
+  -- Autoformat
+  {
+    'stevearc/conform.nvim',
+  },
+
+  -- Theme
+  {
+    'folke/tokyonight.nvim',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'tokyonight-night'
+    end,
+  },
+
+  -- Highlight TODO's and notes in comments
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false }
+  },
+
+  -- Git related plugins
+  { 'tpope/vim-fugitive' },
 
   -- Fancier statusline
   {
@@ -81,48 +86,11 @@ local plugins = {
     },
   },
 
-  -- Add indentation guides even on blank lines
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    event = { 'BufReadPost', 'BufNewFile' },
-    main = 'ibl',
-    opts = {
-      indent = { char = "┊" },
-      whitespace = {
-        remove_blankline_trail = true,
-      },
-      scope = { enabled = false },
-    },
-  },
   -- Better highlighting in md, org and norg files
   {
     'lukas-reineke/headlines.nvim',
     opts = {},
   },
-  -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
-  -- Theme, configuration is done in after/plugin/colors.lua as transparancy doesn't work otherwise
-  {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {
-      style = 'storm',
-      light_style = 'day',
-      transparent = true,
-      terminal_colors = true,
-      styles = {
-        comments = { italic = false },
-        sidebars = 'transparent',
-        floats = 'transparant'
-      },
-    },
-  },
-  -- Detect tabstop and shiftwidth automatically
-  { 'tpope/vim-sleuth', },
   -- Change surroundings without getting artritis
   {
     'kylechui/nvim-surround',
@@ -155,7 +123,9 @@ local plugins = {
     config = {},
     enabled = true,
     opts = {},
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    },
   },
 
   -- Harpoon but not really
@@ -228,14 +198,12 @@ local plugins = {
     },
   },
 
-  -- Fuzzy Finder (files, lsp, etc)
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-  },
+  -- { import = 'plugins' }
+  require 'dkvim.plugins.debug',
+  require 'dkvim.plugins.lsp',
+  require 'dkvim.plugins.cmp',
+  require 'dkvim.plugins.telescope',
+  require 'dkvim.plugins.treesitter',
 }
 
 local opts = {}
