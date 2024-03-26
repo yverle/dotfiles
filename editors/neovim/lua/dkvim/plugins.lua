@@ -24,32 +24,9 @@ local plugins = {
     opts = {},
   },
 
-  -- Adds git related signs to the gutter
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
-
   -- Autoformat
   {
     'stevearc/conform.nvim',
-  },
-
-  -- Theme
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'tokyonight-night'
-    end,
   },
 
   -- Highlight TODO's and notes in comments
@@ -60,45 +37,22 @@ local plugins = {
     opts = { signs = false }
   },
 
-  -- Git related plugins
-  { 'tpope/vim-fugitive' },
-
-  -- Fancier statusline
-  {
-    'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-        disabled_filetypes = {
-          statusline = { 'lazy' },
-          winbar = { 'help', 'lazy' },
-        },
-        always_divide_middle = true,
-        globalstatus = true,
-      },
-      sections = {
-        lualine_b = { 'grapple' }
-      }
-    },
-  },
-
   -- Better highlighting in md, org and norg files
   {
     'lukas-reineke/headlines.nvim',
     opts = {},
   },
+
   -- Change surroundings without getting artritis
   {
     'kylechui/nvim-surround',
     -- event = 'BufReadPre',
     opts = {},
   },
+
   -- Manages hlsearch
   { 'asiryk/auto-hlsearch.nvim', opts = {} },
+
   -- Splits for normal people
   {
     'mrjones2014/smart-splits.nvim',
@@ -132,9 +86,6 @@ local plugins = {
   {
     'cbochs/grapple.nvim',
     config = function()
-      -- vim.keymap.set('n', '<leader>gm', '<cmd>require('grapple').toggle', { desc = '{Grapple} Toggle tag' })
-      -- vim.keymap.set('n', '<leader>gM', '<cmd>require('grapple').toggle_tags', { desc = '{Grapple} Toggle tags' })
-      -- vim.keymap.set('n', '<leader>gs', '<cmd>require('grapple').toggle_scopes', { desc = '{Grapple} Toggle scopes' })
       vim.keymap.set('n', '<leader>gm', '<cmd>Grapple toggle<CR>', { desc = '{Grapple} Toggle tag' })
       vim.keymap.set('n', '<leader>gM', '<cmd>Grapple toggle_tags<CR>', { desc = '{Grapple} Toggle tags' })
       vim.keymap.set('n', '<leader>gs', '<cmd>Grapple toggle_scopes<CR>', { desc = '{Grapple} Toggle scopes' })
@@ -180,17 +131,10 @@ local plugins = {
       vim.keymap.del({ 'x', 'o' }, 'X')
     end,
   },
+
   -- f/F/t/T on steroids
-  -- TODO: When trying to jump to a 'p' symbol I'm pasting from my buffer, is this a bug or is my config wrong?
   {
     'ggandor/flit.nvim',
-    -- keys = function()
-    --   local ret = {}
-    --   for _, key in ipairs { 'f', 'F', 't', 'T' } do
-    --     ret[#ret + 1] = { key, mode = { 'n', 'x', 'o' }, desc = key }
-    --   end
-    --   return ret
-    -- end,
     opts = {
       keys = { f = 'f', F = 'F', t = 't', T = 'T' },
       labeled_modes = 'nvx',
@@ -198,12 +142,15 @@ local plugins = {
     },
   },
 
-  -- { import = 'plugins' }
+  require 'dkvim.plugins.theme',
+  require 'dkvim.plugins.which_key',
   require 'dkvim.plugins.debug',
   require 'dkvim.plugins.lsp',
   require 'dkvim.plugins.cmp',
   require 'dkvim.plugins.telescope',
   require 'dkvim.plugins.treesitter',
+  require 'dkvim.plugins.git',
+  require 'dkvim.plugins.git',
 }
 
 local opts = {}

@@ -77,8 +77,7 @@ return {
 
     local function get_dll()
       return coroutine.create(function(dap_run_co)
-        -- local items = vim.fn.globpath(vim.fn.getcwd(), '**/bin/Debug/**/*.dll', 0, 1)
-        local items = vim.fn.globpath(vim.fn.getcwd(), '**/bin/Debug/net6.0/Monocle.dll', 0, 1)
+        local items = vim.fn.globpath(vim.fn.getcwd(), '**/bin/Debug/**/*.dll', 0, 1)
         local opts = {
           format_item = function(path)
             return vim.fn.fnamemodify(path, ':t')
