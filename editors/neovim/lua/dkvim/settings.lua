@@ -59,9 +59,6 @@ vim.opt.cursorline = false
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- Set completeopt to have a better completion experience
-vim.opt.completeopt = 'menuone,noselect'
-
 -- Default Tabs (replaced by vim-sleuth)
 -- vim.opt.tabstop = 4
 -- vim.opt.softtabstop = 4
@@ -87,13 +84,13 @@ if vim.fn.has('win64') or vim.fn.has('win32') then
 end
 
 -- [[ Disable line numbers in term mode ]]
-vim.api.nvim_create_augroup('NeovimTerminal', { clear = true })
 vim.api.nvim_create_autocmd('TermOpen', {
+  desc = 'Disable line numbers and signs in terminal windows',
+  group = vim.api.nvim_create_augroup('dkvim-terminal', { clear = true }),
   callback = function()
     vim.opt_local.filetype = 'terminal'
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
     vim.opt_local.signcolumn = 'no'
   end,
-  group = 'NeovimTerminal',
 })

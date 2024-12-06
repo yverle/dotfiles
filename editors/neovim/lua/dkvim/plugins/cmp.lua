@@ -41,6 +41,11 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        view = {
+          entries = {
+            follow_cursor = true,
+          },
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -87,9 +92,12 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
+          {
+            name = 'lazydev',
+            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+            gropu_index = 0,
+          },
           { name = 'nvim_lsp' },
-          { name = 'nvim_lua' },
-          { name = 'buffer' },
           { name = 'path' },
           { name = 'luasnip' },
         },

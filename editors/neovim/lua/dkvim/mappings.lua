@@ -12,8 +12,7 @@ vim.g.maplocalleader = ' '
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Open netrw
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { silent = true })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -22,10 +21,10 @@ vim.keymap.set('v', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('v', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Next diagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Previous diagnostic' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostic in floating window' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list}' })
 
 -- Center my damn screen when I jump
 vim.keymap.set('n', 'J', 'mzJ`z')
@@ -34,35 +33,24 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
--- Format my stuff man
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-
 -- Copy from cursor to end of line
 vim.keymap.set('n', 'Y', 'y$', { silent = true })
 
--- Paste without overwriting buffer
-vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without overwriting buffer' })
 
--- Delete without overwriting buffer
-vim.keymap.set('n', '<leader>d', '"_d')
-vim.keymap.set('v', '<leader>d', '"_d')
+vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Delete without overwriting buffer' })
+vim.keymap.set('v', '<leader>d', '"_d', { desc = 'Delete without overwriting buffer' })
 
 -- Yank to the system clipboard
 vim.keymap.set('n', '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>Y', '"+Y')
 vim.keymap.set('v', '<leader>y', '"+y')
 
--- Escape terminal with esc
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
 -- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
-  group = highlight_group,
-  pattern = '*',
 })
-

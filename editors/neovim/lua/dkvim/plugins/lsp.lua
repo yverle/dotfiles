@@ -1,28 +1,41 @@
 -- LSP
 return {
-  -- { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x', },
+  -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+  -- used for completion, annotations and signatures of Neovim apis
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+
+  { 'Bilal2453/luvit-meta', lazy = true },
+
   {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      { 'williamboman/mason.nvim', config = true },
+      { 'williamboman/mason-lspconfig.nvim' },
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
 
-      -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-      -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim', opts = {} },
+      { 'hrsh7th/cmp-nvim-lsp' },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
           -- Helper function for easier keymaps
-          local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          local map = function(keys, func, desc, mode)
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
           -- Jump to the definition of the word under your cursor.
@@ -49,7 +62,7 @@ return {
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
@@ -63,21 +76,40 @@ return {
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.server_capabilities.documentHighlightProvider then
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
+              group = highlight_augroup,
               callback = vim.lsp.buf.document_highlight,
             })
 
             vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
               buffer = event.buf,
+              group = highlight_augroup,
               callback = vim.lsp.buf.clear_references,
             })
+
+            vim.api.nvim_create_autocmd('LspDetach', {
+              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+              callback = function(event2)
+                vim.lsp.buf.clear_references()
+                vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+              end,
+            })
+          end
+
+          -- The following code creates a keymap to toggle inlay hints in your
+          -- code, if the language server you are using supports them
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+            map('<leader>th', function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, '[T]oggle Inlay [H]ints')
           end
         end,
       })
 
-    -- LSP servers and clients are able to communicate to each other what features they support.
+      -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.

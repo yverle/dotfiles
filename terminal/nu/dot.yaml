@@ -1,8 +1,0 @@
-windows:
-  # links:
-  #   config.nu: ~/AppData/Roaming/nushell/config.nu
-  #   env.nu: ~/AppData/Roaming/nushell/env.nu
-
-  installs:
-    cmd: winget install --silent --no-upgrade Nushell.Nushell
-    depends: [../dev/rust]

@@ -17,3 +17,6 @@ Linking can be done as an administrator by executing the following command (forc
 ```
 rotz -c ~\.dotfiles\defaults.yaml link --force
 ```
+
+## TODO
+Seems like Rotz isn't being supported that much anymore. Maybe swap to [punktf](https://github.com/Shemnei/punktf)? Profiles seem like a cool feature.
