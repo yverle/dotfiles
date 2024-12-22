@@ -1,0 +1,21 @@
+let mapleader=" "
+
+""" Plugins
+set surround
+set commentary
+set sneak
+set ideajoin
+
+""" Common settings
+set nu
+set rnu
+set incsearch
+
+""" Remaps
+nmap <leader>rf <Action>(ReformatCode)
+nmap <leader>rn <Action>(RenameElement)
+
+nmap <leader>d <Action>(Debug)
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+
+nmap <leader>b <Action>(ToggleLineBreakpoint)
