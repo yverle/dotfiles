@@ -1,3 +1,3 @@
-require('dkvim.settings')
-require('dkvim.mappings')
-require('dkvim.plugins')
+require 'dkvim.settings'
+require 'dkvim.mappings'
+require 'dkvim.plugins'

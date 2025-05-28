@@ -70,11 +70,11 @@ vim.opt.scrolloff = 10
 vim.opt.wrap = false
 
 -- Force English vim
-vim.api.nvim_exec('language en_US', true)
+vim.cmd 'language en_US'
 
 -- Set powershell as default shell on Windows
 -- See ':h shell-powershell'
-if vim.fn.has('win64') or vim.fn.has('win32') then
+if vim.fn.has 'win64' or vim.fn.has 'win32' then
   vim.opt.shell = vim.fn.executable 'pwsh' == 1 and 'pwsh.exe' or 'powershell.exe'
   vim.opt.shellcmdflag = '-NoLogo -NonInteractive -NoProfile -ExecutionPolicy RemoteSigned -Command '
   vim.opt.shellxquote = ''

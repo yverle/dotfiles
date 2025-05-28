@@ -8,15 +8,3 @@ windows:
     - ../tools/git
 
   installs: winget install --silent --no-upgrade Microsoft.VisualStudioCode
-
-linux:
-  links:
-    keybindings.json: ~/.config/Code/User/keybindings.json
-    settings.json: ~/.config/Code/User/settings.json
-
-  installs: false
-
-darwin:
-  links:
-    keybindings.json: ~/Library/Application Support/Code/User/keybindings.json
-    settings.json: ~/Library/Application Support/Code/User/settings.json

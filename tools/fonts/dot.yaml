@@ -15,7 +15,3 @@ windows:
 
     # Get back to previous directory to ensure nothing gets messed up
     Pop-Location
-
-# TODO:
-# linux|darwin:
-#   installs: 

@@ -4,7 +4,13 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'help', 'lua', },
+      ensure_installed = {
+        'luadoc',
+        'vimdoc',
+        'lua',
+        'vim',
+        'markdown',
+      },
       auto_install = true,
       highlight = {
         enable = true,
@@ -17,7 +23,7 @@ return {
     },
     config = function(_, opts)
       require('nvim-treesitter.configs').setup(opts)
-      require ('nvim-treesitter.install').compilers = { 'zig' }
+      require('nvim-treesitter.install').compilers = { 'zig' }
     end,
   },
 }

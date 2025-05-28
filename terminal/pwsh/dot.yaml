@@ -14,10 +14,3 @@ windows:
   installs: |
       winget install --silent --no-upgrade Microsoft.PowerShell;
       & 'C:\Program Files\PowerShell\7\pwsh.exe' -C '~\.dotfiles\terminal\pwsh\test.ps1'
-
-linux|darwin:
-  links:
-    Profile.ps1: ~/.config/powershell/profile.ps1
-    powershell.config.json: ~/.config/powershell/powershell.config.json
-
-  installs: false

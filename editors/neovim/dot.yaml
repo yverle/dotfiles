@@ -12,14 +12,3 @@ windows:
     - ../tools/fd
 
   installs: winget install --silent --no-upgrade Neovim.Neovim
-
-linux|darwin:
-  links:
-    lua: ~/.config/nvim/lua
-    after: ~/.config/nvim/after
-    init.lua: ~/.config/nvim/init.lua
-    .stylua.toml: ~/.config/nvim/.stylua.toml
-
-  depends:
-    - ../tools/git
-    - ../tools/fzf

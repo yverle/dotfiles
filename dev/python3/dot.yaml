@@ -1,7 +1,2 @@
-# There is no Python.3 (yet?), there is a moniker for 'python3' but I'm not sure if I want to use that
 windows:
   installs: winget install --silent --no-upgrade Python.Python.3.11
-
-# TODO:
-# linux|darwin:
-#   installs: 

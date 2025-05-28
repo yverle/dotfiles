@@ -1,2 +1,3 @@
+# Used as a compiler for treesitter
 windows:
-  installs: choco install zig -y
+  installs: winget install -e --id zig.zig

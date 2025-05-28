@@ -11,26 +11,20 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   -- Detect tabstop and shiftwidth automatically
-  { 'tpope/vim-sleuth', },
+  { 'tpope/vim-sleuth' },
 
   -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   opts = {},
+  -- },
 
   -- Highlight TODO's and notes in comments
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false }
-  },
-
-  -- Better highlighting in md, org and norg files
-  {
-    'lukas-reineke/headlines.nvim',
-    opts = {},
+    opts = { signs = false },
   },
 
   -- Change surroundings without getting artritis
@@ -49,18 +43,26 @@ local plugins = {
   require 'dkvim.plugins.debug',
   require 'dkvim.plugins.lsp',
   require 'dkvim.plugins.cmp',
-  require 'dkvim.plugins.telescope',
+  require 'dkvim.plugins.lint',
   require 'dkvim.plugins.treesitter',
+  require 'dkvim.plugins.telescope',
   require 'dkvim.plugins.conform',
   require 'dkvim.plugins.git',
 
   -- Own stuff
+  require 'dkvim.plugins.statusline',
+  require 'dkvim.plugins.autopairs',
+  require 'dkvim.plugins.indent_line',
   require 'dkvim.plugins.smart_splits',
   require 'dkvim.plugins.oil',
   require 'dkvim.plugins.grapple',
-  require 'dkvim.plugins.portal',
+  -- require 'dkvim.plugins.portal',
   require 'dkvim.plugins.leap',
   require 'dkvim.plugins.flit',
+  require 'dkvim.plugins.spider',
+
+  -- Until nvim 0.12
+  require 'dkvim.plugins.multicursors',
 }
 
 local opts = {

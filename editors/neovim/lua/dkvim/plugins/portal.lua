@@ -3,10 +3,10 @@ return {
   {
     'cbochs/portal.nvim',
     keys = {
-      { '<C-o>', '<cmd>Portal jumplist backward<CR>',   desc = '{Portal} jump backwards' },
-      { '<C-i>', '<cmd>Portal jumplist forward<CR>',    desc = '{Portal} jump forwards' },
-      { 'g;',    '<cmd>Portal changelist backward<CR>', desc = '{Portal} change backwards' },
-      { 'g,',    '<cmd>Portal changelist forward<CR>',  desc = '{Portal} change forwards' },
+      { '<C-o>', '<cmd>Portal jumplist backward<CR>', desc = '{Portal} jump backwards' },
+      { '<C-i>', '<cmd>Portal jumplist forward<CR>', desc = '{Portal} jump forwards' },
+      { 'g;', '<cmd>Portal changelist backward<CR>', desc = '{Portal} change backwards' },
+      { 'g,', '<cmd>Portal changelist forward<CR>', desc = '{Portal} change forwards' },
     },
     dependencies = {
       'cbochs/grapple.nvim',

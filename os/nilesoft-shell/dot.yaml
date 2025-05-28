@@ -1,4 +1,3 @@
-# Only on Windows
 windows:
   installs: winget install --silent --no-upgrade Nilesoft.Shell
 

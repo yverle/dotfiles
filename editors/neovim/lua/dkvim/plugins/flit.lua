@@ -1,4 +1,8 @@
+-- flit
+-- https://github.com/ggandor/flit.nvim
+--
 -- f/F/t/T on steroids
+
 return {
   {
     'ggandor/flit.nvim',

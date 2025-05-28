@@ -17,8 +17,8 @@ return {
         globalstatus = true,
       },
       sections = {
-        lualine_b = { 'grapple' }
-      }
+        lualine_b = { 'grapple' },
+      },
     },
   },
 }

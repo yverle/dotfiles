@@ -1,0 +1,2 @@
+windows:
+  installs: winget install --silent --no-upgrade --id Zen-Team.Zen-Browser.Optimized

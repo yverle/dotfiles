@@ -1,6 +1,2 @@
 windows:
   installs: winget install --silent --no-upgrade 7zip.7zip
-
-# TODO: Linux/Darwin
-linux|darwin:
-  installs: 
