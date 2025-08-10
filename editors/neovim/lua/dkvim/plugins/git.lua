@@ -1,5 +1,4 @@
 -- Git related plugins
-
 return {
   -- Git on steroids in the editor
   { 'tpope/vim-fugitive' },

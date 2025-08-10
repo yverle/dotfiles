@@ -1,3 +1,6 @@
+-- lualine.nvim
+-- https://github.com/nvim-lualine/lualine.nvim
+--
 -- Statusline config
 return {
   {

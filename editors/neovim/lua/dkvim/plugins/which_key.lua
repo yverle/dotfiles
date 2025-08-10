@@ -1,7 +1,7 @@
 -- Which Key
 -- https://github.com/folke/which-key.nvim
 --
--- Useful plugin to show you pending keybinds.
+-- Create key bindings that stick. WhichKey helps you remember your Neovim keymaps, by showing available keybindings in a popup as you type.
 return {
   {
     'folke/which-key.nvim',

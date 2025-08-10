@@ -1,4 +1,7 @@
--- Enhanced jumplist
+-- portal.nvim
+-- https://github.com/cbochs/portal.nvim
+--
+-- Neovim plugin for improved location list navigation
 return {
   {
     'cbochs/portal.nvim',

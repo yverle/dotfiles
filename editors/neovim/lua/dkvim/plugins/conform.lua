@@ -1,6 +1,7 @@
 -- conform.nvim
--- Autoformatting
 -- https://github.com/stevearc/conform.nvim
+--
+--  Lightweight yet powerful formatter plugin for Neovim
 return {
   {
     'stevearc/conform.nvim',

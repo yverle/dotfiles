@@ -1,7 +1,7 @@
--- Grapple
+-- grapple.nvim
 -- https://github.com/cbochs/grapple.nvim
 --
--- Navigation between files, kinda like Harpoon
+-- Neovim plugin for tagging important files
 
 return {
   {

@@ -1,4 +1,7 @@
--- Better w-e-b motions.
+-- nvim-spider
+-- https://github.com/chrisgrieser/nvim-spider
+--
+-- Use the w, e, b motions like a spider. Move by subwords and skip insignificant punctuation.
 return {
   {
     'chrisgrieser/nvim-spider',

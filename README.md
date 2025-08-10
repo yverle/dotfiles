@@ -16,3 +16,7 @@ Linking can be done as an administrator by executing the following command (forc
 ```
 rotz link --force
 ```
+
+## TODO:
+- Install extensions on Zen
+- Do I want to remove zoxide?

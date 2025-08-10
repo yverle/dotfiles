@@ -1,2 +1,2 @@
 windows:
-  installs: winget install --silent --no-upgrade stedolan.jq
+  installs: winget install --silent --no-upgrade jqlang.jq

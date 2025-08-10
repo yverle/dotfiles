@@ -1,2 +1,2 @@
 windows:
-  installs: winget install --silent --no-upgrade Python.Python.3.11
+  installs: winget install --silent --no-upgrade Python.Python.3.13

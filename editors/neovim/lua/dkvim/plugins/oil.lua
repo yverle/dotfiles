@@ -1,4 +1,7 @@
--- Directory management
+-- oil.nvim
+-- https://github.com/stevearc/oil.nvim
+--
+--  Neovim file explorer: edit your filesystem like a buffer
 return {
   {
     'stevearc/oil.nvim',
