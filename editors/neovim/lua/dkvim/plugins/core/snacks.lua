@@ -3,10 +3,13 @@
 --
 -- A collection of QoL plugins for Neovim
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'folke/snacks.nvim',
     ---@type snacks.Config
     opts = {
+      debug = { enabled = true },
       indent = {},
       input = {},
       picker = {},
@@ -40,9 +43,5 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
     -- stylua: ignore
-    keys = {
-      { '<leader>st', function() require('snacks').picker.todo_comments() end, desc = 'Todo' },
-      { '<leader>sT', function() require('snacks').picker.todo_comments({ keywords = { 'TODO', 'FIX', 'BUG' } }) end, desc = 'Todo/Fix/Bug' },
-    },
   },
 }

@@ -3,6 +3,8 @@
 --
 -- Neovim plugin for improved location list navigation
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'cbochs/portal.nvim',
     keys = {

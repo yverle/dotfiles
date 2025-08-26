@@ -1,6 +1,8 @@
 -- Theme
 -- https://github.com/folke/tokyonight.nvim
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'folke/tokyonight.nvim',
     priority = 1000,

@@ -3,6 +3,8 @@
 --
 -- Smart, seamless, directional navigation and resizing of Neovim + terminal multiplexer splits. Supports tmux, Wezterm, and Kitty. Think about splits in terms of "up/down/left/right".
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'mrjones2014/smart-splits.nvim',
     opts = {

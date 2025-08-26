@@ -2,17 +2,24 @@
 return {
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
   -- used for completion, annotations and signatures of Neovim apis
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'folke/lazydev.nvim',
     ft = 'lua',
+    ---@module 'lazydev'
+    ---@type lazydev.Config
     opts = {
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        { path = 'snacks.nvim', words = { 'Snacks' } },
       },
     },
   },
 
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -21,8 +28,6 @@ return {
       { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
 
       { 'j-hui/fidget.nvim', opts = {} },
-
-      { 'saghen/blink.cmp' },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -125,38 +130,12 @@ return {
         },
       }
 
-      -- NOTE: The following line is now commented as blink.cmp extends capabilites by default from its internal code:
-      -- https://github.com/Saghen/blink.cmp/blob/102db2f5996a46818661845cf283484870b60450/plugin/blink-cmp.lua
-      -- local capabilities = require("blink.cmp").get_lsp_capabilities()
-
       local servers = {
         mason = {
-          -- gopls = {},
-          -- rust_analyzer = {},
-          lua_ls = {
-            -- cmd = {...},
-            -- filetypes = { ...},
-            -- capabilities = {},
-            settings = {
-              Lua = {
-                completion = {
-                  callSnippet = 'Replace',
-                },
-                -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-                -- diagnostics = { disable = { 'missing-fields' } },
-              },
-            },
-          },
-
-          powershell_es = {
-            settings = {
-              powershell = {
-                codeFormatting = {
-                  Preset = 'OTBS',
-                },
-              },
-            },
-          },
+          gopls = {},
+          rust_analyzer = {},
+          lua_ls = {},
+          powershell_es = {},
         },
         -- For LSPs not installed using Mason
         others = {

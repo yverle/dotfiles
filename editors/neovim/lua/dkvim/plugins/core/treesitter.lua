@@ -3,6 +3,8 @@
 --
 -- Nvim Treesitter configurations and abstraction layer
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',

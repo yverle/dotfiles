@@ -3,6 +3,8 @@
 --
 -- Use the w, e, b motions like a spider. Move by subwords and skip insignificant punctuation.
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'chrisgrieser/nvim-spider',
     lazy = true,

@@ -1,50 +1,26 @@
--- Install Lazy
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
+---Get env value, with default
+---@param env_var_name string
+---@param default? boolean
+---@return boolean
+local function get_env(env_var_name, default)
+  default = default or false
+  local value = os.getenv(env_var_name)
+  if not value then
+    return default
   end
+  value = value:lower()
+  return value == 'true' or value == '1' or value == 'yes' or value == 'on'
 end
-vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- Detect tabstop and shiftwidth automatically
-  { 'tpope/vim-sleuth' },
-
-  -- Change surroundings without getting artritis
-  {
-    'kylechui/nvim-surround',
-    -- event = 'BufReadPre',
-    opts = {},
-  },
-
-  -- Manages hlsearch
-  { 'asiryk/auto-hlsearch.nvim', opts = {} },
-
-  -- Base (mostly taken from kickstart)
-  require 'dkvim.plugins.theme',
-  require 'dkvim.plugins.debug',
-  require 'dkvim.plugins.lsp',
-  require 'dkvim.plugins.cmp',
-  require 'dkvim.plugins.lint',
-  require 'dkvim.plugins.treesitter',
-  require 'dkvim.plugins.snacks',
-  require 'dkvim.plugins.conform',
-  require 'dkvim.plugins.git',
+  -- This is pretty much just an updated version of Kickstart.nvim
+  require 'dkvim.plugins.core',
 
   -- Extras
-  require 'dkvim.plugins.statusline',
-  require 'dkvim.plugins.autopairs',
-  require 'dkvim.plugins.smart_splits',
-  require 'dkvim.plugins.oil',
-  require 'dkvim.plugins.obsidian',
-  require 'dkvim.plugins.grapple',
-  require 'dkvim.plugins.portal',
-  require 'dkvim.plugins.flash',
-  require 'dkvim.plugins.spider',
-  require 'dkvim.plugins.which_key',
+  require 'dkvim.plugins.extra',
+
+  -- Plugins that should only be loaded on my personal device(s)
+  require 'dkvim.plugins.personal',
 }
 
 local opts = {

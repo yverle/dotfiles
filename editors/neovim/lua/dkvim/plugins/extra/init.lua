@@ -1,0 +1,15 @@
+return {
+  require 'dkvim.plugins.extra.vim-sleuth',
+  -- require 'dkvim.plugins.extra.guess-indent',
+  require 'dkvim.plugins.extra.nvim-surround',
+  require 'dkvim.plugins.extra.auto-hlsearch',
+  require 'dkvim.plugins.extra.lualine',
+  require 'dkvim.plugins.extra.blink-pairs',
+  require 'dkvim.plugins.extra.smart_splits',
+  require 'dkvim.plugins.extra.oil',
+  require 'dkvim.plugins.extra.grapple',
+  require 'dkvim.plugins.extra.portal',
+  require 'dkvim.plugins.extra.flash',
+  require 'dkvim.plugins.extra.spider',
+  require 'dkvim.plugins.extra.which_key',
+}

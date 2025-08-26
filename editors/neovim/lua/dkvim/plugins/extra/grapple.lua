@@ -2,8 +2,9 @@
 -- https://github.com/cbochs/grapple.nvim
 --
 -- Neovim plugin for tagging important files
-
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'cbochs/grapple.nvim',
     opts = {

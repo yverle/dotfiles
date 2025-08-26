@@ -6,7 +6,10 @@
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
+-- TODO: Look into debugmaster
 return {
+  ---@module 'lazy'
+  ---@type LazySpec
   {
     'mfussenegger/nvim-dap',
     dependencies = {

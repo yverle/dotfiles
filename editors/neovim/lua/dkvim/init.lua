@@ -1,3 +1,5 @@
 require 'dkvim.settings'
 require 'dkvim.mappings'
+require 'dkvim.autocmds'
+require 'dkvim.lazy-bootstrap'
 require 'dkvim.plugins'
