@@ -12,5 +12,5 @@ windows:
     - ../tools/fzf
 
   installs: |
-      winget install --silent --no-upgrade Microsoft.PowerShell;
-      & 'C:\Program Files\PowerShell\7\pwsh.exe' -C '~\.dotfiles\terminal\pwsh\test.ps1'
+    winget install --silent --no-upgrade Microsoft.PowerShell;
+    & 'C:\Program Files\PowerShell\7\pwsh.exe' -C '~\.dotfiles\terminal\pwsh\test.ps1'

@@ -1,1 +1,1 @@
-require('dkvim')
+require 'dkvim'

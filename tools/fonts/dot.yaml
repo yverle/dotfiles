@@ -11,7 +11,7 @@ windows:
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -force
 
     # Install fonts
-    ./install.ps1 CascadiaCode, JetBrainsMono, Mononoki  -WindowsCompatibleOnly
+    ./install.ps1 CascadiaCode, JetBrainsMono -WindowsCompatibleOnly
 
     # Get back to previous directory to ensure nothing gets messed up
     Pop-Location

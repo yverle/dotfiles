@@ -1,4 +1,5 @@
 # Dotfiles
+
 These are all my dotfiles shared across every operating system.
 Everything here is managed by [Rotz](https://github.com/volllly/rotz), which handles the linking and installation of my tools.
 
@@ -18,5 +19,6 @@ rotz link --force
 ```
 
 ## TODO:
+
 - Install extensions on Zen
 - Do I want to remove zoxide?

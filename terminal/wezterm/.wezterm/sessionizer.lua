@@ -55,7 +55,7 @@ local home = normalize_path(wezterm.home_dir)
 local fd = (
   file_exists(home .. '/bin/fd')
   or file_exists(home .. '/bin/fd.exe')
-  or file_exists('/usr/bin/fd')
+  or file_exists '/usr/bin/fd'
   or file_exists(home .. '/AppData/Local/Microsoft/WinGet/Links/fd.exe')
   or file_exists(home .. '/AppData/Local/Microsoft/WinGet/Packages/sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe/fd-v9.0.0-x86_64-pc-windows-msvc/fd.exe')
 )
@@ -66,7 +66,7 @@ err_if_not(srcPath, srcPath .. 'not found')
 
 local search_folders = {
   srcPath,
-  home
+  home,
 }
 
 M.start = function(window, pane)
