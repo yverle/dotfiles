@@ -12,17 +12,6 @@ local function get_env(env_var_name, default)
   return value == 'true' or value == '1' or value == 'yes' or value == 'on'
 end
 
-local plugins = {
-  -- This is pretty much just an updated version of Kickstart.nvim
-  require 'dkvim.plugins.core',
-
-  -- Extras
-  require 'dkvim.plugins.extra',
-
-  -- Plugins that should only be loaded on my personal device(s)
-  require 'dkvim.plugins.personal',
-}
-
 local opts = {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -45,4 +34,11 @@ local opts = {
   },
 }
 
-require('lazy').setup(plugins, opts)
+require('lazy').setup({
+  { import = 'dkvim.plugins.core' },
+  { import = 'dkvim.plugins.extra' },
+  {
+    import = 'dkvim.plugins.personal',
+    cond = get_env 'NVIM_PLUGINS_PERSONAL',
+  },
+}, opts)
