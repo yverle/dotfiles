@@ -1,7 +1,0 @@
-windows:
-  # Symlinks not supported (https://github.com/Flow-Launcher/Flow.Launcher/issues/3011)
-  #  links:
-  #  Settings.json: ~\AppData\Roaming\FlowLauncher\Settings\Settings.json
-  #  Plugins: ~\AppData\Roaming\FlowLauncher\Settings\Plugins
-
-  installs: winget install --silent --no-upgrade Flow-Launcher.Flow-Launcher
