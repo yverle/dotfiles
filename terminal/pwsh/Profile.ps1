@@ -1,5 +1,6 @@
 # Alias
 Set-Alias vim nvim
+Set-Alias vi nvim
 Set-Alias v nvim
 Set-Alias grep rg
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
