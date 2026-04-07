@@ -38,5 +38,3 @@ treesitter.install {
   'vim',
   'markdown',
 }
-
-require('nvim-treesitter.install').compilers = { 'zig' }
