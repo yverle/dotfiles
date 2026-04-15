@@ -4,6 +4,7 @@ Set-Alias vi nvim
 Set-Alias v nvim
 Set-Alias grep rg
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+Set-Alias zs "$HOME\bin\zellij-sessionizer.ps1"
 
 # Terminal Icons
 Import-Module Terminal-Icons
