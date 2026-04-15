@@ -20,5 +20,6 @@ rotz link --force
 
 ## TODO:
 
+- Remove Rotz, replace with PowerShell scripts. I'm not really doing anything more than `winget install` and symlinking anyways
+- Rethink directory structure, especially once Rotz is out
 - Install extensions on Zen
-- Do I want to remove zoxide?
