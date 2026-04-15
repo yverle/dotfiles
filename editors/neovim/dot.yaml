@@ -1,9 +1,12 @@
 windows:
   links:
+    ftplugin: ~\AppData\Local\nvim\ftplugin
+    lsp: ~\AppData\Local\nvim\lsp
     lua: ~\AppData\Local\nvim\lua
-    after: ~\AppData\Local\nvim\after
-    init.lua: ~\AppData\Local\nvim\init.lua
+    plugin: ~\AppData\Local\nvim\plugin
     .stylua.toml: ~\AppData\Local\nvim\.stylua.toml
+    init.lua: ~\AppData\Local\nvim\init.lua
+    nvim-pack-lock.json: ~\AppData\Local\nvim\nvim-pack-lock.json
 
   depends:
     - ../terminal/pwsh

@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- General config
-config.color_scheme = 'Tokyo Night (Gogh)'
+config.color_scheme = 'Tokyo Night Moon'
 config.check_for_updates = true
 config.inactive_pane_hsb = {
   hue = 1.0,

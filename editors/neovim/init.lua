@@ -1,1 +1,5 @@
-require 'dkvim'
+require 'settings'
+require 'keymaps'
+require 'autocmds'
+require 'user_commands'
+require 'lsp'
