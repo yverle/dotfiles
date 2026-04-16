@@ -90,3 +90,17 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.opt_local.signcolumn = 'no'
   end,
 })
+
+-- Autocomplete can't use multiple sources yet
+-- So still needs <C-X>F for example for paths
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'Enable auto-completion on LSP attach',
+  group = user_autocmds_augroup,
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+
+    if client:supports_method 'textDocument/completion' then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end,
+})

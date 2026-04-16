@@ -65,6 +65,10 @@ vim.cmd 'language en_US'
 vim.opt.belloff = 'all'
 vim.opt.errorbells = false
 
+-- Native completion
+vim.opt.completeopt = 'menu,menuone,noselect,popup,preview,fuzzy'
+vim.o.autocomplete = true
+
 -- Set powershell as default shell on Windows
 -- See ':h shell-powershell'
 if vim.fn.has 'win64' or vim.fn.has 'win32' then
