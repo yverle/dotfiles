@@ -1,3 +1,4 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/basedpyright.lua
 
 local function set_python_path(command)
   local path = command.args

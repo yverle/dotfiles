@@ -1,3 +1,5 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/ruff.lua
+
 ---@type vim.lsp.Config
 return {
   cmd = { 'ruff', 'server' },
