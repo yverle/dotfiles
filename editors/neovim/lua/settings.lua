@@ -75,3 +75,7 @@ if vim.fn.has("win64") or vim.fn.has("win32") then
     vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s"
     vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s"
 end
+
+require('vim._core.ui2').enable {
+  enable = true,
+}
