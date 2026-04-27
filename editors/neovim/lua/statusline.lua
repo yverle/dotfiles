@@ -2,131 +2,131 @@ local path_separator = package.config:sub(1, 1)
 
 -- Modes mapping from vim.api.nvim_get_mode().mode
 local modes = {
-  ['n'] = 'NORMAL',
-  ['no'] = 'NORMAL',
-  ['v'] = 'VISUAL',
-  ['V'] = 'V-LINE',
-  [''] = 'V-BLOCK',
-  ['s'] = 'SELECT',
-  ['S'] = 'S-LINE',
-  [''] = 'S-BLOCK',
-  ['i'] = 'INSERT',
-  ['ic'] = 'INSERT',
-  ['R'] = 'REPLACE',
-  ['Rv'] = 'V-REPLACE',
-  ['c'] = 'COMMAND',
-  ['cv'] = 'VIM EX',
-  ['ce'] = 'EX',
-  ['r'] = 'PROMPT',
-  ['rm'] = 'MOAR',
-  ['r?'] = 'CONFIRM',
-  ['!'] = 'SHELL',
-  ['t'] = 'TERMINAL',
+    ["n"] = "NORMAL",
+    ["no"] = "NORMAL",
+    ["v"] = "VISUAL",
+    ["V"] = "V-LINE",
+    [""] = "V-BLOCK",
+    ["s"] = "SELECT",
+    ["S"] = "S-LINE",
+    [""] = "S-BLOCK",
+    ["i"] = "INSERT",
+    ["ic"] = "INSERT",
+    ["R"] = "REPLACE",
+    ["Rv"] = "V-REPLACE",
+    ["c"] = "COMMAND",
+    ["cv"] = "VIM EX",
+    ["ce"] = "EX",
+    ["r"] = "PROMPT",
+    ["rm"] = "MOAR",
+    ["r?"] = "CONFIRM",
+    ["!"] = "SHELL",
+    ["t"] = "TERMINAL",
 }
 
 local function mode()
-  local current_mode = vim.api.nvim_get_mode().mode
-  return string.format(' %s ', modes[current_mode]):upper()
+    local current_mode = vim.api.nvim_get_mode().mode
+    return string.format(" %s ", modes[current_mode]):upper()
 end
 
 local function filepath()
-  local fpath = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.:h')
+    local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.:h")
 
-  if fpath == '' or fpath == '.' then
-    return ''
-  end
+    if fpath == "" or fpath == "." then
+        return ""
+    end
 
-  return string.format('%%<%s%s', fpath, path_separator)
+    return string.format("%%<%s%s", fpath, path_separator)
 end
 
 local function git()
-  local git_info = vim.b.gitsigns_status_dict
-  if not git_info or git_info.head == '' then
-    return ''
-  end
+    local git_info = vim.b.gitsigns_status_dict
+    if not git_info or git_info.head == "" then
+        return ""
+    end
 
-  local head = git_info.head
-  local added = git_info.added and (' +' .. git_info.added) or ''
-  local changed = git_info.changed and (' ~' .. git_info.changed) or ''
-  local removed = git_info.removed and (' -' .. git_info.removed) or ''
-  if git_info.added == 0 then
-    added = ''
-  end
-  if git_info.changed == 0 then
-    changed = ''
-  end
-  if git_info.removed == 0 then
-    removed = ''
-  end
+    local head = git_info.head
+    local added = git_info.added and (" +" .. git_info.added) or ""
+    local changed = git_info.changed and (" ~" .. git_info.changed) or ""
+    local removed = git_info.removed and (" -" .. git_info.removed) or ""
+    if git_info.added == 0 then
+        added = ""
+    end
+    if git_info.changed == 0 then
+        changed = ""
+    end
+    if git_info.removed == 0 then
+        removed = ""
+    end
 
-  return table.concat {
-    '[ ',
-    head,
-    added,
-    changed,
-    removed,
-    ']',
-  }
+    return table.concat({
+        "[ ",
+        head,
+        added,
+        changed,
+        removed,
+        "]",
+    })
 end
 
 local function diagnostics()
-  local status = vim.diagnostic.status()
+    local status = vim.diagnostic.status()
 
-  if not status or status == '' then
-    return ''
-  end
+    if not status or status == "" then
+        return ""
+    end
 
-  return '[' .. status .. ']'
+    return "[" .. status .. "]"
 end
 
 Statusline = {}
 
 function Statusline.active()
-  return table.concat {
-    '%#Statusline#',
-    mode(),
-    '%#Normal#',
-    '[',
-    filepath(),
-    '%t] ',
-    git(),
-    ' ',
-    diagnostics(),
-    '%=',
-    '%y [%P %l:%c]',
-  }
+    return table.concat({
+        "%#Statusline#",
+        mode(),
+        "%#Normal#",
+        "[",
+        filepath(),
+        "%t] ",
+        git(),
+        " ",
+        diagnostics(),
+        "%=",
+        "%y [%P %l:%c]",
+    })
 end
 
 function Statusline.inactive()
-  return ' %t'
+    return " %t"
 end
 
-local status_line_group = vim.api.nvim_create_augroup('Statusline', { clear = true })
-vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
-  group = status_line_group,
-  desc = 'Activate statusline on focus',
-  callback = function()
-    if vim.bo.buftype ~= '' then
-      return
-    end
-    if vim.api.nvim_win_get_config(0).relative ~= '' then
-      return
-    end
-    vim.opt_local.statusline = '%!v:lua.Statusline.active()'
-    vim.cmd 'redrawstatus'
-  end,
+local status_line_group = vim.api.nvim_create_augroup("Statusline", { clear = true })
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+    group = status_line_group,
+    desc = "Activate statusline on focus",
+    callback = function()
+        if vim.bo.buftype ~= "" then
+            return
+        end
+        if vim.api.nvim_win_get_config(0).relative ~= "" then
+            return
+        end
+        vim.opt_local.statusline = "%!v:lua.Statusline.active()"
+        vim.cmd("redrawstatus")
+    end,
 })
 
-vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
-  group = status_line_group,
-  desc = 'Deactivate statusline when unfocused',
-  callback = function()
-    if vim.bo.buftype ~= '' then
-      return
-    end
-    if vim.api.nvim_win_get_config(0).relative ~= '' then
-      return
-    end
-    vim.opt_local.statusline = '%!v:lua.Statusline.inactive()'
-  end,
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+    group = status_line_group,
+    desc = "Deactivate statusline when unfocused",
+    callback = function()
+        if vim.bo.buftype ~= "" then
+            return
+        end
+        if vim.api.nvim_win_get_config(0).relative ~= "" then
+            return
+        end
+        vim.opt_local.statusline = "%!v:lua.Statusline.inactive()"
+    end,
 })

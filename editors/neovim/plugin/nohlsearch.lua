@@ -1,1 +1,1 @@
-vim.cmd 'packadd nohlsearch'
+vim.cmd("packadd nohlsearch")

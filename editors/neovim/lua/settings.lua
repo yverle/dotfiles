@@ -9,7 +9,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Don't show mode, since it's already in the status line
 vim.opt.showmode = false
@@ -25,10 +25,10 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Add a colorcolumn
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"
 
 -- Decrease update time
 vim.opt.updatetime = 50
@@ -44,10 +44,10 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = false
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = false
@@ -59,19 +59,19 @@ vim.opt.scrolloff = 10
 vim.opt.wrap = false
 
 -- Force English vim
-vim.cmd 'language en_US'
+vim.cmd("language en_US")
 
 -- No bells
-vim.opt.belloff = 'all'
+vim.opt.belloff = "all"
 vim.opt.errorbells = false
 
 -- Set powershell as default shell on Windows
 -- See ':h shell-powershell'
-if vim.fn.has 'win64' or vim.fn.has 'win32' then
-  vim.opt.shell = vim.fn.executable 'pwsh' == 1 and 'pwsh.exe' or 'powershell.exe'
-  vim.opt.shellcmdflag = '-NoLogo -NonInteractive -NoProfile -ExecutionPolicy RemoteSigned -Command '
-  vim.opt.shellxquote = ''
-  vim.opt.shellquote = ''
-  vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s'
-  vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s'
+if vim.fn.has("win64") or vim.fn.has("win32") then
+    vim.opt.shell = vim.fn.executable("pwsh") == 1 and "pwsh.exe" or "powershell.exe"
+    vim.opt.shellcmdflag = "-NoLogo -NonInteractive -NoProfile -ExecutionPolicy RemoteSigned -Command "
+    vim.opt.shellxquote = ""
+    vim.opt.shellquote = ""
+    vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s"
+    vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s"
 end

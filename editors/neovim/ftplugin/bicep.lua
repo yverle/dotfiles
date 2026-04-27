@@ -1,4 +1,4 @@
-vim.bo.commentstring = '// %s'
+vim.bo.commentstring = "// %s"
 
 vim.bo.expandtab = true
 vim.bo.shiftwidth = 4

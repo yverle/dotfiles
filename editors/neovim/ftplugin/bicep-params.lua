@@ -1,1 +1,1 @@
-vim.bo.filetype = 'bicep'
+vim.bo.filetype = "bicep"
