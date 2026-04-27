@@ -1,6 +1,6 @@
-require 'settings'
-require 'keymaps'
-require 'autocmds'
-require 'user_commands'
-require 'statusline'
-require 'lsp'
+require("settings")
+require("keymaps")
+require("autocmds")
+require("user_commands")
+require("statusline")
+require("lsp")
