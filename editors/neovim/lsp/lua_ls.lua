@@ -24,6 +24,7 @@ return {
         Lua = {
             codeLens = { enable = true },
             hint = { enable = true, semicolon = "Disable" },
+            -- telemetry = { enable = false },
             runtime = {
                 version = "Lua 5.4",
             },
