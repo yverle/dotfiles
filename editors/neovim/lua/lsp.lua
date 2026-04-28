@@ -3,6 +3,7 @@ vim.lsp.enable({
     "gopls",
     "lua_ls",
     "powershell_es",
+    "roslyn",
 })
 
 vim.diagnostic.config({ virtual_text = true })
