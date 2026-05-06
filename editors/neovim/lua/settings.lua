@@ -67,7 +67,10 @@ vim.opt.errorbells = false
 
 -- Native completion
 vim.opt.completeopt = 'menu,menuone,noselect,popup,preview,fuzzy'
-vim.o.autocomplete = true
+vim.opt.autocomplete = true
+vim.opt.pumborder = 'rounded'
+vim.opt.pumheight = 7
+vim.opt.complete = '.,o'
 
 -- Set powershell as default shell on Windows
 -- See ':h shell-powershell'
