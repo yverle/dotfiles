@@ -1,2 +1,0 @@
-windows:
-  installs: winget install --silent --no-upgrade Python.Python.3.14

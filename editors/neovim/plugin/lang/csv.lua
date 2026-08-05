@@ -1,0 +1,1 @@
+-- vim.pack.add({ { src = "https://github.com/hat0uma/csvview.nvim", version = vim.version.range("*") } })

@@ -1,2 +1,0 @@
-windows:
-  installs: winget install --silent --no-upgrade 7zip.7zip

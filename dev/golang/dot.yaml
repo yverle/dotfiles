@@ -1,2 +1,0 @@
-windows:
-  installs: winget install --silent --no-upgrade GoLang.Go.1.20
