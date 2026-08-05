@@ -57,7 +57,7 @@
             @{
                 Type = 'Symlink'
                 Source = 'Profile.ps1'
-                Target = "$PROFILE.CurrentUserAllHosts"
+                Target = "$($PROFILE.CurrentUserAllHosts)"
             }
             @{
                 Type = 'Script'
