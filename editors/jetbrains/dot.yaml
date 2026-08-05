@@ -1,5 +1,0 @@
-windows:
-  links:
-    .ideavimrc: ~\.ideavimrc
-
-  installs: winget install --silent --no-upgrade Jetbrains.Rider
