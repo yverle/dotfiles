@@ -127,6 +127,37 @@
         )
     }
 
+    @{
+        Name = 'cli-tools'
+        Configure = @(
+            @{
+                Type = 'Symlink'
+                Source = 'sessionizer.ps1'
+                Target = "$HOME\bin\sessionizer.ps1"
+            }
+        )
+    }
+
+    @{
+        Name = 'zellij'
+        Install = @{
+            Type = 'WinGet'
+            Id = 'Zellij.Zellij'
+        }
+        Configure = @(
+            @{
+                Type = 'Symlink'
+                Source = 'config.kdl'
+                Target = "$HOME\AppData\Local\zellij\config.kdl"
+            }
+            @{
+                Type = 'Symlink'
+                Source = 'layouts'
+                Target = "$HOME\AppData\Local\zellij\layouts"
+            }
+        )
+    }
+
     # @{
     #     Name = 'everything'
     #     Install = @{
