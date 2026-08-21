@@ -13,4 +13,5 @@ require("oil").setup({
     },
 })
 
-vim.keymap.set("n", "<leader>oo", require("oil").toggle_float, { desc = "[O]pen [O]il in floating window" })
+vim.keymap.set("n", "<leader>fo", require("oil").toggle_float, { desc = "[O]pen [O]il in floating window" })
+vim.keymap.set("n", "<leader>fO", require("oil").toggle_float, { desc = "[O]pen [O]il" })
