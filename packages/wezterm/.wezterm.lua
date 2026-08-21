@@ -11,7 +11,9 @@ if wezterm.config_builder then
 end
 
 -- General config
-config.color_scheme = "Tokyo Night Moon"
+-- config.color_scheme = "Tokyo Night Moon"
+config.color_scheme = "token-temper-dark"
+config.color_scheme_dirs = { wezterm.home_dir .. "/.wezterm/colors" }
 config.check_for_updates = true
 config.inactive_pane_hsb = {
 	hue = 1.0,
@@ -19,6 +21,8 @@ config.inactive_pane_hsb = {
 	brightness = 1.0,
 }
 
+-- Disable ligatures
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.font = wezterm.font_with_fallback({
 	"JetBrains Mono",
 	"Fira Code",
