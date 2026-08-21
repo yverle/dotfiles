@@ -1,10 +1,26 @@
+function Join-EnvPath {
+    param (
+        [string] $PathToAdd
+    )
+
+    if ($env:PATH -notlike "*${PathToAdd}*") {
+        $env:PATH = "${PathToAdd}$([System.IO.Path]::PathSeparator)$env:PATH"
+    }
+}
+
+# Path
+Join-EnvPath -PathToAdd (Join-Path $HOME 'bin')
+
+# Environment variables
+$env:KUBE_EDITOR='nvim'
+$env:EDITOR='nvim'
+
 # Alias
 Set-Alias vim nvim
 Set-Alias vi nvim
 Set-Alias v nvim
 Set-Alias grep rg
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-# Set-Alias zs "$HOME\bin\zellij-sessionizer.ps1"
 
 # Terminal Icons
 Import-Module Terminal-Icons
