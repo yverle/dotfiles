@@ -59,3 +59,10 @@ end, { desc = "[S]earch LSP [S]ymbols" })
 vim.keymap.set("n", "<leader>sS", function()
     Snacks.picker.lsp_workspace_symbols()
 end, { desc = "[S]earch LSP Workspace [S]ymbols" })
+
+-- Open notes
+vim.keymap.set("n", "<leader>sn", function()
+    Snacks.picker.files({
+        cwd = vim.fn.expand("~/org"),
+    })
+end, { desc = "[S]earch [N]otes" })
