@@ -59,7 +59,7 @@ vim.opt.scrolloff = 10
 vim.opt.wrap = false
 
 -- Force English vim
-vim.cmd("language en_US")
+vim.cmd.language("en_US")
 
 -- No bells
 vim.opt.belloff = "all"
@@ -76,6 +76,6 @@ if vim.fn.has("win64") or vim.fn.has("win32") then
     vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s"
 end
 
-require('vim._core.ui2').enable {
-  enable = true,
-}
+require("vim._core.ui2").enable({
+    enable = true,
+})
