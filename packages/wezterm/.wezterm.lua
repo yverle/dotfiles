@@ -22,7 +22,7 @@ config.inactive_pane_hsb = {
 }
 
 -- Disable ligatures
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font = wezterm.font_with_fallback({
 	"JetBrains Mono",
 	"Fira Code",
@@ -96,9 +96,16 @@ if platform.is_win then
 	table.insert(config.launch_menu, { label = "PowerShell", args = { "powershell.exe", "-NoLogo" } })
 	table.insert(config.launch_menu, { label = "PowerShell 7", args = { "pwsh.exe", "-NoLogo" } })
 
+	local vs_years = {
+		["17"] = "2022",
+		["18"] = "2026",
+	}
+
 	-- Environment command prompts to the menu
-	for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/20*", "C:/Program Files (x86)")) do
-		local year = vsvers:gsub("Microsoft Visual Studio/", "")
+	for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/*", "C:/Program Files (x86)")) do
+		local version = vsvers:gsub("Microsoft Visual Studio/", "")
+		local year = vs_years[version] or version
+
 		table.insert(config.launch_menu, {
 			label = "x64 Native Tools VS " .. year,
 			args = {
