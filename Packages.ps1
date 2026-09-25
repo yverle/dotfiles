@@ -148,12 +148,12 @@
             @{
                 Type = 'Symlink'
                 Source = 'config.kdl'
-                Target = "$HOME\AppData\Local\zellij\config.kdl"
+                Target = "$HOME\AppData\Roaming\Zellij\config\config.kdl"
             }
             @{
                 Type = 'Symlink'
                 Source = 'layouts'
-                Target = "$HOME\AppData\Local\zellij\layouts"
+                Target = "$HOME\AppData\Roaming\Zellij\layouts"
             }
         )
     }
