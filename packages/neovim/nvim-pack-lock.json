@@ -14,7 +14,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "070a5d7b985546cc57e1fc61e5bc507fecac6045",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lazydev.nvim": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "nvim-dap": {
-      "rev": "c9a0738e45f1bd41d792a126941348dce661cf9b",
+      "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
       "src": "https://codeberg.org/mfussenegger/nvim-dap"
     },
     "nvim-dap-cs": {
@@ -56,7 +56,7 @@
       "version": "4.0.0 - 5.0.0"
     },
     "nvim-treesitter": {
-      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
+      "rev": "f603a2f4da48728f80257fb5fbb90145fd1dc173",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -65,15 +65,15 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "orgmode": {
-      "rev": "005368b30cea12ececfbe27240b4269939aac6e6",
+      "rev": "d9cd82d732cf4322100cf2c4c57b285c870bd893",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "roslyn.nvim": {
-      "rev": "de9a98d61ed3fd01b5016eea5fe9e32f1a4c7cfb",
+      "rev": "bf1bd4e70bc7068d1b4aebf4ce03cc19a86615be",
       "src": "https://github.com/seblyng/roslyn.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "0ab2e4928dc867dfea3ff1da186e69f289d8a532",
+      "rev": "ec76708f1617ef9e2ac353357fe52d2c997a0f06",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
@@ -85,7 +85,7 @@
       "src": "https://github.com/folke/todo-comments.nvim"
     },
     "token": {
-      "rev": "69fe9542d8343b6d817fef0f3fe123b0be9d9d9b",
+      "rev": "1538e1eadcbc9eb465b33bab71eec48c8bed0b76",
       "src": "https://github.com/ThorstenRhau/token"
     },
     "tokyonight.nvim": {
