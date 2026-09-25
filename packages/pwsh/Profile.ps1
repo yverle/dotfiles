@@ -10,6 +10,7 @@ function Join-EnvPath {
 
 # Path
 Join-EnvPath -PathToAdd (Join-Path $HOME 'bin')
+# Join-EnvPath -PathToAdd 'C:\Program Files\Git\mingw64\bin\'
 
 # Environment variables
 $env:KUBE_EDITOR='nvim'
@@ -21,6 +22,10 @@ Set-Alias vi nvim
 Set-Alias v nvim
 Set-Alias grep rg
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+Set-Alias ex explorer.exe
+Set-Alias s sessionizer.ps1
+# Not yet my sweet prince
+# Set-Alias docker wslc
 
 # Terminal Icons
 Import-Module Terminal-Icons
