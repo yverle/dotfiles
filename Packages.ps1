@@ -85,26 +85,6 @@
     }
 
     @{
-        Name = 'wezterm'
-        Install = @{
-            Type = 'WinGet'
-            Id = 'wez.wezterm'
-        }
-        Configure = @(
-            @{
-                Type = 'Symlink'
-                Source = '.wezterm.lua'
-                Target = "$HOME\.wezterm.lua"
-            }
-            @{
-                Type = 'Symlink'
-                Source = '.wezterm'
-                Target = "$HOME\.wezterm"
-            }
-        )
-    }
-
-    @{
         Name = 'zen'
         Install = @{
             Type = 'WinGet'
@@ -154,6 +134,46 @@
                 Type = 'Symlink'
                 Source = 'layouts'
                 Target = "$HOME\AppData\Roaming\Zellij\layouts"
+            }
+        )
+    }
+
+    @{
+        Name = 'yazi'
+        Install = @{
+            Type = 'WinGet'
+            Id = 'sxyazi.yazi'
+        }
+        Configure = @(
+            @{
+                Type = 'Symlink'
+                Source = 'config'
+                Target = "$HOME\AppData\Roaming\yazi\config"
+            }
+            @{
+                Type = 'Symlink'
+                Source = 'flavors'
+                Target = "$HOME\AppData\Roaming\yazi\flavors"
+            }
+            @{
+                Type = 'Symlink'
+                Source = 'theme.toml'
+                Target = "$HOME\AppData\Roaming\yazi\theme.toml"
+            }
+        )
+    }
+
+    @{
+        Name = 'windows-terminal'
+        Install = @{
+            Type = 'WinGet'
+            Id = 'Microsoft.WindowsTerminal'
+        }
+        Configure = @(
+            @{
+                Type = 'Symlink'
+                Source = 'settings.json'
+                Target = "$HOME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
             }
         )
     }
