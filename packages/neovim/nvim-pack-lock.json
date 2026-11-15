@@ -1,9 +1,17 @@
 {
   "plugins": {
+    "backend-zellij-lua": {
+      "rev": "4e3e588795efb95548dd2ebeaf385a7823821ceb",
+      "src": "https://github.com/smart-splits-nvim/backend-zellij-lua"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
+    },
+    "canola.nvim": {
+      "rev": "d666c3b9eae1704bbaae2de45e8013bf6308488a",
+      "src": "https://forge.barrettruth.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
@@ -14,7 +22,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "070a5d7b985546cc57e1fc61e5bc507fecac6045",
+      "rev": "dc7698f932792a764d3db95fedee26c38e728355",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lazydev.nvim": {
@@ -38,7 +46,7 @@
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
     "nvim-lint": {
-      "rev": "3d55c8f67c6ae5c15e1042571e107c7a3d5c5f4e",
+      "rev": "52107ce2076a27a285af781248e2c59bad817cd0",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-nio": {
@@ -56,24 +64,24 @@
       "version": "4.0.0 - 5.0.0"
     },
     "nvim-treesitter": {
-      "rev": "f603a2f4da48728f80257fb5fbb90145fd1dc173",
+      "rev": "04f17886f75416dfdc25374c950a52c63f0e98fe",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "oil.nvim": {
-      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
+      "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "orgmode": {
-      "rev": "d9cd82d732cf4322100cf2c4c57b285c870bd893",
+      "rev": "08c3ea6ca3745d49435378cddfa93d06e0b39574",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "roslyn.nvim": {
-      "rev": "bf1bd4e70bc7068d1b4aebf4ce03cc19a86615be",
+      "rev": "13103877cd3adcc395e80740fa5de104457eb22b",
       "src": "https://github.com/seblyng/roslyn.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "ec76708f1617ef9e2ac353357fe52d2c997a0f06",
+      "rev": "d3617de050f58e6f1f924b1401fba7677517c196",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
@@ -85,8 +93,9 @@
       "src": "https://github.com/folke/todo-comments.nvim"
     },
     "token": {
-      "rev": "1538e1eadcbc9eb465b33bab71eec48c8bed0b76",
-      "src": "https://github.com/ThorstenRhau/token"
+      "rev": "e0c4c72479ef9c4140e91e0aa5dc8f63beae6b20",
+      "src": "https://github.com/ThorstenRhau/token",
+      "version": ">=0.0.0"
     },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",

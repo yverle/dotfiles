@@ -1,7 +1,11 @@
-vim.pack.add({ "https://github.com/mrjones2014/smart-splits.nvim" })
+vim.pack.add({ "https://github.com/smart-splits-nvim/smart-splits.nvim" })
+vim.pack.add({ "https://github.com/smart-splits-nvim/backend-zellij-lua" })
 
 require("smart-splits").setup({
-    tmux_integration = false,
+    mux = {
+        backend = "smart-splits-backend-zellij-lua",
+        warn_if_unusable = false,
+    },
 })
 
 vim.keymap.set("n", "<A-h>", require("smart-splits").move_cursor_left, { desc = "Move to left split" })

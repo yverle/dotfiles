@@ -1,13 +1,28 @@
-vim.pack.add({ "https://github.com/folke/tokyonight.nvim" })
-vim.pack.add({ "https://github.com/ThorstenRhau/token" })
-
-require("tokyonight").setup({
-    styles = {
-        comments = { italic = false },
+-- vim.pack.add({ "https://github.com/folke/tokyonight.nvim" })
+vim.pack.add({
+    {
+        src = "https://github.com/ThorstenRhau/token",
+        version = vim.version.range("*"),
     },
 })
 
-require("tokyonight").setup({})
+require("token").setup({
+    transparent = false,
+    plugins = {
+        blink = true,
+        blink_indent = true,
+        dap_ui = true,
+        flash = true,
+        fugitive = true,
+        gitsigns = true,
+        mason = true,
+        oil = true,
+        sidekick = true,
+        snacks = true,
+        todo_comments = true,
+        whichkey = true,
+        -- yazi = true
+    },
+})
 
--- vim.cmd.colorscheme("tokyonight-moon")
 vim.cmd.colorscheme("token-temper")
