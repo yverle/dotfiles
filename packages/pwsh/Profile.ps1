@@ -16,11 +16,18 @@ Join-EnvPath -PathToAdd (Join-Path $HOME 'bin')
 $env:KUBE_EDITOR='nvim'
 $env:EDITOR='nvim'
 
+# Tell Yazi where to find file.exe
+$env:YAZI_FILE_ONE = 'C:\Program Files\Git\usr\bin\file.exe'
+
+# Enable dynamic tiers for Copilot Fusion model
+$env:COPILOT_CLI_ENABLED_FEATURE_FLAGS = 'DYNAMIC_AUTO_TIERS'
+
 # Alias
 Set-Alias vim nvim
 Set-Alias vi nvim
 Set-Alias v nvim
 Set-Alias grep rg
+Set-Alias z zellij
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias ex explorer.exe
 Set-Alias s sessionizer.ps1
