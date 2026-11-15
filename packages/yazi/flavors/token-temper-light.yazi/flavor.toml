@@ -1,0 +1,141 @@
+# Token Temper — Yazi
+# Light palette
+# Source: ThorstenRhau/token
+# https://github.com/ThorstenRhau/token
+
+[app]
+overall = { bg = "#d9dee3" }
+
+[mgr]
+cwd = { fg = "#005850", bold = true }
+
+find_keyword = { fg = "#8c6312", bold = true, italic = true }
+find_position = { fg = "#683495", bold = true }
+
+marker_copied = { fg = "#2b5a39", bg = "#e1e9d9" }
+marker_cut = { fg = "#bf3f50", bg = "#f2dee1" }
+marker_marked = { fg = "#005850", bg = "#dce8ee" }
+marker_selected = { fg = "#612c8d", bg = "#dbcaf0" }
+marker_symbol = "│"
+
+count_copied = { fg = "#eef1f3", bg = "#2b5a39", bold = true }
+count_cut = { fg = "#eef1f3", bg = "#bf3f50", bold = true }
+count_selected = { fg = "#eef1f3", bg = "#683495", bold = true }
+
+border_symbol = "│"
+border_style = { fg = "#b8c0c6" }
+
+symlink_target = { fg = "#5a6571", italic = true }
+
+[tabs]
+active = { fg = "#eef1f3", bg = "#005850", bold = true }
+inactive = { fg = "#5a6571", bg = "#e7ebef" }
+
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { fg = "#eef1f3", bg = "#005850", bold = true }
+normal_alt = { fg = "#5a6571", bg = "#e7ebef" }
+
+select_main = { fg = "#eef1f3", bg = "#683495", bold = true }
+select_alt = { fg = "#683495", bg = "#e7ebef" }
+
+unset_main = { fg = "#eef1f3", bg = "#bf3f50", bold = true }
+unset_alt = { fg = "#bf3f50", bg = "#e7ebef" }
+
+[indicator]
+parent = { fg = "#005850", reversed = true }
+current = { fg = "#283039", bg = "#d1d6db", bold = true }
+preview = { fg = "#683495", underline = true }
+padding = { open = "", close = "" }
+
+[status]
+overall = { fg = "#46515d", bg = "#e7ebef" }
+
+perm_type = { fg = "#005850" }
+perm_read = { fg = "#2b5a39" }
+perm_write = { fg = "#8c6312" }
+perm_exec = { fg = "#683495" }
+perm_sep = { fg = "#818c94" }
+
+progress_label = { fg = "#283039", bold = true }
+progress_normal = { fg = "#005850", bg = "#d1d6db" }
+progress_error = { fg = "#bf3f50", bg = "#d1d6db" }
+
+[which]
+cols = 3
+mask = { bg = "#e7ebef" }
+cand = { fg = "#005850" }
+rest = { fg = "#818c94" }
+desc = { fg = "#683495" }
+separator = "  "
+separator_style = { fg = "#b8c0c6" }
+
+[confirm]
+border = { fg = "#b8c0c6" }
+title = { fg = "#005850", bold = true }
+content = { fg = "#283039" }
+list = { fg = "#46515d" }
+btn_yes = { fg = "#eef1f3", bg = "#005850", bold = true }
+btn_no = { fg = "#283039", bg = "#e0e5ea" }
+
+[spot]
+border = { fg = "#b8c0c6" }
+title = { fg = "#005850", bold = true }
+tbl_col = { fg = "#683495" }
+tbl_cell = { fg = "#283039" }
+
+[notify]
+title_info = { fg = "#005850", bold = true }
+title_warn = { fg = "#8c6312", bold = true }
+title_error = { fg = "#bf3f50", bold = true }
+
+[filetype]
+rules = [
+  # Directories
+  { mime = "inode/directory", fg = "#005850", bold = true },
+
+  # Images
+  { mime = "image/*", fg = "#683495" },
+
+  # Videos
+  { mime = "video/*", fg = "#bf3f50" },
+
+  # Audio
+  { mime = "audio/*", fg = "#8c6312" },
+
+  # Archives
+  { mime = "application/zip", fg = "#8c6312" },
+  { mime = "application/x-tar", fg = "#8c6312" },
+  { mime = "application/gzip", fg = "#8c6312" },
+  { mime = "application/x-bzip2", fg = "#8c6312" },
+  { mime = "application/x-xz", fg = "#8c6312" },
+
+  # Documents
+  { mime = "application/pdf", fg = "#bf3f50" },
+  { mime = "application/json", fg = "#683495" },
+  { mime = "text/*", fg = "#283039" },
+
+  # Scripts
+  { url = "*.sh", fg = "#2b5a39" },
+  { url = "*.bash", fg = "#2b5a39" },
+  { url = "*.zsh", fg = "#2b5a39" },
+  { url = "*.fish", fg = "#2b5a39" },
+
+  # Configuration and code
+  { url = "*.toml", fg = "#683495" },
+  { url = "*.lua", fg = "#005850" },
+  { url = "*.vim", fg = "#005850" },
+  { url = "*.rs", fg = "#8c6312" },
+  { url = "*.py", fg = "#005850" },
+  { url = "*.js", fg = "#8c6312" },
+  { url = "*.ts", fg = "#005850" },
+  { url = "*.html", fg = "#bf3f50" },
+  { url = "*.css", fg = "#683495" },
+  { url = "*.md", fg = "#46515d" },
+
+  # Fallback
+  { url = "*", fg = "#283039" },
+]
+

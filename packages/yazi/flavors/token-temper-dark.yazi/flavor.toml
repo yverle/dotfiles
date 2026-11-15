@@ -1,0 +1,155 @@
+# Token Temper — Yazi flavor
+# Based on ThorstenRhau/token
+# Dark palette
+
+[app]
+overall = { bg = "#161B20" }
+
+[mgr]
+cwd = { fg = "#56BCAE", bold = true }
+
+# Find
+find_keyword = { fg = "#C6A15A", bold = true, italic = true }
+find_position = { fg = "#B184D5", bold = true }
+
+# Selection markers
+marker_copied = { fg = "#72D1C3", bg = "#2B332B" }
+marker_cut = { fg = "#D47A7F", bg = "#39282C" }
+marker_marked = { fg = "#56BCAE", bg = "#26343D" }
+marker_selected = { fg = "#B184D5", bg = "#363229" }
+marker_symbol = "│"
+
+# Counts
+count_copied = { fg = "#161B20", bg = "#72D1C3", bold = true }
+count_cut = { fg = "#161B20", bg = "#D47A7F", bold = true }
+count_selected = { fg = "#161B20", bg = "#B184D5", bold = true }
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#373E47" }
+
+# Symlinks
+symlink_target = { fg = "#929BA5", italic = true }
+
+# Syntax highlighting
+syntect_theme = ""
+
+[tabs]
+active = { fg = "#161B20", bg = "#56BCAE", bold = true }
+inactive = { fg = "#929BA5", bg = "#22272E" }
+
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { fg = "#161B20", bg = "#56BCAE", bold = true }
+normal_alt = { fg = "#929BA5", bg = "#22272E" }
+
+select_main = { fg = "#161B20", bg = "#B184D5", bold = true }
+select_alt = { fg = "#B184D5", bg = "#22272E" }
+
+unset_main = { fg = "#161B20", bg = "#D47A7F", bold = true }
+unset_alt = { fg = "#D47A7F", bg = "#22272E" }
+
+[indicator]
+parent = { fg = "#56BCAE", reversed = true }
+current = { fg = "#DCE1E6", bg = "#3A414A", bold = true }
+preview = { fg = "#B184D5", underline = true }
+padding = { open = "", close = "" }
+
+[status]
+overall = { fg = "#929BA5", bg = "#1C2127" }
+
+# Permissions
+perm_type = { fg = "#56BCAE" }
+perm_read = { fg = "#72D1C3" }
+perm_write = { fg = "#C6A15A" }
+perm_exec = { fg = "#B184D5" }
+perm_sep = { fg = "#626C77" }
+
+# Progress
+progress_label = { fg = "#DCE1E6", bold = true }
+progress_normal = { fg = "#56BCAE", bg = "#30363E" }
+progress_error = { fg = "#D47A7F", bg = "#30363E" }
+
+[which]
+cols = 3
+mask = { bg = "#1C2127" }
+cand = { fg = "#56BCAE" }
+rest = { fg = "#626C77" }
+desc = { fg = "#B184D5" }
+separator = "  "
+separator_style = { fg = "#373E47" }
+
+[confirm]
+border = { fg = "#373E47" }
+title = { fg = "#56BCAE", bold = true }
+content = { fg = "#DCE1E6" }
+list = { fg = "#929BA5" }
+btn_yes = { fg = "#161B20", bg = "#56BCAE", bold = true }
+btn_no = { fg = "#DCE1E6", bg = "#373E47" }
+
+[spot]
+border = { fg = "#373E47" }
+title = { fg = "#56BCAE", bold = true }
+tbl_col = { fg = "#B184D5" }
+tbl_cell = { fg = "#DCE1E6" }
+
+[notify]
+title_info = { fg = "#56BCAE", bold = true }
+title_warn = { fg = "#C6A15A", bold = true }
+title_error = { fg = "#D47A7F", bold = true }
+
+[icon]
+dirs = [
+  { name = "*/", text = "", fg = "#56BCAE" },
+]
+
+[filetype]
+rules = [
+  # Directories
+  { mime = "inode/directory", fg = "#56BCAE", bold = true },
+
+  # Images
+  { mime = "image/*", fg = "#B184D5" },
+
+  # Videos
+  { mime = "video/*", fg = "#D47A7F" },
+
+  # Audio
+  { mime = "audio/*", fg = "#C6A15A" },
+
+  # Archives
+  { mime = "application/zip", fg = "#C6A15A" },
+  { mime = "application/x-tar", fg = "#C6A15A" },
+  { mime = "application/gzip", fg = "#C6A15A" },
+  { mime = "application/x-bzip2", fg = "#C6A15A" },
+  { mime = "application/x-xz", fg = "#C6A15A" },
+
+  # Documents
+  { mime = "application/pdf", fg = "#D47A7F" },
+  { mime = "application/json", fg = "#B184D5" },
+  { mime = "text/*", fg = "#DCE1E6" },
+
+  # Executables
+  { url = "*.sh", fg = "#72D1C3" },
+  { url = "*.bash", fg = "#72D1C3" },
+  { url = "*.zsh", fg = "#72D1C3" },
+  { url = "*.fish", fg = "#72D1C3" },
+
+  # Configuration and code
+  { url = "*.toml", fg = "#B184D5" },
+  { url = "*.lua", fg = "#56BCAE" },
+  { url = "*.vim", fg = "#56BCAE" },
+  { url = "*.rs", fg = "#C6A15A" },
+  { url = "*.py", fg = "#56BCAE" },
+  { url = "*.js", fg = "#C6A15A" },
+  { url = "*.ts", fg = "#56BCAE" },
+  { url = "*.html", fg = "#D47A7F" },
+  { url = "*.css", fg = "#B184D5" },
+  { url = "*.md", fg = "#929BA5" },
+
+  # Fallback
+  { url = "*", fg = "#DCE1E6" },
+]
+
