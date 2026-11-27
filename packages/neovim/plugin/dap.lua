@@ -1,24 +1,10 @@
 -- TODO: debugmaster?
 vim.pack.add({
     { src = "https://codeberg.org/mfussenegger/nvim-dap" },
-    { src = "https://github.com/nvim-neotest/nvim-nio", version = vim.version.range("*") },
-    { src = "https://github.com/rcarriga/nvim-dap-ui" },
+    { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.*") },
 })
 
 local dap = require("dap")
-local dapui = require("dapui")
-
-require("dapui").setup()
-
-dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-end
 
 vim.keymap.set("n", "<leader>db", function()
     dap.toggle_breakpoint()
@@ -48,6 +34,4 @@ vim.keymap.set("n", "<leader>dq", function()
     dap.terminate()
 end, { desc = "[D]AP terminate ([q]uit)" })
 
-vim.keymap.set("n", "<leader>du", function()
-    dapui.toggle()
-end, { desc = "[D]AP toggle [u]i" })
+vim.keymap.set("n", "<leader>du", ":DapViewToggle<CR>", { desc = "[D]AP toggle [u]i" })
