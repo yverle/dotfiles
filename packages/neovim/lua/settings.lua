@@ -59,7 +59,8 @@ vim.opt.scrolloff = 10
 vim.opt.wrap = false
 
 -- Force English vim
-vim.cmd.language("en_US")
+-- vim.cmd.language("en_US")
+-- vim.cmd.language("en_US.UTF-8")
 
 -- No bells
 vim.opt.belloff = "all"
